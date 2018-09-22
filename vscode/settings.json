@@ -3,6 +3,7 @@
   "editor.fontSize": 14,
   "editor.formatOnSave": true,
   "editor.renderWhitespace": "boundary",
+  "editor.tabSize": 2,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "files.insertFinalNewline": true,
@@ -82,7 +83,8 @@
 
   // Markdown
   "[markdown]": {
-    "editor.tabSize": 2
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false
   },
   "markdownlint.config": {
     "MD013": false,
