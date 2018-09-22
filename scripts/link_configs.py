@@ -29,9 +29,7 @@ def get_dst(src, dst):
         return win32
 
     if not linux:
-        raise Exception(
-            'Mapping for %s is not provided for %s, cannot fallback on `linux`.'
-            % (platform, src))
+        raise Exception('Mapping for %s is not provided for %s, cannot fallback on `linux`.' % (platform, src))
     return linux
 
 
@@ -44,15 +42,18 @@ def link_file(src, dst):
 
     # Prompt before overwriting file.
     write = True
-    if os.path.exists(dst):
+    if os.path.exists(dst) or os.path.islink(dst):
         write = input('[?] %s exists. Overwrite? (y/N) ' % dst).upper() == 'Y'
+        if not write:
+            return
+
+        os.unlink(dst)
 
     dirname = os.path.dirname(dst)
     if not os.path.exists(dirname):
         os.makedirs(dirname)
 
-    if write:
-        os.symlink(src, dst, False)
+    os.symlink(src, dst, False)
 
 
 def iterate_directory(src, dst):
@@ -72,8 +73,8 @@ def iterate_directory(src, dst):
 def main():
     with open('dotfile_mapping.json') as f:
         for src, dst in json.load(f).items():
-            src_path = os.path.join(src)
-            dst_path = os.path.expanduser(os.path.join(get_dst(src, dst)))
+            src_path = os.path.abspath(os.path.join(src))
+            dst_path = os.path.abspath(os.path.expanduser(os.path.join(get_dst(src, dst))))
             iterate_directory(src_path, dst_path)
 
 
