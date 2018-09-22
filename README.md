@@ -2,6 +2,8 @@
 
 This repository is for storing personal configurations and automating the maintenance of them across multiple machines and environments.
 
+Note that the automation component may not be fully working until I actually have to bootstrap a new macOS or Linux machine.
+
 ## Features
 
 - Symlinking of per-platform dotfiles/configs
@@ -18,13 +20,19 @@ This repository is for storing personal configurations and automating the mainte
 
 ## Installation
 
-The following command creates the symlinks of dotfiles to the necessary locations, such as `$HOME`:
+The following command updates config symlinks and installs/updates apps through Homebrew:
 
 ```sh
 ./setup.sh
 ```
 
-The script also sets up several one-time things, such as installation of apps and virtualenvs. Ideally, the script should be able to run multiple times without affecting previous runs, and should not overwrite any existing configuration files without prior approval from the user.
+Ideally, the script should be able to run multiple times without affecting previous runs, and should not overwrite any existing configuration files without prior approval from the user.
+
+The following script also sets up several one-time things, such as installation of external configs and virtualenvs:
+
+```sh
+./init.sh
+```
 
 ## Repository Structure
 
