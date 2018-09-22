@@ -51,4 +51,4 @@ install_zsh () {
 }
 
 # Symlink configs
-python scripts/link_configs.py
+python setup/link_configs.py

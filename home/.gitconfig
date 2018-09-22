@@ -1,0 +1,20 @@
+[core]
+    excludesfile = /Users/irvin/.gitignore_global
+    autocrlf = input
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path =
+[mergetool "sourcetree"]
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+[user]
+    name = Irvin Lim
+    email = irvinlimweiquan@gmail.com
+    signingkey = A2EF194D
+[commit]
+    template = /Users/irvin/.stCommitMsg
+    gpgsign = false
+[gpg]
+    program = gpg2
+[init]
+    templatedir = /Users/irvin/.git-templates

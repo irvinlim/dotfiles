@@ -1,0 +1,31 @@
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+*~
+Thumbs.db
+.DS_Store
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# NPM stuff
+bower_components
+node_modules
+npm-debug.log
+
+# IDE configs
+.vscode
+.idea
+
+# Application-specific stuff
+docker-compose.override.yml
+
+# Personal exclusions
+.env
+.data
+.local
+.venv
