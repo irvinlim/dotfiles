@@ -1,0 +1,175 @@
+{
+  // General editor settings
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "boundary",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.insertFinalNewline": true,
+  "window.zoomLevel": 0,
+  "workbench.settings.editor": "json",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.feedback.visible": false,
+  "files.associations": {
+    ".env-example": "dotenv",
+    "*.conf": "NGINX"
+  },
+  "files.exclude": {
+    "**/.idea": true,
+    "**/.vscode": true,
+    "**/Icon?": true,
+    "**/*.pyc": true,
+    "**/__pycache__": true,
+    "**/node_modules": true
+  },
+
+  // Git
+  "git.confirmSync": false,
+  "git.defaultCloneDirectory": "/Users/irvin/Projects",
+  "git.enableSmartCommit": true,
+
+  // Libraries/Interpreters
+  "C_Cpp.intelliSenseEngine": "Default",
+  "composer.executablePath": "/usr/local/bin/composer",
+  "python.pythonPath": "/Users/irvin/.virtualenvs/python3.6/bin/python",
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontFamily": "'Meslo LG M for Powerline'",
+  "terminal.integrated.shell.osx": "zsh",
+  "terminal.integrated.shell.linux": "/usr/bin/zsh",
+
+  // Formatters
+  "C_Cpp.clang_format_fallbackStyle": "WebKit",
+  "C_Cpp.clang_format_path": "/usr/local/Cellar/clang-format/2018-01-11/bin/clang-format",
+  "go.formatTool": "gofmt",
+  "go.inferGopath": true,
+  "prettier.jsxBracketSameLine": true,
+  "prettier.printWidth": 80,
+  "prettier.proseWrap": "preserve",
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "es5",
+  "python.formatting.provider": "yapf",
+  "python.formatting.yapfArgs": [
+    "--style",
+    "/Users/irvin/.config/yapf/style.cfg"
+  ],
+  "python.formatting.yapfPath": "/Users/irvin/.virtualenvs/python3.6/bin/yapf",
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+
+  // SpellRight
+  "spellright.language": "en-GB",
+  "spellright.groupDictionaries": false,
+  "spellright.documentTypes": ["markdown", "latex"],
+
+  // Project Manager
+  "projectManager.vscode.baseFolders": ["/Users/irvin/Projects"],
+
+  // Emmet
+  "emmet.includeLanguages": {
+    "blade": "html",
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
+  "emmet.showAbbreviationSuggestions": false,
+  "emmet.showExpandedAbbreviation": "always", // required to work with "emmet.includeLanguages"
+  "emmet.triggerExpansionOnTab": true,
+
+  // Licenser
+  "licenser.author": "Irvin Lim",
+  "licenser.license": "MIT",
+  "licenser.useSingleLineStyle": false,
+
+  // Markdown
+  "[markdown]": {
+    "editor.tabSize": 2
+  },
+  "markdownlint.config": {
+    "MD013": false,
+    "MD030": false
+  },
+  "markdown-pdf.highlightStyle": "github.css",
+  "markdown-pdf.breaks": true,
+
+  // Themes
+  "workbench.iconTheme": "file-icons",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "text.html.markdown.journal.task.open.bullet",
+        "settings": {
+          "foreground": "#FFFF00"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.task.open.marker",
+        "settings": {
+          "foreground": "#FFFF00"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.task.open.keyword",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.task.open.text",
+        "settings": {}
+      },
+      {
+        "scope": "text.html.markdown.journal.task.completed.keyword",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.task.completed.marker",
+        "settings": {
+          "foreground": "#AAAAAA"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.task.completed.text",
+        "settings": {
+          "foreground": "#AAAAAA"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.task.completed.bullet",
+        "settings": {
+          "foreground": "#FFFF00"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.memo.keyword",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.memo.bullet",
+        "settings": {
+          "foreground": "#FFFF00"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.scope",
+        "settings": {
+          "foreground": "#FFFF00"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.link.keyword",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.link.bullet",
+        "settings": {
+          "foreground": "#FFFF00"
+        }
+      }
+    ]
+  }
+}

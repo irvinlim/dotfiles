@@ -1,0 +1,6 @@
+{
+  "home/.config": "~/.config",
+  "vscode": {
+    "darwin": "~/Library/Application Support/Code/User"
+  }
+}
