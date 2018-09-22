@@ -50,5 +50,63 @@ install_zsh () {
   fi
 }
 
+install_vim() {
+  # Check if oh-my-vim is already present
+  if [ -d "$HOME/.oh-my-vim" ]; then
+    exit
+  fi
+
+  # Perform installation instructions here:
+  # https://github.com/liangxianzhe/oh-my-vim
+
+  platform=$(uname)
+
+  if [[ $platform == 'Darwin' ]]; then
+    # Install dependencies for macOS
+    curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/prepare_mac.sh | sh
+
+    # Install oh-my-vim
+    curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
+  elif [[ $platform == 'Linux' ]]; then
+    echo 'Installation for dependencies for oh-my-vim on Linux is not available, you have to install dependencies yourself.'
+    echo 'For more information, see https://github.com/liangxianzhe/oh-my-vim'
+
+    # Install oh-my-vim
+    curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
+  fi
+}
+
+install_tmux() {
+  # See https://github.com/gpakosz/.tmux
+  git clone https://github.com/gpakosz/.tmux.git ~/.tmux
+  ln -sf .tmux/.tmux.conf ~/.tmux.conf
+}
+
 # Symlink configs
 python setup/link_configs.py
+
+# Install Homebrew
+if [ ! -f /usr/local/bin/brew ]; then
+  echo '### Installing Homebrew...'
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+# Install oh-my-zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  echo '### Installing oh-my-zsh...'
+  install_zsh
+fi
+
+# Install oh-my-vim
+if [ ! -d "$HOME/.oh-my-vim" ]; then
+  echo '### Installing oh-my-zsh...'
+  install_vim
+fi
+
+# Install .tmux
+if [ ! -d "$HOME/.tmux" ]; then
+  echo '### Installing .tmux...'
+  install_tmux
+fi
+
+echo 'All done!'

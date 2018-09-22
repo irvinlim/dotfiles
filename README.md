@@ -8,7 +8,8 @@ This repository is for storing personal configurations and automating the mainte
 - Environment-specific overrides using Git forks
 - Handy aliases and scripts
 - One-time setup for certain apps/environments:
-  - Homebrew installations
+  - Homebrew
+  - Homebrew taps/casks
   - Virtualenvs
 - External configurations:
   - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
