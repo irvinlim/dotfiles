@@ -11,3 +11,7 @@ python setup/link_configs.py
 
 # Install Brew formulae
 brew bundle --file=homebrew/Brewfile
+
+# Casks are not automatically installed.
+# Most apps are installed by hand, need to migrate them to Homebrew.
+# brew bundle --file=homebrew/Brewfile.casks
