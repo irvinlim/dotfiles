@@ -71,11 +71,15 @@ def iterate_directory(src, dst):
 
 
 def main():
+    print('\033[0;33mLinking configuration files...\033[0m')
+
     with open('dotfile_mapping.json') as f:
         for src, dst in json.load(f).items():
             src_path = os.path.abspath(os.path.join(src))
             dst_path = os.path.abspath(os.path.expanduser(os.path.join(get_dst(src, dst))))
             iterate_directory(src_path, dst_path)
+
+    print('\033[0;32mAll configuration files linked!\033[0m')
 
 
 if __name__ == '__main__':

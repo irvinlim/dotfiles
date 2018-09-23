@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 #
 # Setup script for setting up symlinks and installing applications.
 # Run this script whenever new configs are added or locations are modified.
