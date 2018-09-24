@@ -67,9 +67,12 @@ export DEFAULT_USER='irvin'
 plugins=(
   docker
   docker-compose
+  go
   git
   iterm2
   mosh
+  pip
+  python
   ssh-autocomplete
   virtualenv
 )
@@ -111,3 +114,10 @@ setopt nosharehistory
 # https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000013224-Alt-key-not-working-in-embedded-terminal?page=1#community_comment_360000193450
 bindkey "\e\eOD" backward-word
 bindkey "\e\eOC" forward-word
+
+# Disable URL globber
+zstyle ':urlglobber' url-other-schema
+
+# Add lazynvm commands
+# http://broken-by.me/lazy-load-nvm/
+source ~/scripts/lazynvm.sh
