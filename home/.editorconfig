@@ -5,13 +5,26 @@ root = true
 # All files default to using spaces with tab size of 4.
 #
 
+# Sane defaults for Unix environments.
 [*]
 indent_size = 4
 indent_style = space
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# Allow trailing whitespace in Markdown.
+[*.md]
+trim_trailing_whitespace = false
+
+# Makefile uses tabs.
+[Makefile]
+indent_style = tab
 
 # Prettier's defaults uses spaces for JS.
 [*.{js,json}]
-indent_size = 4
+indent_size = 2
 indent_style = space
 
 # PEP8 recommends using spaces.
