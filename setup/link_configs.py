@@ -53,7 +53,7 @@ def link_file(src, dst):
     if not os.path.exists(dirname):
         os.makedirs(dirname)
 
-    os.symlink(src, dst, False)
+    os.symlink(src, dst)
 
 
 def iterate_directory(src, dst):
