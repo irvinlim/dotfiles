@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set -ex
 
 #
 # Setup script for setting up symlinks and installing applications.
