@@ -105,3 +105,9 @@ if [ ! -d "$HOME/.tmux" ]; then
   echo '### Installing .tmux...'
   install_tmux
 fi
+
+# Install nvm
+if [ ! -d "$HOME/.nvm" ]; then
+  echo '### Installing nvm...'
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+fi
