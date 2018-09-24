@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+found_path=$(echo "$VIRTUAL_ENV" | grep `pwd`)
+
+# Prevent installing from requirements.txt if the virtualenv is wrong.
+if [ $? -eq 0 ]
+then
+  if [ -e requirements.txt ]
+  then
+    pip install -r requirements.txt
+  elif [ -e deploy/requirements.txt ]
+  then
+    pip install -r deploy/requirements.txt
+  else
+    echo -e "${RED}No requirements.txt found!${NC}"
+  fi
+else
+  echo -e "${RED}Warning: $VIRTUAL_ENV is not in current directory, pip install -r requirements.txt aborted.${NC}"
+fi

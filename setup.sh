@@ -11,6 +11,16 @@ set -ex
 # Symlink configs
 python setup/link_configs.py
 
+# Symlink bin folder
+if [ ! -d "$HOME/bin" ]; then
+  ln -s `pwd`/bin "$HOME"
+fi
+
+# Symlink scripts folder
+if [ ! -d "$HOME/scripts" ]; then
+  ln -s `pwd`/scripts "$HOME"
+fi
+
 # Install Brew formulae
 brew bundle --file=homebrew/Brewfile
 
