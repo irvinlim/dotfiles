@@ -14,7 +14,7 @@ except NameError:
 
 
 def get_dst(src, dst):
-    if isinstance(dst, str):
+    if isinstance(dst, basestring):
         return dst
 
     linux = dst.get('linux')
