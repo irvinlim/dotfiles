@@ -24,6 +24,15 @@
     "**/node_modules": true
   },
 
+  // Sync settings
+  "sync.gist": "3a25be054cfda0823df5c0a42589347b",
+  "sync.quietSync": false,
+  "sync.removeExtensions": true,
+  "sync.syncExtensions": true,
+  "sync.autoDownload": false,
+  "sync.autoUpload": false,
+  "sync.forceDownload": false,
+
   // Git
   "diffEditor.ignoreTrimWhitespace": false,
   "git.confirmSync": false,
