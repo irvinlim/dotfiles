@@ -12,6 +12,11 @@ try:
 except NameError:
     pass
 
+try:
+    basestring
+except NameError:
+    basestring = str
+
 
 def get_dst(src, dst):
     if isinstance(dst, basestring):
