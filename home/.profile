@@ -37,8 +37,10 @@ export PATH="$HOME/bin:$PATH"
 ## VirtualEnvs
 ##
 
-# VirtualEnv: Python 3.6 - General use
-[[ -e "$HOME/.virtualenvs/python3.6" ]] && source "$HOME/.virtualenvs/python3.6/bin/activate"
+export DEFAULT_VENV_PATH="$HOME/.virtualenvs/python3.6"
+
+# Activate default VirtualEnv
+[[ -e "$DEFAULT_VENV_PATH" ]] && . "$DEFAULT_VENV_PATH/bin/activate"
 
 # Require pip to work in a virtualenv.
 export PIP_REQUIRE_VIRTUALENV=true
