@@ -1,6 +1,11 @@
 #!/usr/local/bin/zsh
 
+# Virtualenvs
 alias venv='source .venv/bin/activate'
 alias venv_python3.6='source ~/.virtualenvs/python3.6/bin/activate'
+
+# Git
 alias gam='git commit --amend --no-edit'
+
+# Misc
 alias rmcolor='sed -u -E "s/[[:cntrl:]]\[[0-9]{1,3}m//g"'
