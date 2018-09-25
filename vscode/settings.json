@@ -21,7 +21,10 @@
     "**/Icon?": true,
     "**/*.pyc": true,
     "**/__pycache__": true,
-    "**/node_modules": true
+    "**/node_modules": true,
+    "**/.venv": true,
+    "**/.cache": true,
+    "**/.pytest_cache": true
   },
 
   // Sync settings
@@ -65,6 +68,11 @@
     "/Users/irvin/.config/yapf/style.cfg"
   ],
   "python.formatting.yapfPath": "/Users/irvin/.virtualenvs/python3.6/bin/yapf",
+  "python.linting.ignorePatterns": [
+    ".vscode/*.py",
+    ".venv/*.py",
+    "**/site-packages/**/*.py"
+  ],
   "vetur.format.defaultFormatter.html": "js-beautify-html",
 
   // SpellRight
