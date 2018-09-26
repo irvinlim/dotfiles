@@ -28,22 +28,22 @@ indent_size = 2
 indent_style = space
 
 # PEP8 recommends using spaces.
-[*.{py}]
+[*.py]
 indent_size = 4
 indent_style = space
 
 # Gofmt uses tabs.
-[*.{go}]
+[*.go]
 indent_size = 4
 indent_style = tab
 
-# YAML is easier to read with smaller tabs.
-[*.{yml,yaml}]
+# YAML uses spaces.
+[*.{yml,yaml,toml}]
 indent_size = 2
 indent_style = space
 
 # Haskell has indentation rules using spaces.
-[*.{hs}]
+[*.hs]
 indent_size = 2
 indent_style = space
 
