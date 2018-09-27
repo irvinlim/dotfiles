@@ -3,22 +3,27 @@
 # grabbed from reddit @ https://www.reddit.com/r/node/comments/4tg5jg/lazy_load_nvm_for_faster_shell_start/
 
 lazynvm() {
-  unset -f nvm node npm
+  unset -f nvm node npm npx
   export NVM_DIR=~/.nvm
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 }
 
 nvm() {
-  lazynvm 
+  lazynvm
   nvm $@
 }
- 
+
 node() {
   lazynvm
   node $@
 }
- 
+
 npm() {
   lazynvm
   npm $@
+}
+
+npx() {
+  lazynvm
+  npx $@
 }
