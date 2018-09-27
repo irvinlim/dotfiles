@@ -34,6 +34,18 @@ The following script also sets up several one-time things, such as installation 
 ./init.sh
 ```
 
+## Additional setup instructions
+
+### iTerm2
+
+After installing iTerm2 and running the setup script, specify the preferences location as:
+
+```
+$HOME/.iterm2
+```
+
+In addition, install the [iTerm2 shell integration](https://www.iterm2.com/documentation-shell-integration.html) as necessary.
+
 ## Repository Structure
 
 Ideally, this repository should contain only public configuration.

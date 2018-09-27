@@ -121,3 +121,6 @@ zstyle ':urlglobber' url-other-schema
 # Add lazynvm commands
 # http://broken-by.me/lazy-load-nvm/
 source ~/scripts/lazynvm.sh
+
+# Add iTerm2 shell integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
