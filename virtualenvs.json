@@ -1,0 +1,21 @@
+{
+  "default": "python3.6",
+  "base": {
+    "from": "python3",
+    "requirements": ["base"]
+  },
+  "venvs": {
+    "python3.6": {
+      "from": "python3",
+      "requirements": ["base", "python3.6"]
+    },
+    "python2.7": {
+      "from": "python2",
+      "requirements": ["base", "python2.7"]
+    }
+  },
+  "fromPaths": {
+    "python2": "/usr/local/bin/python2.7",
+    "python3": "/usr/local/bin/python3.7"
+  }
+}

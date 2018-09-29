@@ -6,7 +6,10 @@ set -ex
 # Setup script for setting up symlinks and installing applications.
 # Run this script whenever new configs are added or locations are modified.
 # Feel free to run this script as many times as you like, nothing should be overwritten.
-# 
+#
+
+# Save location of dotfiles root
+echo `pwd` > "$HOME/.dotfiles_root"
 
 # Symlink configs
 python setup/link_configs.py

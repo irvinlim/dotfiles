@@ -1,0 +1,7 @@
+aws-shell
+ipython
+pylint
+pylint-quotes
+requests
+rope
+yapf

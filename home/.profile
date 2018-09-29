@@ -1,6 +1,9 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# Get the location of dotfiles directory, saved during setup.sh runs.
+export DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"`
+
 ##
 ## Set PATHs
 ##
@@ -34,12 +37,17 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 ##
-## VirtualEnvs
+## Virtualenvs
 ##
 
-export DEFAULT_VENV_PATH="$HOME/.virtualenvs/python3.6"
+# Evaluate and export various virtualenv paths.
+export GLOBAL_VIRTUALENV_ROOT="$HOME/.virtualenvs"
+export LOCAL_VIRTUALENV_PATH=".venv"
+export VIRTUALENV_CONFIG_PATH="$DOTFILES_ROOT/virtualenvs.json"
+export DEFAULT_VENV=`cat $VIRTUALENV_CONFIG_PATH | jq -r '.default'`
+export DEFAULT_VENV_PATH="$GLOBAL_VIRTUALENV_ROOT/$DEFAULT_VENV"
 
-# Activate default VirtualEnv
+# Activate default virtualenv.
 [[ -e "$DEFAULT_VENV_PATH" ]] && . "$DEFAULT_VENV_PATH/bin/activate"
 
 # Require pip to work in a virtualenv.
