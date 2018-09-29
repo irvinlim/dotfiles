@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 #
 # First-time init script.
 # There should be no need to run this script once a machine has been initialised,
@@ -84,30 +86,32 @@ install_tmux() {
 
 # Install Homebrew
 if [ ! -f /usr/local/bin/brew ]; then
-  echo '### Installing Homebrew...'
+  echo -e '\033[0;33mInstalling Homebrew...\033[0m'
   install_homebrew
 fi
 
 # Install oh-my-zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  echo '### Installing oh-my-zsh...'
+  echo -e '\033[0;33mInstalling oh-my-zsh...\033[0m'
   install_zsh
 fi
 
 # Install oh-my-vim
 if [ ! -d "$HOME/.oh-my-vim" ]; then
-  echo '### Installing oh-my-zsh...'
+  echo -e '\033[0;33mInstalling oh-my-vim...\033[0m'
   install_vim
 fi
 
 # Install .tmux
 if [ ! -d "$HOME/.tmux" ]; then
-  echo '### Installing .tmux...'
+  echo -e '\033[0;33mInstalling .tmux...\033[0m'
   install_tmux
 fi
 
 # Install nvm
 if [ ! -d "$HOME/.nvm" ]; then
-  echo '### Installing nvm...'
+  echo -e '\033[0;33mInstalling nvm...\033[0m'
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 fi
+
+echo -e '\033[0;32mFirst time installation is complete.\033[0m'
