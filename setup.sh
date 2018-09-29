@@ -30,3 +30,6 @@ brew bundle --file=homebrew/Brewfile
 # Casks are not automatically installed.
 # Most apps are installed by hand, need to migrate them to Homebrew.
 # brew bundle --file=homebrew/Brewfile.casks
+
+# Setup virtualenvs and install packages
+python setup/setup_venv.py
