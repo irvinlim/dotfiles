@@ -84,6 +84,18 @@ install_tmux() {
   ln -sf .tmux/.tmux.conf ~/.tmux.conf
 }
 
+install_virtualenv() {
+  platform=$(uname)
+
+  if [[ $platform == "Linux" ]]; then
+    sudo apt-get install -y python3-pip
+    pip3 install virtualenv
+  elif [[ $platform == "Darwin" ]]; then
+    easy_install pip
+    pip install virtualenv
+  fi
+}
+
 # Install Homebrew
 if [ ! -f /usr/local/bin/brew ]; then
   echo -e '\033[0;33mInstalling Homebrew...\033[0m'
@@ -112,6 +124,12 @@ fi
 if [ ! -d "$HOME/.nvm" ]; then
   echo -e '\033[0;33mInstalling nvm...\033[0m'
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+fi
+
+# Install pip and virtualenv
+if [ ! -x `which virtualenv` ]; then
+  echo -e '\033[0;33mInstalling virtualenv...\033[0m'
+  install_virtualenv
 fi
 
 echo -e '\033[0;32mFirst time installation is complete.\033[0m'
