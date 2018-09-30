@@ -6,16 +6,21 @@
   },
   "venvs": {
     "python3.6": {
-      "from": "python3",
-      "requirements": ["base", "python3.6"]
+      "from": "python3.6",
+      "requirements": ["base", "python3", "tools"]
     },
     "python2.7": {
-      "from": "python2",
-      "requirements": ["base", "python2.7"]
+      "from": "python2.7",
+      "requirements": ["base", "python2", "tools"]
+    },
+    "ctf": {
+      "from": "python2.7",
+      "requirements": ["base", "python2", "tools", "ctf"]
     }
   },
   "fromPaths": {
-    "python2": "/usr/local/bin/python2.7",
-    "python3": "/usr/local/bin/python3.7"
+    "python2.7": "/usr/local/bin/python2.7",
+    "python3.6": "/usr/local/bin/python3.6",
+    "python3.7": "/usr/local/bin/python3.7"
   }
 }
