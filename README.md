@@ -48,6 +48,13 @@ $HOME/.iterm2
 
 In addition, install the [iTerm2 shell integration](https://www.iterm2.com/documentation-shell-integration.html) as necessary.
 
+## Exceptions
+
+Most configuration should live in this repository, except for the following, which typically have their own method of synchronising settings in their own repository format:
+
+- VS Code Extensions: Using [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync), the list of extensions can be automatically synced using GitHub Gist, and (could be) automatically updated when VS Code restarts. However it also includes the VS Code settings, which would differ across environments. Maybe there should be a better way to synchronise them...
+- JetBrains IDEs: Using Settings Repository, the repository is hosted elsewhere
+
 ## Repository Structure
 
 Ideally, this repository should contain only public configuration.
