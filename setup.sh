@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -e
 
 #
 # Setup script for setting up symlinks and installing applications.
@@ -10,6 +10,9 @@ set -ex
 
 # Save location of dotfiles root
 echo `pwd` > "$HOME/.dotfiles_root"
+
+# Initialisation of setup packages
+pip install -r setup/requirements.txt
 
 # Symlink configs
 python setup/link_configs.py
@@ -32,4 +35,4 @@ brew bundle --file=homebrew/Brewfile
 # brew bundle --file=homebrew/Brewfile.casks
 
 # Setup virtualenvs and install packages
-python setup/setup_venv.py
+python setup/setup_venv.py from_config
