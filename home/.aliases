@@ -1,9 +1,5 @@
 #!/usr/local/bin/zsh
 
-# Virtualenvs
-alias venv='source .venv/bin/activate'
-alias venv_python3.6='source ~/.virtualenvs/python3.6/bin/activate'
-
 # Git
 alias gam='git commit --amend --no-edit'
 

@@ -44,7 +44,7 @@ export PATH="$HOME/bin:$PATH"
 export GLOBAL_VIRTUALENV_ROOT="$HOME/.virtualenvs"
 export LOCAL_VIRTUALENV_PATH=".venv"
 export VIRTUALENV_CONFIG_PATH="$DOTFILES_ROOT/virtualenvs.json"
-export DEFAULT_VENV=`cat $VIRTUALENV_CONFIG_PATH | jq -r '.default'`
+export DEFAULT_VENV=`jq -r '.default' $VIRTUALENV_CONFIG_PATH`
 export DEFAULT_VENV_PATH="$GLOBAL_VIRTUALENV_ROOT/$DEFAULT_VENV"
 
 # Activate default virtualenv.
@@ -52,3 +52,12 @@ export DEFAULT_VENV_PATH="$GLOBAL_VIRTUALENV_ROOT/$DEFAULT_VENV"
 
 # Require pip to work in a virtualenv.
 export PIP_REQUIRE_VIRTUALENV=true
+
+# Create alias for creating virtualenvs.
+alias ve="python $DOTFILES_ROOT/setup/setup_venv.py from_base"
+alias venv='source .venv/bin/activate'
+
+# Create aliases for each virtualenv.
+while IFS='' read -r name; do
+   alias venv_$name="source $GLOBAL_VIRTUALENV_ROOT/$name/bin/activate"
+done < <(jq '.venvs' $VIRTUALENV_CONFIG_PATH | jq -r 'keys[]')
