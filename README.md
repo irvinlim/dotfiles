@@ -1,18 +1,19 @@
 # irvinlim's dotfiles
 
-This repository is for storing personal configurations and automating the maintenance of them across multiple machines and environments.
-
-Note that the automation component may not be fully working until I actually have to bootstrap a new macOS or Linux machine.
+This repository is for storing personal configurations and automating their maintenance across multiple machines and environments.
 
 ## Features
 
 - Symlinking of per-platform dotfiles/configs
 - Environment-specific overrides using Git forks
 - Handy aliases and scripts
-- One-time setup for certain apps/environments:
+- One-time setup for apps:
   - Homebrew
   - Homebrew taps/casks
-  - Virtualenvs
+- Maintenance of packages across virtualenvs
+  - Composable `requirements.txt` files for syncing packages in different environments
+  - Handy setup script to initialise local virtualenv using `venv`
+  - Aliases to switch between global virtualenvs using `venv_$name`
 - External configurations:
   - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
   - [Oh My Vim](https://github.com/liangxianzhe/oh-my-vim)
@@ -34,6 +35,8 @@ The following script also sets up several one-time things, such as installation 
 ./init.sh
 ```
 
+Note that `init.sh` may not be fully working until I actually have to bootstrap a new macOS or Linux machine.
+
 ## Additional setup instructions
 
 ### iTerm2
@@ -50,4 +53,4 @@ In addition, install the [iTerm2 shell integration](https://www.iterm2.com/docum
 
 Ideally, this repository should contain only public configuration.
 
-For private or environment-specific configuration, maintain a downstream fork that is based on this repository. The fork needs to be kept up to date with upstream manually using `git merge`.
+For private or environment-specific configuration, maintain a downstream fork that is based on this repository, and branch from `master`. The branch needs to be kept up to date with upstream manually using `git merge origin/master`.
