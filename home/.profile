@@ -61,3 +61,9 @@ alias venv='source .venv/bin/activate'
 while IFS='' read -r name; do
    alias venv_$name="source $GLOBAL_VIRTUALENV_ROOT/$name/bin/activate"
 done < <(jq '.venvs' $VIRTUALENV_CONFIG_PATH | jq -r 'keys[]')
+
+##
+## Environment
+##
+
+export LESS='-x4 -R'
