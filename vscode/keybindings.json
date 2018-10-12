@@ -72,5 +72,19 @@
   {
     "key": "shift+enter",
     "command": "-python.execSelectionInTerminal"
+  },
+  {
+    "key": "cmd+d",
+    "command": "workbench.action.terminal.splitInActiveWorkspace",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "-workbench.view.debug"
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "workbench.action.terminal.newInActiveWorkspace",
+    "when": "terminalFocus"
   }
 ]
