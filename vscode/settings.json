@@ -41,6 +41,7 @@
   "git.confirmSync": false,
   "git.defaultCloneDirectory": "/Users/irvin/Projects",
   "git.enableSmartCommit": true,
+  "gitlab.instanceUrl": "https://git.irvinlim.com/",
 
   // Libraries/Interpreters
   "C_Cpp.intelliSenseEngine": "Default",
