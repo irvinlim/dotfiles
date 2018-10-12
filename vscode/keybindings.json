@@ -68,5 +68,9 @@
   {
     "key": "shift+cmd+-",
     "command": "-workbench.action.zoomOut"
+  },
+  {
+    "key": "shift+enter",
+    "command": "-python.execSelectionInTerminal"
   }
 ]
