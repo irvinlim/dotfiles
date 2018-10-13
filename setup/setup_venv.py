@@ -16,7 +16,7 @@ def get_requirements(filenames):
     requirements = []
     for filename in filenames:
         with open('virtualenv/requirements/%s.txt' % filename) as f:
-            requirements += [line.rstrip('\n') for line in f]
+            requirements += [line.rstrip('\n') for line in f if line.rstrip('\n')]
 
     requirements.sort()
     return requirements
