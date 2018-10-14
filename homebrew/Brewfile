@@ -1,5 +1,4 @@
 tap 'homebrew/bundle'
-
 brew 'binutils'
 brew 'clang-format'
 brew 'colordiff'
@@ -28,3 +27,6 @@ brew 'telnet'
 brew 'tldr'
 brew 'tmux'
 brew 'wget'
+
+tap 'haosdent/s'
+brew 's'

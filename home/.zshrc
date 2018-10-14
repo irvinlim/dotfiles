@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/irvin/.oh-my-zsh
+export ZSH=/Users/limir/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -10,7 +10,7 @@ export ZSH=/Users/irvin/.oh-my-zsh
 ZSH_THEME="agnoster"
 
 # Set default user.
-export DEFAULT_USER='irvin'
+export DEFAULT_USER='limir'
 
 # Source .profile.
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
@@ -124,3 +124,6 @@ source ~/scripts/lazynvm.sh
 
 # Add iTerm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Add haosdent/s
+. `brew --prefix`/etc/profile.d/s.sh
