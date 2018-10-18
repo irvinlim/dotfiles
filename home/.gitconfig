@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/irvin/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	autocrlf = input
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -12,9 +12,11 @@
 	email = irvinlimweiquan@gmail.com
 	signingkey = A2EF194D
 [commit]
-	template = /Users/irvin/.stCommitMsg
+	template = ~/.stCommitMsg
 	gpgsign = false
 [gpg]
 	program = gpg2
 [init]
-	templatedir = /Users/irvin/.git-templates
+	templatedir = ~/.git-templates
+[http]
+	sslVerify = true
