@@ -55,6 +55,7 @@ def setup_venvs_from_config():
 
 
 def setup_venv_from_base():
+    os.chdir(os.getenv('DOTFILES_ROOT'))
     with open('virtualenvs.json') as f:
         data = json.load(f)
 
