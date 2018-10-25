@@ -46,6 +46,8 @@
   // Libraries/Interpreters
   "C_Cpp.intelliSenseEngine": "Default",
   "composer.executablePath": "/usr/local/bin/composer",
+  "prolog.executablePath": "/usr/local/bin/swipl",
+  "prolog.linter.run": "onSave",
   "python.pythonPath": "/Users/irvin/.virtualenvs/python3.6/bin/python",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "'Meslo LG M for Powerline'",
