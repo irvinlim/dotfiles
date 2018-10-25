@@ -8,6 +8,7 @@ import sys
 
 from virtualenvapi.manage import VirtualEnvironment
 
+DOTFILES_ROOT = os.getenv('DOTFILES_ROOT')
 GLOBAL_VIRTUALENV_ROOT = os.path.expanduser('~/.virtualenvs')
 LOCAL_VIRTUALENV_PATH = '.venv'
 
@@ -15,7 +16,7 @@ LOCAL_VIRTUALENV_PATH = '.venv'
 def get_requirements(filenames):
     requirements = []
     for filename in filenames:
-        with open('virtualenv/requirements/%s.txt' % filename) as f:
+        with open(os.path.join(DOTFILES_ROOT, 'virtualenv/requirements/%s.txt' % filename)) as f:
             requirements += [line.rstrip('\n') for line in f if line.rstrip('\n')]
 
     requirements.sort()
@@ -55,8 +56,7 @@ def setup_venvs_from_config():
 
 
 def setup_venv_from_base():
-    os.chdir(os.getenv('DOTFILES_ROOT'))
-    with open('virtualenvs.json') as f:
+    with open(os.path.join(DOTFILES_ROOT, 'virtualenvs.json')) as f:
         data = json.load(f)
 
         base = data.get('base')
