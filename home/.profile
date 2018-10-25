@@ -20,7 +20,7 @@ export PATH="/usr/local/cuda/bin/:$PATH"
 export LD_LIBRARY_PATH="/usr/local/cuda/targets/x86_64-linux/lib:$LD_LIBRARY_PATH"
 
 # Go
-export GOPATH="$HOME/Projects"
+export GOPATH="$HOME/Projects/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
