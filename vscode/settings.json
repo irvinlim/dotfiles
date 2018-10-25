@@ -39,14 +39,14 @@
   // Git
   "diffEditor.ignoreTrimWhitespace": false,
   "git.confirmSync": false,
-  "git.defaultCloneDirectory": "/Users/irvin/Projects",
+  "git.defaultCloneDirectory": "~/Projects",
   "git.enableSmartCommit": true,
   "gitlab.instanceUrl": "https://git.irvinlim.com/",
 
   // Libraries/Interpreters
   "C_Cpp.intelliSenseEngine": "Default",
   "composer.executablePath": "/usr/local/bin/composer",
-  "python.pythonPath": "/Users/irvin/.virtualenvs/python3.6/bin/python",
+  "python.pythonPath": "~/.virtualenvs/python3.6/bin/python",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "'Meslo LG M for Powerline'",
   "terminal.integrated.shell.osx": "zsh",
@@ -68,7 +68,7 @@
     "--style",
     "/Users/irvin/.config/yapf/style.cfg"
   ],
-  "python.formatting.yapfPath": "/Users/irvin/.virtualenvs/python3.6/bin/yapf",
+  "python.formatting.yapfPath": "~/.virtualenvs/python3.6/bin/yapf",
   "python.linting.ignorePatterns": [
     ".vscode/*.py",
     ".venv/*.py",
@@ -82,7 +82,7 @@
   "spellright.documentTypes": ["markdown", "latex"],
 
   // Project Manager
-  "projectManager.vscode.baseFolders": ["/Users/irvin/Projects"],
+  "projectManager.vscode.baseFolders": ["~/Projects"],
 
   // Emmet
   "emmet.includeLanguages": {
