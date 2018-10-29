@@ -1,5 +1,4 @@
 # Folder view configuration files
-.DS_Store
 Desktop.ini
 
 # Thumbnail cache files
@@ -12,10 +11,21 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# NPM stuff
+# Temporary files
+*.swp
+
+# JS
 bower_components
 node_modules
 npm-debug.log
+.sass-cache
+
+# Python
+*.pyc
+.python-version
+.cache/
+.coverage
+.pytest_cache/
 
 # IDE configs
 .vscode
