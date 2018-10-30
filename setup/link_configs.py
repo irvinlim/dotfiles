@@ -4,6 +4,7 @@ from __future__ import print_function
 
 import json
 import os
+import shutil
 from sys import platform
 
 # Cross-compatible shims, no using six here...
@@ -52,7 +53,10 @@ def link_file(src, dst):
         if not write:
             return
 
-        os.unlink(dst)
+        if os.path.isfile(dst):
+            os.unlink(dst)
+        else:
+            shutil.rmtree(dst)
 
     dirname = os.path.dirname(dst)
     if not os.path.exists(dirname):
@@ -78,11 +82,19 @@ def iterate_directory(src, dst):
 def main():
     print('\033[0;33mLinking configuration files...\033[0m')
 
-    with open('dotfile_mapping.json') as f:
+    with open('file_mapping.json') as f:
         for src, dst in json.load(f).items():
             src_path = os.path.abspath(os.path.join(src))
             dst_path = os.path.abspath(os.path.expanduser(os.path.join(get_dst(src, dst))))
             iterate_directory(src_path, dst_path)
+
+    with open('dir_mapping.json') as f:
+        for mapping in json.load(f):
+            src = mapping.get('src')
+            dst = mapping.get('dst')
+            src_path = os.path.abspath(os.path.join(src))
+            dst_path = os.path.abspath(os.path.expanduser(os.path.join(get_dst(src, dst))))
+            link_file(src_path, dst_path)
 
     print('\033[0;32mAll configuration files linked!\033[0m')
 

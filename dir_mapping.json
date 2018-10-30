@@ -1,0 +1,6 @@
+[
+  {
+    "src": "dirs/karabiner",
+    "dst": "~/.config/karabiner"
+  }
+]

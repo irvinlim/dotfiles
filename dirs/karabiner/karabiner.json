@@ -58,14 +58,6 @@
                         },
                         {
                             "from": {
-                                "key_code": "f4"
-                            },
-                            "to": {
-                                "key_code": "vk_none"
-                            }
-                        },
-                        {
-                            "from": {
                                 "key_code": "f5"
                             },
                             "to": {
@@ -82,14 +74,6 @@
                         },
                         {
                             "from": {
-                                "key_code": "f7"
-                            },
-                            "to": {
-                                "key_code": "vk_none"
-                            }
-                        },
-                        {
-                            "from": {
                                 "key_code": "f8"
                             },
                             "to": {
@@ -98,34 +82,10 @@
                         },
                         {
                             "from": {
-                                "key_code": "f9"
-                            },
-                            "to": {
-                                "key_code": "vk_none"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f10"
-                            },
-                            "to": {
-                                "key_code": "vk_none"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f11"
-                            },
-                            "to": {
-                                "key_code": "vk_none"
-                            }
-                        },
-                        {
-                            "from": {
                                 "key_code": "f12"
                             },
                             "to": {
-                                "key_code": "vk_none"
+                                "key_code": "power"
                             }
                         }
                     ],
@@ -137,7 +97,24 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "simple_modifications": []
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "fn"
+                            },
+                            "to": {
+                                "key_code": "right_control"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "right_control"
+                            },
+                            "to": {
+                                "key_code": "fn"
+                            }
+                        }
+                    ]
                 },
                 {
                     "disable_built_in_keyboard_if_exists": false,
