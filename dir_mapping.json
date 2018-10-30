@@ -2,5 +2,9 @@
   {
     "src": "dirs/karabiner",
     "dst": "~/.config/karabiner"
+  },
+  {
+    "src": "dirs/iterm2",
+    "dst": "~/.config/iterm2"
   }
 ]
