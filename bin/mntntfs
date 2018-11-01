@@ -1,0 +1,35 @@
+#!/bin/zsh
+
+# Find available disks.
+# Skip disk0 (EFI) and disk1 (/)
+disks=`gfind /dev -maxdepth 1 -regextype sed -regex '.*/disk[2-9]s[0-9]'`
+
+while read -r disk; do
+  diskinfo=`diskutil info "$disk"`
+  is_ntfs=`echo "$diskinfo" | grep "Windows_NTFS"`
+  diskname=`echo "$diskinfo" | grep "Volume Name" | gsed 's/[[:space:]]*Volume Name:[[:space:]]*\(.*\)/\1/'`
+  diskpath="/Volumes/$diskname"
+
+  if [[ -z "$is_ntfs" || -d "$diskpath" ]]
+  then
+    continue
+  fi
+
+  echo "[*] Unmounted NTFS drive found: $diskname"
+  echo -n "    Mount? (y/N) "
+  read -q
+  input=$?
+  echo
+
+  if [[ "$input" != 0 ]]
+  then
+    continue
+  fi
+
+  echo "[*] Mounting..."
+  sudo mkdir "$diskpath"
+  sudo /usr/local/bin/ntfs-3g "$disk" "$diskpath" -olocal -oallow_other
+  echo "[!] Mounted $diskname in $diskpath."
+
+  echo
+done <<< "$disks"
