@@ -78,7 +78,7 @@ def main():
         for src, dst in json.load(f).items():
             dst = get_dst(src, dst)
             if not dst:
-                print('[!] Cannot link %s, no destination path can be parsed.')
+                print('[!] Cannot link %s, no destination path can be parsed.' % src)
                 continue
 
             src_path = os.path.abspath(os.path.join(src))
@@ -90,7 +90,7 @@ def main():
             src = mapping.get('src')
             dst = get_dst(src, mapping.get('dst'))
             if not dst:
-                print('[!] Cannot link %s, no destination path can be parsed.')
+                print('[!] Cannot link %s, no destination path can be parsed.' % src)
                 continue
 
             src_path = os.path.abspath(os.path.join(src))
