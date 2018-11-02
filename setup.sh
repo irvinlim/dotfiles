@@ -17,7 +17,7 @@ echo `pwd` > "$HOME/.dotfiles_root"
 pip install -r setup/requirements.txt
 
 # Symlink configs
-python setup/link_configs.py
+python -m setup.link_configs
 
 # Symlink bin folder
 if [ ! -d "$HOME/bin" ]; then
@@ -39,4 +39,4 @@ fi
 # brew bundle --file=homebrew/Brewfile.casks
 
 # Setup virtualenvs and install packages
-python setup/setup_venv.py from_config
+python -m setup.setup_venv -- from_config

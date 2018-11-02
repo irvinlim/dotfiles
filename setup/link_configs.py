@@ -7,7 +7,7 @@ import os
 import shutil
 from sys import platform
 
-from .utils import basestring, input
+from .utils import basestring, input_function
 
 
 def get_dst(src, dst):
@@ -41,7 +41,7 @@ def link_file(src, dst):
     # Prompt before overwriting file.
     write = True
     if os.path.exists(dst) or os.path.islink(dst):
-        write = input('[?] %s exists. Overwrite? (y/N) ' % dst).upper() == 'Y'
+        write = input_function('[?] %s exists. Overwrite? (y/N) ' % dst).upper() == 'Y'
         if not write:
             return
 

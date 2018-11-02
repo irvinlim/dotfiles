@@ -1,9 +1,9 @@
 # Cross-compatible shims, no using six here...
 
 try:
-    input = raw_input
+    input_function = raw_input
 except NameError:
-    pass
+    input_function = input
 
 try:
     basestring
