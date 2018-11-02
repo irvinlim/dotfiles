@@ -39,4 +39,4 @@ fi
 # brew bundle --file=homebrew/Brewfile.casks
 
 # Setup virtualenvs and install packages
-python -m setup.setup_venv -- from_config
+python -m setup.setup_venv from_config
