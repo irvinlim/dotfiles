@@ -8,7 +8,7 @@ import sys
 
 from virtualenvapi.manage import VirtualEnvironment
 
-from .utils import basestring
+from .utils import basestring_type
 
 DOTFILES_ROOT = os.getenv('DOTFILES_ROOT') or os.path.abspath(os.path.curdir)
 GLOBAL_VIRTUALENV_ROOT = os.path.expanduser('~/.virtualenvs')
@@ -52,7 +52,7 @@ def setup_venvs_from_config():
             requirements = venv.get('requirements')
             python_paths = from_paths.get(venv.get('from'))
 
-            if isinstance(python_paths, basestring):
+            if isinstance(python_paths, basestring_type):
                 python_paths = [python_paths]
 
             python_path = None

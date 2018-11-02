@@ -6,6 +6,6 @@ except NameError:
     input_function = input
 
 try:
-    basestring
+    basestring_type = basestring
 except NameError:
-    basestring = str
+    basestring_type = str

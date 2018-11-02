@@ -7,11 +7,11 @@ import os
 import shutil
 from sys import platform
 
-from .utils import basestring, input_function
+from .utils import basestring_type, input_function
 
 
 def get_dst(src, dst):
-    if isinstance(dst, basestring):
+    if isinstance(dst, basestring_type):
         return dst
 
     linux = dst.get('linux')
