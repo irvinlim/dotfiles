@@ -15,6 +15,9 @@ export DEFAULT_USER='irvin'
 # Source .profile.
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
+# Source local overrides.
+[[ -e ~/.local_profile ]] && emulate sh -c 'source ~/.local_profile'
+
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
