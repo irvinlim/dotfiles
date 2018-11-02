@@ -11,8 +11,9 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# Temporary files
+# Other transient files
 *.swp
+.gdb_history
 
 # JS
 bower_components
