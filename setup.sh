@@ -8,6 +8,8 @@ set -e
 # Feel free to run this script as many times as you like, nothing should be overwritten.
 #
 
+platform=$(uname)
+
 # Save location of dotfiles root
 echo `pwd` > "$HOME/.dotfiles_root"
 
@@ -28,7 +30,9 @@ if [ ! -d "$HOME/scripts" ]; then
 fi
 
 # Install Brew formulae
-brew bundle --file=homebrew/Brewfile
+if [[ $platform == 'Darwin' ]]; then
+  brew bundle --file=homebrew/Brewfile
+fi
 
 # Casks are not automatically installed.
 # Most apps are installed by hand, need to migrate them to Homebrew.
