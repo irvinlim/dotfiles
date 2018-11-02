@@ -8,6 +8,8 @@ import sys
 
 from virtualenvapi.manage import VirtualEnvironment
 
+from .utils import basestring
+
 DOTFILES_ROOT = os.getenv('DOTFILES_ROOT') or os.path.abspath(os.path.curdir)
 GLOBAL_VIRTUALENV_ROOT = os.path.expanduser('~/.virtualenvs')
 LOCAL_VIRTUALENV_PATH = '.venv'
@@ -48,7 +50,21 @@ def setup_venvs_from_config():
 
         for name, venv in venvs.items():
             requirements = venv.get('requirements')
-            python_path = from_paths.get(venv.get('from'))
+            python_paths = from_paths.get(venv.get('from'))
+
+            if isinstance(python_paths, basestring):
+                python_paths = [python_paths]
+
+            python_path = None
+            for path in python_paths:
+                if os.path.exists(path):
+                    python_path = path
+                    break
+
+            if not python_path:
+                print('[!] Cannot setup virtualenv for %s, no valid fromPath found.')
+                continue
+
             path = os.path.join(GLOBAL_VIRTUALENV_ROOT, name)
             install_venv(name, path, requirements, python_path)
 

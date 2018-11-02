@@ -7,16 +7,7 @@ import os
 import shutil
 from sys import platform
 
-# Cross-compatible shims, no using six here...
-try:
-    input = raw_input
-except NameError:
-    pass
-
-try:
-    basestring
-except NameError:
-    basestring = str
+from .utils import basestring, input
 
 
 def get_dst(src, dst):
@@ -87,6 +78,7 @@ def main():
         for src, dst in json.load(f).items():
             dst = get_dst(src, dst)
             if not dst:
+                print('[!] Cannot link %s, no destination path can be parsed.')
                 continue
 
             src_path = os.path.abspath(os.path.join(src))
@@ -98,6 +90,7 @@ def main():
             src = mapping.get('src')
             dst = get_dst(src, mapping.get('dst'))
             if not dst:
+                print('[!] Cannot link %s, no destination path can be parsed.')
                 continue
 
             src_path = os.path.abspath(os.path.join(src))
