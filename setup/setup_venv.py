@@ -8,7 +8,7 @@ import sys
 
 from virtualenvapi.manage import VirtualEnvironment
 
-DOTFILES_ROOT = os.getenv('DOTFILES_ROOT')
+DOTFILES_ROOT = os.getenv('DOTFILES_ROOT') or os.path.abspath(os.path.curdir)
 GLOBAL_VIRTUALENV_ROOT = os.path.expanduser('~/.virtualenvs')
 LOCAL_VIRTUALENV_PATH = '.venv'
 
