@@ -28,14 +28,15 @@ def get_dst(src, dst):
     win32 = dst.get('win32')
 
     # Defaults to Linux if provided platform is not provided.
-    # If linux is not provided,
     if platform == 'darwin' and darwin:
         return darwin
     if platform == 'win32' and win32:
         return win32
 
+    # If linux is not provided, fail with a NoneType.
     if not linux:
-        raise Exception('Mapping for %s is not provided for %s, cannot fallback on `linux`.' % (platform, src))
+        return None
+
     return linux
 
 
@@ -84,16 +85,23 @@ def main():
 
     with open('file_mapping.json') as f:
         for src, dst in json.load(f).items():
+            dst = get_dst(src, dst)
+            if not dst:
+                continue
+
             src_path = os.path.abspath(os.path.join(src))
-            dst_path = os.path.abspath(os.path.expanduser(os.path.join(get_dst(src, dst))))
+            dst_path = os.path.abspath(os.path.expanduser(os.path.join(dst)))
             iterate_directory(src_path, dst_path)
 
     with open('dir_mapping.json') as f:
         for mapping in json.load(f):
             src = mapping.get('src')
-            dst = mapping.get('dst')
+            dst = get_dst(src, mapping.get('dst'))
+            if not dst:
+                continue
+
             src_path = os.path.abspath(os.path.join(src))
-            dst_path = os.path.abspath(os.path.expanduser(os.path.join(get_dst(src, dst))))
+            dst_path = os.path.abspath(os.path.expanduser(os.path.join(dst)))
             link_file(src_path, dst_path)
 
     print('\033[0;32mAll configuration files linked!\033[0m')
