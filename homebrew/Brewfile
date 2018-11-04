@@ -29,6 +29,7 @@ brew 'stack'
 brew 'telnet'
 brew 'tldr'
 brew 'tmux'
+brew 'watch'
 brew 'wget'
 
 tap 'haosdent/s'
