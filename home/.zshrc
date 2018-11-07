@@ -134,3 +134,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 if [[ $platform == 'Darwin' ]]; then
   . `brew --prefix`/etc/profile.d/s.sh
 fi
+
+# Add opam configuration
+test -r "$HOME/.opam/opam-init/init.zsh" && . "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null || true
