@@ -49,7 +49,12 @@ indent_style = space
 indent_size = 2
 indent_style = space
 
-# Shell scripts
+# OCaml uses spaces.
+[*.ml]
+indent_size = 2
+indent_style = space
+
+# Shell scripts are better read with smaller indents.
 [*.{sh,zsh}]
 indent_size = 2
 indent_style = space
