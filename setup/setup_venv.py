@@ -19,7 +19,7 @@ def get_requirements(filenames):
     requirements = []
     for filename in filenames:
         with open(os.path.join(DOTFILES_ROOT, 'packages/virtualenv/%s.txt' % filename)) as f:
-            requirements += [line.rstrip('\n') for line in f if line.rstrip('\n')]
+            requirements += [line.rstrip('\n') for line in f if line.rstrip('\n') and not line.startswith('#')]
 
     requirements.sort()
     return requirements
