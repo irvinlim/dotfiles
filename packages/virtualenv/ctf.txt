@@ -1,6 +1,12 @@
+attackrsa
+bs4
+libnum
 Pillow
 pwntools
 pypng
-qrtools
 pyzbar
+qrtools
 zbar
+
+# Additional installs:
+# pip install --global-option=build_ext --global-option="-I/opt/local/include/" --global-option="-L/opt/local/lib/" gmpy2
