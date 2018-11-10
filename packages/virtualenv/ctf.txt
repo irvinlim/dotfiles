@@ -1,6 +1,8 @@
 attackrsa
 bs4
+chipwhisperer
 libnum
+numpy
 Pillow
 pwntools
 pypng
