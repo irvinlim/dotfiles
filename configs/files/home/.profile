@@ -11,6 +11,7 @@ export DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"`
 # System paths
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:/sbin
 
 # Path for .local bins. Used by stack (Haskell) amongst others.
 export PATH="$HOME/.local/bin:$PATH"
