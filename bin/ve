@@ -1,3 +1,23 @@
 #!/bin/zsh
 
-PYTHONPATH="$DOTFILES_ROOT" python -m setup.setup_venv from_base
+#
+# Usage:
+#
+# Create a new virtual environment using `base`:
+#   $ ve
+#
+# Create a new virtual environment using a custom config:
+#   $ ve python2.7
+#
+
+cmd=(python -m setup.setup_venv)
+
+if [[ -n "$1" ]]
+then
+  cmd+="from"
+  cmd+="$1"
+else
+  cmd+="from_base"
+fi
+
+PYTHONPATH="$DOTFILES_ROOT" $cmd
