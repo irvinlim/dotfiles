@@ -13,6 +13,7 @@ from .utils import basestring_type, input_function
 CONFIGS_ROOT = os.path.abspath('configs')
 DIRS_ROOT = os.path.join(CONFIGS_ROOT, 'dirs')
 FILES_ROOT = os.path.join(CONFIGS_ROOT, 'files')
+MAPPINGS_JSON = os.path.join(CONFIGS_ROOT, 'mappings.json')
 
 
 def get_dst(src, dst):
@@ -81,28 +82,31 @@ def iterate_directory(src, dst):
 def main():
     print('\033[0;33mLinking configuration files...\033[0m')
 
-    with open(os.path.join(CONFIGS_ROOT, 'file_mapping.json')) as f:
-        for src, dst in json.load(f).items():
-            dst = get_dst(src, dst)
-            if not dst:
-                print('[!] Cannot link %s, no destination path can be parsed.' % src)
-                continue
+    with open(MAPPINGS_JSON) as f:
+        data = json.load(f)
+        files = data['files']
+        dirs = data['dirs']
 
-            src_path = os.path.abspath(os.path.join(FILES_ROOT, src))
-            dst_path = os.path.abspath(os.path.expanduser(os.path.join(dst)))
-            iterate_directory(src_path, dst_path)
+    for src, dst in files.items():
+        dst = get_dst(src, dst)
+        if not dst:
+            print('[!] Cannot link %s, no destination path can be parsed.' % src)
+            continue
 
-    with open(os.path.join(CONFIGS_ROOT, 'dir_mapping.json')) as f:
-        for mapping in json.load(f):
-            src = mapping.get('src')
-            dst = get_dst(src, mapping.get('dst'))
-            if not dst:
-                print('[!] Cannot link %s, no destination path can be parsed.' % src)
-                continue
+        src_path = os.path.abspath(os.path.join(FILES_ROOT, src))
+        dst_path = os.path.abspath(os.path.expanduser(os.path.join(dst)))
+        iterate_directory(src_path, dst_path)
 
-            src_path = os.path.abspath(os.path.join(DIRS_ROOT, src))
-            dst_path = os.path.abspath(os.path.expanduser(os.path.join(dst)))
-            link_file(src_path, dst_path)
+    for mapping in dirs:
+        src = mapping.get('src')
+        dst = get_dst(src, mapping.get('dst'))
+        if not dst:
+            print('[!] Cannot link %s, no destination path can be parsed.' % src)
+            continue
+
+        src_path = os.path.abspath(os.path.join(DIRS_ROOT, src))
+        dst_path = os.path.abspath(os.path.expanduser(os.path.join(dst)))
+        link_file(src_path, dst_path)
 
     print('\033[0;32mAll configuration files linked!\033[0m')
 

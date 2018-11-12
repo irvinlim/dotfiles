@@ -1,0 +1,21 @@
+{
+  "files": {
+    "home": "~",
+    "vscode": {
+      "darwin": "~/Library/Application Support/Code/User"
+    },
+    "spectacle": {
+      "darwin": "~/Library/Application Support/Spectacle"
+    }
+  },
+  "dirs": [
+    {
+      "src": "karabiner",
+      "dst": "~/.config/karabiner"
+    },
+    {
+      "src": "iterm2",
+      "dst": "~/.config/iterm2"
+    }
+  ]
+}
