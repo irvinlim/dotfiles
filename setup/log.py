@@ -13,5 +13,9 @@ def error(*msg, sep=' ', **kwargs):
     print(color('0;31', *msg, sep=sep), **kwargs)
 
 
+def debug(*msg, sep=' ', **kwargs):
+    print(color('0;36', *msg, sep=sep), **kwargs)
+
+
 def color(colorcode, *msg, sep=' '):
     return '\033[%sm' % colorcode + sep.join(msg) + '\033[0m'

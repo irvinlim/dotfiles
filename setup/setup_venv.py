@@ -97,7 +97,7 @@ def setup_venv_from(venv_name=""):
     requirements = venv_from.get('requirements')
     python_path = resolve_python_paths(data.get('fromPaths').get(venv_from.get('from')))
 
-    log.info('Using Python interpreter %s.' % python_path)
+    log.debug('Using Python interpreter %s.' % python_path)
     install_venv(LOCAL_VIRTUALENV_PATH, LOCAL_VIRTUALENV_PATH, requirements, python_path)
 
 
