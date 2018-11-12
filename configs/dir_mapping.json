@@ -1,10 +1,10 @@
 [
   {
-    "src": "dirs/karabiner",
+    "src": "karabiner",
     "dst": "~/.config/karabiner"
   },
   {
-    "src": "dirs/iterm2",
+    "src": "iterm2",
     "dst": "~/.config/iterm2"
   }
 ]

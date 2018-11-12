@@ -6,8 +6,13 @@ import json
 import os
 import shutil
 from sys import platform
+from argparse import ArgumentParser
 
 from .utils import basestring_type, input_function
+
+CONFIGS_ROOT = os.path.abspath('configs')
+DIRS_ROOT = os.path.join(CONFIGS_ROOT, 'dirs')
+FILES_ROOT = os.path.join(CONFIGS_ROOT, 'files')
 
 
 def get_dst(src, dst):
@@ -41,11 +46,13 @@ def link_file(src, dst):
     # Prompt before overwriting file.
     write = True
     if os.path.exists(dst) or os.path.islink(dst):
-        write = input_function('[?] %s exists. Overwrite? (y/N) ' % dst).upper() == 'Y'
+        if not args.yes:
+            write = input_function('[?] %s exists. Overwrite? (y/N) ' % dst).upper() == 'Y'
+
         if not write:
             return
 
-        if os.path.isfile(dst):
+        if os.path.isfile(dst) or os.path.islink(dst):
             os.unlink(dst)
         else:
             shutil.rmtree(dst)
@@ -74,18 +81,18 @@ def iterate_directory(src, dst):
 def main():
     print('\033[0;33mLinking configuration files...\033[0m')
 
-    with open('file_mapping.json') as f:
+    with open(os.path.join(CONFIGS_ROOT, 'file_mapping.json')) as f:
         for src, dst in json.load(f).items():
             dst = get_dst(src, dst)
             if not dst:
                 print('[!] Cannot link %s, no destination path can be parsed.' % src)
                 continue
 
-            src_path = os.path.abspath(os.path.join(src))
+            src_path = os.path.abspath(os.path.join(FILES_ROOT, src))
             dst_path = os.path.abspath(os.path.expanduser(os.path.join(dst)))
             iterate_directory(src_path, dst_path)
 
-    with open('dir_mapping.json') as f:
+    with open(os.path.join(CONFIGS_ROOT, 'dir_mapping.json')) as f:
         for mapping in json.load(f):
             src = mapping.get('src')
             dst = get_dst(src, mapping.get('dst'))
@@ -93,7 +100,7 @@ def main():
                 print('[!] Cannot link %s, no destination path can be parsed.' % src)
                 continue
 
-            src_path = os.path.abspath(os.path.join(src))
+            src_path = os.path.abspath(os.path.join(DIRS_ROOT, src))
             dst_path = os.path.abspath(os.path.expanduser(os.path.join(dst)))
             link_file(src_path, dst_path)
 
@@ -101,4 +108,11 @@ def main():
 
 
 if __name__ == '__main__':
+    parser = ArgumentParser('link_configs')
+    parser.add_argument(
+        '-y', '--yes', action='store_true',
+        help='Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.'
+    )
+
+    args = parser.parse_args()
     main()

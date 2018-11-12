@@ -14,7 +14,7 @@ platform=$(uname)
 echo `pwd` > "$HOME/.dotfiles_root"
 
 # Initialisation of setup packages
-pip install -r setup/requirements.txt
+pip install -r setup/requirements.txt > /dev/null
 
 # Symlink configs
 python -m setup.link_configs
