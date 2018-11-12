@@ -2,23 +2,23 @@
   "default": "python3.6",
   "venvs": {
     "base": {
-      "from": "python3.6",
+      "interpreter": "python3.6",
       "requirements": ["base"]
     },
     "python3.6": {
-      "from": "python3.6",
+      "interpreter": "python3.6",
       "requirements": ["base", "python3", "tools"]
     },
     "python2.7": {
-      "from": "python2.7",
+      "interpreter": "python2.7",
       "requirements": ["base", "python2", "tools"]
     },
     "ctf": {
-      "from": "python2.7",
+      "interpreter": "python2.7",
       "requirements": ["base", "python2", "tools", "ctf"]
     }
   },
-  "fromPaths": {
+  "pythonPaths": {
     "python2.7": ["/usr/local/bin/python2.7", "/usr/bin/python2.7"],
     "python3.6": ["/usr/local/bin/python3.6", "/usr/bin/python3.6"],
     "python3.7": ["/usr/local/bin/python3.7", "/usr/bin/python3.7"]
