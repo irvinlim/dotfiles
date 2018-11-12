@@ -104,7 +104,6 @@ def setup_venv_from(venv_name=""):
 
     log.debug('Using Python interpreter %s.' % python_path)
     install_venv(LOCAL_VIRTUALENV_PATH, LOCAL_VIRTUALENV_PATH, requirements, python_path)
-
     return True
 
 
@@ -113,10 +112,11 @@ def setup_venv_from_base():
         log.error('Virtualenv already exists.')
         return False
 
-    ret = setup_venv_from('base')
-    print(log.color('0;32', 'Virtualenv is created! Now run'), log.color('1;34', 'venv'), log.color('0;32', 'in your shell to activate.'))
+    if not setup_venv_from('base'):
+        return False
 
-    return ret
+    print(log.color('0;32', 'Virtualenv is created! Now run'), log.color('1;34', 'venv'), log.color('0;32', 'in your shell to activate.'))
+    return True
 
 
 def main():
@@ -131,12 +131,13 @@ def main():
         print('Usage: python setup_venv.py [%s]' % '|'.join(command_keys))
         sys.exit(-1)
 
-    cmd = sys.argv[1]
+    cmd, options = sys.argv[1], sys.argv[2:]
+
     if cmd not in commands:
         print('Usage: python setup_venv.py [%s]' % '|'.join(command_keys))
         sys.exit(-1)
 
-    if not commands[cmd](*sys.argv[2:]):
+    if not commands[cmd](*options):
         sys.exit(-1)
 
 
