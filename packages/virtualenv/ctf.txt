@@ -1,7 +1,5 @@
-attackrsa
 bs4
 chipwhisperer
-libnum
 numpy
 Pillow
 pwntools
@@ -9,6 +7,9 @@ pypng
 pyzbar
 qrtools
 zbar
+
+git+ssh://git@github.com/rk700/attackrsa.git
+git+ssh://git@github.com/hellman/libnum.git
 
 # Additional installs:
 # pip install --global-option=build_ext --global-option="-I/opt/local/include/" --global-option="-L/opt/local/lib/" gmpy2
