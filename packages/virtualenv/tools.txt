@@ -1,3 +1,2 @@
-aws-shell
 ipython
 twine
