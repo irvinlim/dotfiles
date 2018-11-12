@@ -1,10 +1,10 @@
 {
   "default": "python3.6",
-  "base": {
-    "from": "python3",
-    "requirements": ["base"]
-  },
   "venvs": {
+    "base": {
+      "from": "python3.6",
+      "requirements": ["base"]
+    },
     "python3.6": {
       "from": "python3.6",
       "requirements": ["base", "python3", "tools"]

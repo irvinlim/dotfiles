@@ -8,6 +8,7 @@ import sys
 
 from virtualenvapi.manage import VirtualEnvironment
 
+from . import log
 from .utils import basestring_type
 
 DOTFILES_ROOT = os.getenv('DOTFILES_ROOT') or os.path.abspath(os.path.curdir)
@@ -26,8 +27,21 @@ def get_requirements(filenames):
     return requirements
 
 
+def resolve_python_paths(python_paths):
+    if isinstance(python_paths, basestring_type):
+        python_paths = [python_paths]
+
+    python_path = None
+    for path in python_paths:
+        if os.path.exists(path):
+            python_path = path
+            break
+
+    return python_path
+
+
 def install_venv(name, path, requirements, python_path):
-    print('[*] Setting up \033[1;34m%s\033[0m virtualenv...' % name)
+    print('[*] Setting up %s virtualenv...' % log.color('1;34', name))
 
     # Create new virtualenv if it doesn't exist.
     env = VirtualEnvironment(path, python=python_path)
@@ -39,62 +53,67 @@ def install_venv(name, path, requirements, python_path):
         package, options = requirement[0], requirement[1:]
 
         if not env.is_installed(package):
-            print('    Installing \033[1;33m%s\033[0m...' % package)
+            print('    Installing %s...' % log.color('1;33', package))
             env.install(package, options=options)
 
 
 def setup_venvs_from_config():
-    print('\033[0;33mInstalling virtualenvs from config...\033[0m')
+    log.info('Installing virtualenvs from config...')
 
     with open(VIRTUALENVS_JSON) as f:
         data = json.load(f)
 
-        venvs = data.get('venvs')
-        from_paths = data.get('fromPaths')
+    venvs = data.get('venvs')
+    from_paths = data.get('fromPaths')
 
-        for name, venv in venvs.items():
-            requirements = venv.get('requirements')
-            python_paths = from_paths.get(venv.get('from'))
+    for name, venv in venvs.items():
+        requirements = venv.get('requirements')
+        python_path = resolve_python_paths(from_paths.get(venv.get('from')))
+        if not python_path:
+            log.error('[!] Cannot setup virtualenv for %s, no valid fromPath found.')
+            continue
 
-            if isinstance(python_paths, basestring_type):
-                python_paths = [python_paths]
+        path = os.path.join(GLOBAL_VIRTUALENV_ROOT, name)
+        install_venv(name, path, requirements, python_path)
 
-            python_path = None
-            for path in python_paths:
-                if os.path.exists(path):
-                    python_path = path
-                    break
+    log.success('All virtualenvs have been set up!')
 
-            if not python_path:
-                print('[!] Cannot setup virtualenv for %s, no valid fromPath found.')
-                continue
 
-            path = os.path.join(GLOBAL_VIRTUALENV_ROOT, name)
-            install_venv(name, path, requirements, python_path)
+def setup_venv_from(venv_name=""):
+    if not venv_name:
+        log.error('Please specify venv name.')
+        sys.exit(-1)
 
-    print('\033[0;32mAll virtualenvs have been set up!\033[0m')
+    log.info('Installing virtualenv from %s...' % venv_name)
+
+    with open(VIRTUALENVS_JSON) as f:
+        data = json.load(f)
+
+    venv_from = data.get('venvs').get(venv_name)
+    if not venv_from:
+        log.error('No virtualenv config named "%s" found.' % venv_name)
+        sys.exit(-1)
+
+    requirements = venv_from.get('requirements')
+    python_path = resolve_python_paths(data.get('fromPaths').get(venv_from.get('from')))
+
+    log.info('Using Python interpreter %s.' % python_path)
+    install_venv(LOCAL_VIRTUALENV_PATH, LOCAL_VIRTUALENV_PATH, requirements, python_path)
 
 
 def setup_venv_from_base():
-    with open(VIRTUALENVS_JSON) as f:
-        data = json.load(f)
+    if os.path.exists(os.path.abspath(LOCAL_VIRTUALENV_PATH)):
+        log.error('Virtualenv already exists.')
+        sys.exit(-1)
 
-        base = data.get('base')
-        requirements = base.get('requirements')
-        python_path = data.get('fromPaths').get(base.get('from'))
+    setup_venv_from('base')
 
-        if os.path.exists(os.path.abspath(LOCAL_VIRTUALENV_PATH)):
-            print('\033[0;31mVirtualenv already exists.\033[0m')
-            sys.exit(-1)
-
-        print('\033[0;33mCreating new virtualenv from %s...\033[0m' % base.get('from'))
-        install_venv(LOCAL_VIRTUALENV_PATH, LOCAL_VIRTUALENV_PATH, requirements, python_path)
-
-    print('\033[0;32mVirtualenv is created! Now run \033[1;34mvenv\033[0;32m in your shell to activate.\033[0m')
+    print(log.color('0;32', 'Virtualenv is created! Now run'), log.color('1;34', 'venv'), log.color('0;32', 'in your shell to activate.'))
 
 
 def main():
     commands = {
+        'from': setup_venv_from,
         'from_config': setup_venvs_from_config,
         'from_base': setup_venv_from_base,
     }
@@ -109,7 +128,7 @@ def main():
         print('Usage: python setup_venv.py [%s]' % '|'.join(command_keys))
         sys.exit(-1)
 
-    commands[cmd]()
+    commands[cmd](*sys.argv[2:])
 
 
 if __name__ == '__main__':
