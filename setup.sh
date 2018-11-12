@@ -19,11 +19,6 @@ pip install -r setup/requirements.txt > /dev/null
 # Symlink configs
 python -m setup.link_configs
 
-# Symlink bin folder
-if [ ! -d "$HOME/bin" ]; then
-  ln -s `pwd`/bin "$HOME"
-fi
-
 # Symlink scripts folder
 if [ ! -d "$HOME/scripts" ]; then
   ln -s `pwd`/scripts "$HOME"

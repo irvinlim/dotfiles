@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+PYTHONPATH="$DOTFILES_ROOT" python -m setup.setup_venv from_base

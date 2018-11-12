@@ -3,5 +3,8 @@
 # Git
 alias gam='git commit --amend --no-edit'
 
+# Virtualenv
+alias venv='source .venv/bin/activate'
+
 # Misc
 alias rmcolor='sed -u -E "s/[[:cntrl:]]\[[0-9]{1,3}m//g"'

@@ -37,6 +37,9 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # Local binaries
 export PATH="$HOME/bin:$PATH"
 
+# Dotfile bins
+export PATH="$DOTFILES_ROOT/bin:$PATH"
+
 ##
 ## Virtualenvs
 ##
@@ -53,10 +56,6 @@ export DEFAULT_VENV_PATH="$GLOBAL_VIRTUALENV_ROOT/$DEFAULT_VENV"
 
 # Require pip to work in a virtualenv.
 export PIP_REQUIRE_VIRTUALENV=true
-
-# Create alias for creating virtualenvs.
-alias ve="PYTHONPATH=$DOTFILES_ROOT python -m setup.setup_venv from_base"
-alias venv='source .venv/bin/activate'
 
 # Create aliases for each virtualenv.
 while IFS='' read -r name; do
