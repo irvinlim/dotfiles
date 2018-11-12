@@ -2,5 +2,8 @@
   "home": "~",
   "vscode": {
     "darwin": "~/Library/Application Support/Code/User"
+  },
+  "spectacle": {
+    "darwin": "~/Library/Application Support/Spectacle"
   }
 }
