@@ -35,9 +35,12 @@ def install_venv(name, path, requirements, python_path):
     # Install requirements for the virtualenv.
     requirements = get_requirements(requirements)
     for requirement in requirements:
-        if not env.is_installed(requirement):
-            print('    Installing \033[1;33m%s\033[0m...' % requirement)
-            env.install(requirement)
+        requirement = requirement.split(' ')
+        package, options = requirement[0], requirement[1:]
+
+        if not env.is_installed(package):
+            print('    Installing \033[1;33m%s\033[0m...' % package)
+            env.install(package, options=options)
 
 
 def setup_venvs_from_config():
