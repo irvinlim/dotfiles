@@ -44,7 +44,7 @@ export PATH="$HOME/bin:$PATH"
 # Evaluate and export various virtualenv paths.
 export GLOBAL_VIRTUALENV_ROOT="$HOME/.virtualenvs"
 export LOCAL_VIRTUALENV_PATH=".venv"
-export VIRTUALENV_CONFIG_PATH="$DOTFILES_ROOT/virtualenvs.json"
+export VIRTUALENV_CONFIG_PATH="$DOTFILES_ROOT/packages/virtualenvs.json"
 export DEFAULT_VENV=`jq -r '.default' $VIRTUALENV_CONFIG_PATH`
 export DEFAULT_VENV_PATH="$GLOBAL_VIRTUALENV_ROOT/$DEFAULT_VENV"
 

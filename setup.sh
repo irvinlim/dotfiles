@@ -31,12 +31,12 @@ fi
 
 # Install Brew formulae
 if [[ $platform == 'Darwin' ]]; then
-  brew bundle --file=homebrew/Brewfile
+  brew bundle --file=packages/homebrew/Brewfile
 fi
 
 # Casks are not automatically installed.
 # Most apps are installed by hand, need to migrate them to Homebrew.
-# brew bundle --file=homebrew/Brewfile.casks
+# brew bundle --file=packages/homebrew/Brewfile.casks
 
 # Setup virtualenvs and install packages
 python -m setup.setup_venv from_config

@@ -13,6 +13,7 @@ from .utils import basestring_type
 DOTFILES_ROOT = os.getenv('DOTFILES_ROOT') or os.path.abspath(os.path.curdir)
 GLOBAL_VIRTUALENV_ROOT = os.path.expanduser('~/.virtualenvs')
 LOCAL_VIRTUALENV_PATH = '.venv'
+VIRTUALENVS_JSON = os.path.join(DOTFILES_ROOT, 'packages', 'virtualenvs.json')
 
 
 def get_requirements(filenames):
@@ -42,7 +43,7 @@ def install_venv(name, path, requirements, python_path):
 def setup_venvs_from_config():
     print('\033[0;33mInstalling virtualenvs from config...\033[0m')
 
-    with open('virtualenvs.json') as f:
+    with open(VIRTUALENVS_JSON) as f:
         data = json.load(f)
 
         venvs = data.get('venvs')
@@ -72,7 +73,7 @@ def setup_venvs_from_config():
 
 
 def setup_venv_from_base():
-    with open(os.path.join(DOTFILES_ROOT, 'virtualenvs.json')) as f:
+    with open(VIRTUALENVS_JSON) as f:
         data = json.load(f)
 
         base = data.get('base')
