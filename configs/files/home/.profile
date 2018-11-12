@@ -55,7 +55,7 @@ export DEFAULT_VENV_PATH="$GLOBAL_VIRTUALENV_ROOT/$DEFAULT_VENV"
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Create alias for creating virtualenvs.
-alias ve="python $DOTFILES_ROOT/setup/setup_venv.py from_base"
+alias ve="PYTHONPATH=$DOTFILES_ROOT python -m setup.setup_venv from_base"
 alias venv='source .venv/bin/activate'
 
 # Create aliases for each virtualenv.
