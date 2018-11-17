@@ -16,6 +16,10 @@
     {
       "src": "iterm2",
       "dst": "~/.config/iterm2"
+    },
+    {
+      "src": "oh-my-zsh-custom",
+      "dst": "~/.oh-my-zsh/custom"
     }
   ]
 }
