@@ -1,6 +1,6 @@
 [
   {
-    "shortcut_key_binding" : null,
+    "shortcut_key_binding" : "alt+shift+cmd+z",
     "shortcut_name" : "RedoLastMove"
   },
   {
@@ -9,7 +9,7 @@
   },
   {
     "shortcut_key_binding" : null,
-    "shortcut_name" : "MoveToUpperLeft"
+    "shortcut_name" : "MoveToLowerRight"
   },
   {
     "shortcut_key_binding" : null,
@@ -40,7 +40,7 @@
     "shortcut_name" : "MoveToPreviousDisplay"
   },
   {
-    "shortcut_key_binding" : null,
+    "shortcut_key_binding" : "alt+cmd+z",
     "shortcut_name" : "UndoLastMove"
   },
   {
@@ -65,10 +65,10 @@
   },
   {
     "shortcut_key_binding" : null,
-    "shortcut_name" : "MoveToPreviousThird"
+    "shortcut_name" : "MoveToUpperLeft"
   },
   {
     "shortcut_key_binding" : null,
-    "shortcut_name" : "MoveToLowerRight"
+    "shortcut_name" : "MoveToPreviousThird"
   }
 ]
