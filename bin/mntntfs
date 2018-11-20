@@ -6,24 +6,43 @@ disks=`gfind /dev -maxdepth 1 -regextype sed -regex '.*/disk[2-9]s[0-9]'`
 
 while read -r disk; do
   diskinfo=`diskutil info "$disk"`
-  is_ntfs=`echo "$diskinfo" | grep "Windows_NTFS"`
+  is_ntfs=`echo "$diskinfo" | grep "NTFS"`
   diskname=`echo "$diskinfo" | grep "Volume Name" | gsed 's/[[:space:]]*Volume Name:[[:space:]]*\(.*\)/\1/'`
   diskpath="/Volumes/$diskname"
 
-  if [[ -z "$is_ntfs" || -d "$diskpath" ]]
+  if [[ -z "$is_ntfs" ]]
   then
     continue
   fi
 
-  echo "[*] Unmounted NTFS drive found: $diskname"
-  echo -n "    Mount? (y/N) "
-  read -q
-  input=$?
-  echo
-
-  if [[ "$input" != 0 ]]
+  # TODO: Check if drive is already mounted using ntfs-3g
+  if [[ -d "$diskpath" ]]
   then
-    continue
+    echo "[!] Mounted NTFS drive found: $diskpath"
+    echo -n "    Unmount? (y/N) "
+    read -q
+    input=$?
+    echo
+
+    if [[ "$input" != 0 ]]
+    then
+      continue
+    fi
+
+    echo "[*] Unmounting..."
+    sudo umount "$diskpath"
+  else
+
+    echo "[*] Unmounted NTFS drive found: $diskname"
+    echo -n "    Mount? (y/N) "
+    read -q
+    input=$?
+    echo
+
+    if [[ "$input" != 0 ]]
+    then
+      continue
+    fi
   fi
 
   echo "[*] Mounting..."
