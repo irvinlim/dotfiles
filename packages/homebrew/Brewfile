@@ -1,5 +1,8 @@
 tap 'homebrew/bundle'
-tap 'homebrew/dupes'
+
+# Install ntfs-3g
+cask 'osxfuse'
+brew 'ntfs-3g'
 
 brew 'binutils'
 brew 'clang-format'
@@ -28,7 +31,6 @@ brew 'lnav'
 brew 'micro'
 brew 'mosh'
 brew 'mpfr'
-brew 'ntfs-3g'
 brew 'opam'
 brew 'openssl'
 brew 'python3'
