@@ -91,7 +91,7 @@ install_virtualenv() {
     sudo apt-get install -y python3-pip
     pip3 install virtualenv
   elif [[ $platform == "Darwin" ]]; then
-    easy_install pip
+    brew install python@2
     pip install virtualenv
   fi
 }
