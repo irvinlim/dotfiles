@@ -8,7 +8,8 @@ import shutil
 from sys import platform
 from argparse import ArgumentParser
 
-from .utils import basestring_type, input_function
+from six import string_types
+from six.moves import input
 
 CONFIGS_ROOT = os.path.abspath('configs')
 DIRS_ROOT = os.path.join(CONFIGS_ROOT, 'dirs')
@@ -17,7 +18,7 @@ MAPPINGS_JSON = os.path.join(CONFIGS_ROOT, 'mappings.json')
 
 
 def get_dst(src, dst):
-    if isinstance(dst, basestring_type):
+    if isinstance(dst, string_types):
         return dst
 
     linux = dst.get('linux')
@@ -48,7 +49,7 @@ def link_file(src, dst):
     write = True
     if os.path.exists(dst) or os.path.islink(dst):
         if not args.yes:
-            write = input_function('[?] %s exists. Overwrite? (y/N) ' % dst).upper() == 'Y'
+            write = input('[?] %s exists. Overwrite? (y/N) ' % dst).upper() == 'Y'
 
         if not write:
             return

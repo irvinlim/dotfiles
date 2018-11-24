@@ -6,10 +6,10 @@ import json
 import os
 import sys
 
+from six import string_types
 from virtualenvapi.manage import VirtualEnvironment
 
 from . import log
-from .utils import basestring_type
 
 DOTFILES_ROOT = os.getenv('DOTFILES_ROOT') or os.path.abspath(os.path.curdir)
 GLOBAL_VIRTUALENV_ROOT = os.path.expanduser('~/.virtualenvs')
@@ -30,7 +30,7 @@ def get_requirements(filenames):
 def resolve_python_paths(interpreter, data):
     python_paths = data.get('pythonPaths').get(interpreter, [])
 
-    if isinstance(python_paths, basestring_type):
+    if isinstance(python_paths, string_types):
         python_paths = [python_paths]
 
     python_path = None

@@ -132,4 +132,10 @@ if [ ! -x `which virtualenv` ]; then
   install_virtualenv
 fi
 
+# Initialisation of setup packages
+pip install -r setup/requirements.txt
+
+# Install fonts
+python -m setup.install_fonts
+
 echo -e '\033[0;32mFirst time installation is complete.\033[0m'

@@ -1,1 +1,3 @@
+requests
+six
 virtualenv-api
