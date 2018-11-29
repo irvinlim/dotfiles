@@ -25,15 +25,23 @@ if [ ! -d "$HOME/scripts" ]; then
 fi
 
 if [[ $platform == 'Darwin' ]]; then
-  # Install Brew formulae and casks
+  # Install Brew formulae
   brew bundle --file=packages/homebrew/Brewfile
+
+  # Install casks
   brew bundle --file=packages/homebrew/Brewfile.casks
+
+  # Install MAS apps
+  brew bundle --file=packages/homebrew/Brewfile.mas
 
   # Upgrade all Brew packages
   brew upgrade
 
   # Upgrade all casks (don't use --greedy flag)
   brew cask upgrade
+
+  # Upgrade all MAS apps
+  mas upgrade
 fi
 
 # Setup virtualenvs and install packages
