@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/cask-drivers'
+tap 'homebrew/cask-versions'
 
 cask 'appcleaner'
 cask 'burp-suite'
@@ -28,7 +29,7 @@ cask 'telegram'
 cask 'the-unarchiver'
 cask 'transmission'
 cask 'tunnelbear'
-cask 'tunnelblick'
+cask 'tunnelblick-beta'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
 cask 'visual-studio-code'
