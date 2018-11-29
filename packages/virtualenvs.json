@@ -9,21 +9,9 @@
       "interpreter": "python2",
       "requirements": ["base", "python2", "tools"]
     },
-    "python2.7": {
-      "interpreter": "python2.7",
-      "requirements": ["base", "python2", "tools"]
-    },
     "python3": {
       "interpreter": "python3",
       "requirements": ["base", "python3", "tools"]
-    },
-    "python3.6": {
-      "interpreter": "python3.6",
-      "requirements": ["base", "python3", "tools"]
-    },
-    "ctf": {
-      "interpreter": "python2.7",
-      "requirements": ["base", "python2", "tools", "ctf"]
     }
   },
   "pythonPaths": {
