@@ -48,3 +48,6 @@ brew 'zbar'
 
 tap 'haosdent/s'
 brew 's'
+
+tap 'vitorgalvao/tiny-scripts'
+brew 'cask-repair'
