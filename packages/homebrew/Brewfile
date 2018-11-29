@@ -45,6 +45,7 @@ brew 'tmux'
 brew 'watch'
 brew 'wdiff', args: ['with-gettext']
 brew 'wget'
+brew 'youtube-dl'
 brew 'zbar'
 
 tap 'haosdent/s'
