@@ -31,9 +31,6 @@ if [[ $platform == 'Darwin' ]]; then
   # Install casks
   brew bundle --file=packages/homebrew/Brewfile.casks
 
-  # Install MAS apps
-  brew bundle --file=packages/homebrew/Brewfile.mas
-
   # Upgrade all Brew packages
   brew upgrade
 
