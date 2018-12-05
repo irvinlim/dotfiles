@@ -114,9 +114,10 @@ if [ ! -f "$HOME/.dotfiles_gui" ]; then
 fi
 
 is_gui=`cat "$HOME/.dotfiles_gui"`
+platform=$(uname)
 
 # Install Homebrew
-if [ ! -f /usr/local/bin/brew ]; then
+if [[ $platform == 'Darwin' && ! -f /usr/local/bin/brew ]]; then
   echo -e '\033[0;33mInstalling Homebrew...\033[0m'
   install_homebrew
 fi
