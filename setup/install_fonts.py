@@ -16,11 +16,11 @@ font_locations = {'darwin': '~/Library/Fonts'}
 
 
 def main():
-    font_location = font_locations[sys.platform]
-
-    if not font_location:
+    if sys.platform not in font_locations:
         log.error('No font location defined for %s' % sys.platform)
-        sys.exit(1)
+        sys.exit(0)
+
+    font_location = font_locations[sys.platform]
 
     for font in fonts:
         font_name = urllib.parse.unquote(os.path.basename(font))
