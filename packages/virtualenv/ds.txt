@@ -1,6 +1,7 @@
 jupyter
 matplotlib
 numpy
-opencv
+opencv-contrib-python
+opencv-python
 pandas
 scikit-learn
