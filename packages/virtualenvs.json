@@ -24,6 +24,10 @@
     "ctf": {
       "interpreter": "python2.7",
       "requirements": ["base", "python2", "tools", "ctf"]
+    },
+    "ds": {
+      "interpreter": "python3.6",
+      "requirements": ["base", "python3", "tools", "ds"]
     }
   },
   "pythonPaths": {
