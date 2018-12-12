@@ -115,6 +115,7 @@ def link_configs(yes):
         link_file(src_path, dst_path, yes=yes)
 
     print('\033[0;32mAll configuration files linked!\033[0m')
+    return True
 
 
 if __name__ == '__main__':

@@ -18,9 +18,10 @@ font_locations = {'darwin': '~/Library/Fonts'}
 def install_fonts():
     if sys.platform not in font_locations:
         log.error('No font location defined for %s' % sys.platform)
-        sys.exit(0)
+        return True
 
     font_location = font_locations[sys.platform]
+    no_error = True
 
     for font in fonts:
         font_name = urllib.parse.unquote(os.path.basename(font))
@@ -32,11 +33,13 @@ def install_fonts():
             res = requests.get(font, stream=True)
             if res.status_code != 200:
                 log.error('Got status code %s for %s' % (res.status_code, font))
-                continue
+                no_error = False
 
             with open(font_path, 'wb') as f:
                 for chunk in res.iter_content(1024):
                     f.write(chunk)
+
+    return no_error
 
 
 if __name__ == '__main__':
