@@ -4,19 +4,66 @@ This repository is for storing personal configurations and automating their main
 
 ## Features
 
-- Symlinking of per-platform dotfiles/configs
-- Handy aliases and scripts
-- Synchronisation of apps through:
-  - macOS: Homebrew taps + casks
-  - Debian: apt (_TODO_)
-- Maintenance of installed packages across virtualenvs
-  - Composable `requirements.txt` files for syncing packages in different virtualenvs
-  - Handy setup script to initialise local virtualenv using `ve`
-  - Aliases to switch between global virtualenvs using `venv_$name`, or local virtualenv using `venv`
-- External configurations:
-  - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
-  - [Oh My Vim](https://github.com/liangxianzhe/oh-my-vim)
-  - [.tmux (Oh My Tmux)](https://github.com/gpakosz/.tmux)
+### Installer module
+
+The `df_install` Python command-line tool is installed, which provides multiple commands to manage configs, virtualenvs, and more.
+
+The current subcommands include:
+
+```sh
+df_install --help
+Usage: df_install [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  install_fonts
+  link_configs
+  setup_venv
+```
+
+### Platform-specific config symlinking
+
+The `df_install link_configs` command is the main entrypoint to symlink all config files and directories. Rather than using another dotfile manager, I chose to write my own for flexibility in choosing how things should be symlinked.
+
+All configs which should be symlinked can be found in `configs/`. The mapping of directories/files to their respective locations can be found in `mappings.json`.
+
+`link_configs` distinguishes files from directories, since there may be some instances where we do not want to symlink the entire directory (such as `$HOME`), while other instances we will choose to do so (plists do not play well with symlinks as many macOS apps overwrite the symlink with a file instead).
+
+Different platforms may also have different locations in which the config file is expected to be located in, or some apps may not be available on Linux, for example (such as iTerm2). In this case, we will specify a destination path for `darwin`, but nothing for `linux`.
+
+### Package management
+
+Several package managers are used to maintain a consistent environment for which apps and libraries are installed. The list of package managers include:
+
+- Homebrew (macOS only)
+- pip
+- apt (Debian only, TODO)
+- opam
+- stack
+
+### Virtualenv management
+
+Since I use Python almost daily in different contexts, it makes sense to maintain separate virtualenvs that can be kept consistent across machines. As such, package management for Python modules are installed by virtualenv. See `packages/virtualenvs.json` for the configuration of virtualenvs that will be installed.
+
+`df_install setup_venv` also helps with the installation of modules in different virtualenvs, which reads the `virtualenvs.json` configuration as well as different `requirements.txt`-like files under `packages/virtualenvs`.
+
+Virtualenvs can be composed, meaning that for a named virtualenv, it can choose to install packages based on multiple bases. For example, we can install a `ctf` virtualenv which is based on `base`, `python2`, `tools` and `ctf`, while our pure `python2` virtualenv only uses `base`, `python2` and `tools`.
+
+For project-specific virtualenvs, we can use `df_install setup_venv from_base`, aliased as `ve`, which sets up a virtualenv in the current directory (named `.venv` by convention). This installs packages only from `base`.
+
+We can quickly switch between virtualenvs using `venv_$name`, where `$name` is the name of the global virtualenv, or local virtualenv using `venv`.
+
+### One-time setup
+
+My dotfile setup also extends several well-known setups, which include:
+
+- [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
+- [Oh My Vim](https://github.com/liangxianzhe/oh-my-vim)
+- [.tmux (Oh My Tmux)](https://github.com/gpakosz/.tmux)
+
+These will be installed only once at `init.sh`.
 
 ## Installation
 
@@ -26,15 +73,13 @@ The following command updates config symlinks, installs/updates apps through Hom
 ./setup.sh
 ```
 
-Ideally, the script should be able to run multiple times without affecting previous runs, and should not overwrite any existing configuration files without prior approval from the user.
+This command is idempotent, meaning that we can run it several times without error.
 
-The following script also sets up several one-time things, such as first-time installation of tools and external configs:
+### Initial setup
 
 ```sh
 ./init.sh
 ```
-
-Note that `init.sh` may not be fully working until I actually have to bootstrap a new macOS or Linux machine.
 
 ## Additional setup instructions
 
