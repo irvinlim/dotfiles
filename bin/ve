@@ -10,7 +10,7 @@
 #   $ ve python2.7
 #
 
-cmd=(python -m setup.setup_venv)
+cmd=(df_install setup_venv)
 
 if [[ -n "$1" ]]
 then

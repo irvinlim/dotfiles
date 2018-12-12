@@ -1,17 +1,17 @@
-#!/usr/bin/env python
-
 from __future__ import print_function
 
 import json
 import os
 import sys
 
+import click
 from six import string_types
 from virtualenvapi.manage import VirtualEnvironment
 
-from . import log
+from .base import cli
+from df_install.utils import log
 
-DOTFILES_ROOT = os.getenv('DOTFILES_ROOT') or os.path.abspath(os.path.curdir)
+DOTFILES_ROOT = os.getenv('DOTFILES_ROOT')
 GLOBAL_VIRTUALENV_ROOT = os.path.expanduser('~/.virtualenvs')
 LOCAL_VIRTUALENV_PATH = '.venv'
 VIRTUALENVS_JSON = os.path.join(DOTFILES_ROOT, 'packages', 'virtualenvs.json')
@@ -59,6 +59,32 @@ def install_venv(name, path, requirements, python_path):
             env.install(package, options=options)
 
 
+def setup_from(venv_name):
+    with open(VIRTUALENVS_JSON) as f:
+        data = json.load(f)
+
+    venv_from = data.get('venvs').get(venv_name)
+    if not venv_from:
+        log.error('No virtualenv config named "%s" found.' % venv_name)
+        return False
+
+    requirements = venv_from.get('requirements')
+    python_path = resolve_python_paths(venv_from.get('interpreter'), data)
+    if not python_path:
+        log.error('No valid interpreter path found.')
+        return False
+
+    log.debug('Using Python interpreter %s.' % python_path)
+    install_venv(LOCAL_VIRTUALENV_PATH, LOCAL_VIRTUALENV_PATH, requirements, python_path)
+    return True
+
+
+@cli.group()
+def setup_venv():
+    pass
+
+
+@setup_venv.command('from_config')
 def setup_venvs_from_config():
     log.info('Installing virtualenvs from config...')
 
@@ -81,65 +107,31 @@ def setup_venvs_from_config():
     return True
 
 
-def setup_venv_from(venv_name=""):
+@setup_venv.command('from')
+@click.argument('venv_name')
+def setup_venv_from(venv_name):
     if not venv_name:
         log.error('Please specify venv name.')
         return False
 
     log.info('Installing virtualenv from %s...' % venv_name)
 
-    with open(VIRTUALENVS_JSON) as f:
-        data = json.load(f)
-
-    venv_from = data.get('venvs').get(venv_name)
-    if not venv_from:
-        log.error('No virtualenv config named "%s" found.' % venv_name)
+    if not setup_from(venv_name):
         return False
 
-    requirements = venv_from.get('requirements')
-    python_path = resolve_python_paths(venv_from.get('interpreter'), data)
-    if not python_path:
-        log.error('No valid interpreter path found.')
-        return False
 
-    log.debug('Using Python interpreter %s.' % python_path)
-    install_venv(LOCAL_VIRTUALENV_PATH, LOCAL_VIRTUALENV_PATH, requirements, python_path)
-    return True
-
-
+@setup_venv.command('from_base')
 def setup_venv_from_base():
     if os.path.exists(os.path.abspath(LOCAL_VIRTUALENV_PATH)):
         log.error('Virtualenv already exists.')
         return False
 
-    if not setup_venv_from('base'):
+    if not setup_from('base'):
         return False
 
     print(log.color('0;32', 'Virtualenv is created! Now run'), log.color('1;34', 'venv'), log.color('0;32', 'in your shell to activate.'))
     return True
 
 
-def main():
-    commands = {
-        'from': setup_venv_from,
-        'from_config': setup_venvs_from_config,
-        'from_base': setup_venv_from_base,
-    }
-    command_keys = list(commands.keys())
-
-    if len(sys.argv) < 2:
-        print('Usage: python setup_venv.py [%s]' % '|'.join(command_keys))
-        sys.exit(-1)
-
-    cmd, options = sys.argv[1], sys.argv[2:]
-
-    if cmd not in commands:
-        print('Usage: python setup_venv.py [%s]' % '|'.join(command_keys))
-        sys.exit(-1)
-
-    if not commands[cmd](*options):
-        sys.exit(-1)
-
-
 if __name__ == '__main__':
-    main()
+    setup_venv()

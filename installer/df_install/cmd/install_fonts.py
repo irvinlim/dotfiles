@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from __future__ import print_function
 
 import os
@@ -8,14 +6,16 @@ import sys
 import requests
 from six.moves import urllib
 
-from . import log
+from .base import cli
+from df_install.utils import log
 
 fonts = ['https://github.com/powerline/fonts/raw/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf']
 
 font_locations = {'darwin': '~/Library/Fonts'}
 
 
-def main():
+@cli.command()
+def install_fonts():
     if sys.platform not in font_locations:
         log.error('No font location defined for %s' % sys.platform)
         sys.exit(0)
@@ -40,4 +40,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    install_fonts()
