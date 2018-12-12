@@ -96,8 +96,28 @@ install_virtualenv() {
   fi
 }
 
+#########
+
+# Start here!
+
+# Ask if this environment is a GUI environment, which can skip installation of graphical tools and other stuff.
+if [ ! -f "$HOME/.dotfiles_gui" ]; then
+  echo -n "[?] Does this environment have a GUI? This would skip installation of graphical tools as necessary: "
+  read -n 1 is_gui
+  echo
+
+  if [[ "$is_gui" == "n" ]]; then
+    echo "0" > "$HOME/.dotfiles_gui"
+  else
+    echo "1" > "$HOME/.dotfiles_gui"
+  fi
+fi
+
+is_gui=`cat "$HOME/.dotfiles_gui"`
+platform=$(uname)
+
 # Install Homebrew
-if [ ! -f /usr/local/bin/brew ]; then
+if [[ $platform == 'Darwin' && ! -f /usr/local/bin/brew ]]; then
   echo -e '\033[0;33mInstalling Homebrew...\033[0m'
   install_homebrew
 fi
@@ -136,6 +156,8 @@ fi
 pip install -r setup/requirements.txt
 
 # Install fonts
-python -m setup.install_fonts
+if [ "$is_gui" -eq "1" ]; then
+  python -m setup.install_fonts
+fi
 
 echo -e '\033[0;32mFirst time installation is complete.\033[0m'

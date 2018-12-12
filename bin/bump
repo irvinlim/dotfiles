@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+#
+# Usage:
+#
+# Bump the version as specified in the `version` file found in the current directory:
+#   $ bump
+#
+# Bump a different version file:
+#   $ bump src/VERSION
+#
+# For more complicated use cases, use the bumpversion command instead, as this only serves
+# to be a simple alias for patch bumps + commits.
+#
+
+VERSION_FILE="${1:-version}"
+echo "$VERSION_FILE"
+
+bumpversion patch "$VERSION_FILE" --commit --current-version=`cat "$VERSION_FILE"` --verbose

@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from __future__ import print_function
 
 import json
@@ -8,10 +6,13 @@ import shutil
 from sys import platform
 from argparse import ArgumentParser
 
+import click
 from six import string_types
 from six.moves import input
 
-CONFIGS_ROOT = os.path.abspath('configs')
+from .base import cli
+
+CONFIGS_ROOT = os.path.abspath(os.path.join(os.getenv('DOTFILES_ROOT'), 'configs'))
 DIRS_ROOT = os.path.join(CONFIGS_ROOT, 'dirs')
 FILES_ROOT = os.path.join(CONFIGS_ROOT, 'files')
 MAPPINGS_JSON = os.path.join(CONFIGS_ROOT, 'mappings.json')
@@ -38,7 +39,7 @@ def get_dst(src, dst):
     return linux
 
 
-def link_file(src, dst):
+def link_file(src, dst, yes=False):
     # Skip if symlink is identical.
     if os.path.islink(dst) and os.readlink(dst) == src:
         return
@@ -48,7 +49,7 @@ def link_file(src, dst):
     # Prompt before overwriting file.
     write = True
     if os.path.exists(dst) or os.path.islink(dst):
-        if not args.yes:
+        if not yes:
             write = input('[?] %s exists. Overwrite? (y/N) ' % dst).upper() == 'Y'
 
         if not write:
@@ -66,7 +67,7 @@ def link_file(src, dst):
     os.symlink(src, dst)
 
 
-def iterate_directory(src, dst):
+def iterate_directory(src, dst, yes=False):
     for child in os.listdir(src):
         src_path = os.path.join(src, child)
         dst_path = os.path.join(dst, child)
@@ -75,12 +76,16 @@ def iterate_directory(src, dst):
             raise Exception('Error: %s does not exist.' % src_path)
 
         if os.path.isdir(src_path):
-            iterate_directory(src_path, dst_path)
+            iterate_directory(src_path, dst_path, yes=yes)
         else:
-            link_file(src_path, dst_path)
+            link_file(src_path, dst_path, yes=yes)
 
 
-def main():
+@cli.command()
+@click.option(
+    '-y', '--yes', is_flag=True, help='Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.'
+)
+def link_configs(yes):
     print('\033[0;33mLinking configuration files...\033[0m')
 
     with open(MAPPINGS_JSON) as f:
@@ -96,7 +101,7 @@ def main():
 
         src_path = os.path.abspath(os.path.join(FILES_ROOT, src))
         dst_path = os.path.abspath(os.path.expanduser(os.path.join(dst)))
-        iterate_directory(src_path, dst_path)
+        iterate_directory(src_path, dst_path, yes=yes)
 
     for mapping in dirs:
         src = mapping.get('src')
@@ -107,17 +112,11 @@ def main():
 
         src_path = os.path.abspath(os.path.join(DIRS_ROOT, src))
         dst_path = os.path.abspath(os.path.expanduser(os.path.join(dst)))
-        link_file(src_path, dst_path)
+        link_file(src_path, dst_path, yes=yes)
 
     print('\033[0;32mAll configuration files linked!\033[0m')
+    return True
 
 
 if __name__ == '__main__':
-    parser = ArgumentParser('link_configs')
-    parser.add_argument(
-        '-y', '--yes', action='store_true',
-        help='Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.'
-    )
-
-    args = parser.parse_args()
-    main()
+    link_configs()  # pylint: disable=no-value-for-parameter

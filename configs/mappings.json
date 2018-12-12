@@ -6,9 +6,6 @@
     },
     "spectacle": {
       "darwin": "~/Library/Application Support/Spectacle"
-    },
-    "plists": {
-      "darwin": "~/Library/Preferences"
     }
   },
   "dirs": [

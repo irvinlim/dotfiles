@@ -13,11 +13,11 @@ platform=$(uname)
 # Save location of dotfiles root
 echo `pwd` > "$HOME/.dotfiles_root"
 
-# Initialisation of setup packages
-pip install -r setup/requirements.txt > /dev/null
+# Install the installer
+pip install installer/ > /dev/null
 
 # Symlink configs
-python -m setup.link_configs
+df_install link_configs
 
 # Symlink scripts folder
 if [ ! -d "$HOME/scripts" ]; then
@@ -42,4 +42,4 @@ if [[ $platform == 'Darwin' ]]; then
 fi
 
 # Setup virtualenvs and install packages
-python -m setup.setup_venv from_config
+df_install setup_venv from_config

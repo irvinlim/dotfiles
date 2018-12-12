@@ -17,6 +17,9 @@ export DEFAULT_USER='irvin'
 # Source .profile.
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
+# Source local settings.
+[[ -e ~/.zshrc.local ]] && emulate sh -c 'source ~/.zshrc.local'
+
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -137,3 +140,6 @@ fi
 
 # Add opam configuration
 test -r "$HOME/.opam/opam-init/init.zsh" && . "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null || true
+
+# Add completions
+. "$HOME/.completions.zsh"
