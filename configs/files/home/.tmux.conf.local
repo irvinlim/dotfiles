@@ -265,3 +265,6 @@ set -g mouse on
 
 # move status line to top
 #set -g status-position top
+
+# Disable pane renaming
+set-option -g allow-rename off
