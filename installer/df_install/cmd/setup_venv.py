@@ -79,12 +79,6 @@ def setup_from(venv_name):
     return True
 
 
-@cli.group()
-def setup_venv():
-    pass
-
-
-@setup_venv.command('from_config')
 def setup_venvs_from_config():
     log.info('Installing virtualenvs from config...')
 
@@ -107,8 +101,6 @@ def setup_venvs_from_config():
     return True
 
 
-@setup_venv.command('from')
-@click.argument('venv_name')
 def setup_venv_from(venv_name):
     if not venv_name:
         log.error('Please specify venv name.')
@@ -120,7 +112,6 @@ def setup_venv_from(venv_name):
         return False
 
 
-@setup_venv.command('from_base')
 def setup_venv_from_base():
     if os.path.exists(os.path.abspath(LOCAL_VIRTUALENV_PATH)):
         log.error('Virtualenv already exists.')
@@ -133,5 +124,22 @@ def setup_venv_from_base():
     return True
 
 
+@cli.command()
+@click.option('--from', 'venv_name', help='Virtualenv to create from.')
+@click.option('--from-config', is_flag=True, help='Whether to setup all virtualenvs from the config file.')
+def setup_venv(venv_name, from_config):
+    if from_config is True:
+        return setup_venvs_from_config()
+
+    if not venv_name:
+        log.error('Virtualenv name not specified.')
+        return False
+
+    if venv_name == 'base':
+        return setup_venv_from_base()
+
+    return setup_venv_from(venv_name)
+
+
 if __name__ == '__main__':
-    setup_venv()
+    setup_venv()  # pylint: disable=no-value-for-parameter
