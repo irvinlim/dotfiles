@@ -14,10 +14,11 @@ platform=$(uname)
 echo `pwd` > "$HOME/.dotfiles_root"
 
 # Install the installer
+echo -e '\033[0;33mSetting up df-install.\033[0m'
 pip install installer/ > /dev/null
 
 # Symlink configs
-df_install link_configs
+df-install link-configs
 
 # Symlink scripts folder
 if [ ! -d "$HOME/scripts" ]; then
@@ -42,4 +43,4 @@ if [[ $platform == 'Darwin' ]]; then
 fi
 
 # Setup virtualenvs and install packages
-df_install setup_venv from_config
+df-install setup-venv --from-config

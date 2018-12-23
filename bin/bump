@@ -14,6 +14,6 @@
 #
 
 VERSION_FILE="${1:-version}"
-echo "$VERSION_FILE"
 
-bumpversion patch "$VERSION_FILE" --commit --current-version=`cat "$VERSION_FILE"` --verbose
+bumpversion patch "$VERSION_FILE" --commit --current-version=`cat "$VERSION_FILE"`
+echo "Bumped and committed version: `cat $VERSION_FILE`."

@@ -25,14 +25,14 @@ def _setup():
                 install_requires.append(requirement)
 
         setup(
-            name='df_install',
+            name='df-install',
             version='1.0.0',
             author='Irvin Lim',
             author_email='me@irvinlim.com',
             url='https://github.com/irvinlim/dotfiles',
             install_requires=install_requires,
             packages=find_packages(),
-            entry_points={'console_scripts': ['df_install = df_install.main:run']},
+            entry_points={'console_scripts': ['df-install = df_install.main:run']},
         )
 
 
