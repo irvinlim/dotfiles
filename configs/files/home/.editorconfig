@@ -59,6 +59,11 @@ indent_style = space
 indent_size = 2
 indent_style = space
 
+# HashiCorp Configuration Language (HCL) uses 2 spaces on documentation website.
+[*.hcl]
+indent_size = 2
+indent_style = space
+
 # Git uses tabs when writing to .gitconfig
 [.gitconfig]
 indent_size = 4
