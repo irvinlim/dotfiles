@@ -310,7 +310,16 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": false,
-                    "simple_modifications": []
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "insert"
+                            },
+                            "to": {
+                                "key_code": "power"
+                            }
+                        }
+                    ]
                 }
             ],
             "fn_function_keys": [
