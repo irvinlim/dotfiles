@@ -1,7 +1,7 @@
 {
     "global": {
         "check_for_updates_on_startup": true,
-        "show_in_menu_bar": true,
+        "show_in_menu_bar": false,
         "show_profile_name_in_menu_bar": false
     },
     "profiles": [
@@ -22,7 +22,7 @@
                                     "key_code": "escape",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_option"
+                                            "left_command"
                                         ]
                                     }
                                 },
@@ -30,7 +30,7 @@
                                     {
                                         "key_code": "grave_accent_and_tilde",
                                         "modifiers": [
-                                            "left_option"
+                                            "left_command"
                                         ]
                                     }
                                 ],
