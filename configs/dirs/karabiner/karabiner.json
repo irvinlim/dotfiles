@@ -318,6 +318,14 @@
                             "to": {
                                 "key_code": "power"
                             }
+                        },
+                        {
+                            "from": {
+                                "key_code": "right_option"
+                            },
+                            "to": {
+                                "key_code": "right_command"
+                            }
                         }
                     ]
                 }
