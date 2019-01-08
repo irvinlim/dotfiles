@@ -15,7 +15,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Change Leopold FC660M Cmd+Escape to Cmd+Tilde (HyperSwitch)",
+                        "description": "Change Cmd+Escape to Cmd+` (for HyperSwitch)",
                         "manipulators": [
                             {
                                 "from": {
