@@ -15,7 +15,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Change Cmd+Escape to Cmd+` (for HyperSwitch)",
+                        "description": "Change Esc to Tilde with Modifiers (65% boards)",
                         "manipulators": [
                             {
                                 "from": {
@@ -31,6 +31,25 @@
                                         "key_code": "grave_accent_and_tilde",
                                         "modifiers": [
                                             "left_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "escape",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "grave_accent_and_tilde",
+                                        "modifiers": [
+                                            "left_control"
                                         ]
                                     }
                                 ],
