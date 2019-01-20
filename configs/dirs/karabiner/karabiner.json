@@ -37,32 +37,6 @@
                                 "type": "basic"
                             }
                         ]
-                    },
-                    {
-                        "description": "Use Caps Lock as a Command modifier",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_command"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "caps_lock"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
                     }
                 ]
             },
@@ -566,6 +540,14 @@
                             },
                             "to": {
                                 "key_code": "right_command"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "caps_lock"
+                            },
+                            "to": {
+                                "key_code": "left_command"
                             }
                         }
                     ]
