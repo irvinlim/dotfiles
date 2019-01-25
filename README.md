@@ -1,5 +1,7 @@
 # irvinlim's dotfiles
 
+[![Analytics](https://gabeacon.irvinlim.com/UA-61872435-6/dotfiles/readme)](https://github.com/irvinlim/ga-beacon)
+
 This repository is for storing personal configurations and automating their maintenance across multiple machines and environments.
 
 ## Features
