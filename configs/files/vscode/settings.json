@@ -113,6 +113,9 @@
   "markdown-pdf.highlightStyle": "github.css",
   "markdown-pdf.breaks": true,
 
+  // LaTeX
+  "latex-workshop.view.pdf.viewer": "tab",
+
   // Themes
   "workbench.iconTheme": "file-icons",
   "editor.tokenColorCustomizations": {
