@@ -4,4 +4,6 @@ numpy
 opencv-contrib-python
 opencv-python
 pandas
+Pillow
+scikit-image
 scikit-learn
