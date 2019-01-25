@@ -1,9 +1,5 @@
 tap 'homebrew/bundle'
 
-# Install ntfs-3g
-cask 'osxfuse'
-brew 'ntfs-3g'
-
 brew 'binutils'
 brew 'clang-format'
 brew 'colordiff'
