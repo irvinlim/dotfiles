@@ -332,14 +332,6 @@
                     "simple_modifications": [
                         {
                             "from": {
-                                "key_code": "fn"
-                            },
-                            "to": {
-                                "key_code": "right_control"
-                            }
-                        },
-                        {
-                            "from": {
                                 "key_code": "left_command"
                             },
                             "to": {
@@ -368,14 +360,6 @@
                             },
                             "to": {
                                 "key_code": "right_option"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "right_control"
-                            },
-                            "to": {
-                                "key_code": "fn"
                             }
                         },
                         {
@@ -512,6 +496,14 @@
                     "simple_modifications": [
                         {
                             "from": {
+                                "key_code": "caps_lock"
+                            },
+                            "to": {
+                                "key_code": "left_command"
+                            }
+                        },
+                        {
+                            "from": {
                                 "key_code": "delete_forward"
                             },
                             "to": {
@@ -540,14 +532,6 @@
                             },
                             "to": {
                                 "key_code": "right_command"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "caps_lock"
-                            },
-                            "to": {
-                                "key_code": "left_command"
                             }
                         }
                     ]
