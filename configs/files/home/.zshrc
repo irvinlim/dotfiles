@@ -141,5 +141,8 @@ fi
 # Add opam configuration
 test -r "$HOME/.opam/opam-init/init.zsh" && . "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null || true
 
+# Export FPATH: https://github.com/robbyrussell/oh-my-zsh/issues/4607
+export FPATH=$HOME/usr/share/zsh/'version of zsh'/functions:$FPATH
+
 # Add completions
 . "$HOME/.completions.zsh"
