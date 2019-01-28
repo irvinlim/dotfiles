@@ -35,6 +35,7 @@ def resolve_python_paths(interpreter, data):
 
     python_path = None
     for path in python_paths:
+        path = os.path.expanduser(path)
         if os.path.exists(path):
             python_path = path
             break
