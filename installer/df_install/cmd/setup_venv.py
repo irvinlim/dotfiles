@@ -46,18 +46,21 @@ def resolve_python_paths(interpreter, data):
 def install_venv(name, path, requirements, python_path):
     print('[*] Setting up %s virtualenv...' % log.color('1;34', name))
 
-    # Create new virtualenv if it doesn't exist.
-    env = VirtualEnvironment(path, python=python_path)
+    try:
+        # Create new virtualenv if it doesn't exist.
+        env = VirtualEnvironment(path, python=python_path)
 
-    # Install requirements for the virtualenv.
-    requirements = get_requirements(requirements)
-    for requirement in requirements:
-        requirement = requirement.split(' ')
-        package, options = requirement[0], requirement[1:]
+        # Install requirements for the virtualenv.
+        requirements = get_requirements(requirements)
+        for requirement in requirements:
+            requirement = requirement.split(' ')
+            package, options = requirement[0], requirement[1:]
 
-        if not env.is_installed(package):
-            print('    Installing %s...' % log.color('1;33', package))
-            env.install(package, options=options)
+            if not env.is_installed(package):
+                print('    Installing %s...' % log.color('1;33', package))
+                env.install(package, options=options)
+    except Exception as e:
+        log.error('Exception occurred while setting up %s: %s' % (name, e))
 
 
 def setup_from(venv_name):
