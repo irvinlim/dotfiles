@@ -56,7 +56,7 @@
 
   // Formatters
   "C_Cpp.clang_format_fallbackStyle": "WebKit",
-  "C_Cpp.clang_format_path": "/usr/local/Cellar/clang-format/2018-01-11/bin/clang-format",
+  "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
   "go.formatTool": "gofmt",
   "go.inferGopath": true,
   "prettier.jsxBracketSameLine": true,
