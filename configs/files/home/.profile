@@ -35,6 +35,9 @@ export MESOS_NATIVE_JAVA_LIBRARY=/usr/local/Cellar/mesos/1.4.1/lib/libmesos.dyli
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
+# Conda
+export PATH="$HOME/anaconda3/bin:$PATH"
+
 # Local binaries
 export PATH="$HOME/bin:$PATH"
 
