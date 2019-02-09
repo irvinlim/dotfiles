@@ -37,6 +37,48 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Use Shift-F7 for rewind",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f7",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "rewind"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Use Shift-F9 for volume_down",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f9",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "volume_down"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
@@ -332,14 +374,6 @@
                     "simple_modifications": [
                         {
                             "from": {
-                                "key_code": "fn"
-                            },
-                            "to": {
-                                "key_code": "right_control"
-                            }
-                        },
-                        {
-                            "from": {
                                 "key_code": "left_command"
                             },
                             "to": {
@@ -368,14 +402,6 @@
                             },
                             "to": {
                                 "key_code": "right_option"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "right_control"
-                            },
-                            "to": {
-                                "key_code": "fn"
                             }
                         },
                         {
@@ -441,7 +467,7 @@
                                 "key_code": "f5"
                             },
                             "to": {
-                                "consumer_key_code": "rewind"
+                                "key_code": "f5"
                             }
                         },
                         {
@@ -465,7 +491,7 @@
                                 "key_code": "f8"
                             },
                             "to": {
-                                "key_code": "f8"
+                                "consumer_key_code": "mute"
                             }
                         },
                         {
@@ -473,7 +499,7 @@
                                 "key_code": "f9"
                             },
                             "to": {
-                                "key_code": "f9"
+                                "consumer_key_code": "volume_increment"
                             }
                         },
                         {
@@ -481,7 +507,7 @@
                                 "key_code": "f10"
                             },
                             "to": {
-                                "consumer_key_code": "mute"
+                                "key_code": "f10"
                             }
                         },
                         {
@@ -489,7 +515,7 @@
                                 "key_code": "f11"
                             },
                             "to": {
-                                "key_code": "volume_down"
+                                "key_code": "f11"
                             }
                         },
                         {
@@ -497,7 +523,7 @@
                                 "key_code": "f12"
                             },
                             "to": {
-                                "key_code": "volume_up"
+                                "key_code": "f12"
                             }
                         }
                     ],
@@ -510,6 +536,14 @@
                     "ignore": false,
                     "manipulate_caps_lock_led": false,
                     "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "application"
+                            },
+                            "to": {
+                                "key_code": "fn"
+                            }
+                        },
                         {
                             "from": {
                                 "key_code": "caps_lock"
@@ -549,14 +583,6 @@
                             "to": {
                                 "key_code": "right_command"
                             }
-                        },
-                        {
-                            "from": {
-                                "key_code": "application"
-                            },
-                            "to": {
-                                "key_code": "fn"
-                            }
                         }
                     ]
                 }
@@ -575,7 +601,7 @@
                         "key_code": "f2"
                     },
                     "to": {
-                        "key_code": "vk_consumer_brightness_up"
+                        "key_code": "display_brightness_increment"
                     }
                 },
                 {
