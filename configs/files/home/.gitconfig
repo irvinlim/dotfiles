@@ -21,3 +21,5 @@
 	templatedir = ~/.git-templates
 [http]
 	sslVerify = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
