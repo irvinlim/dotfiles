@@ -101,5 +101,13 @@
     "key": "f2",
     "command": "-editor.action.rename",
     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+cmd+,",
+    "command": "workbench.action.openWorkspaceSettings"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "workbench.view.debug"
   }
 ]
