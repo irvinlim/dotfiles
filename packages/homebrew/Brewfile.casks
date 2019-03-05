@@ -35,3 +35,5 @@ cask 'visual-studio-code'
 cask 'vlc'
 cask 'whatsapp'
 cask 'wireshark'
+
+cask 'caskroom/drivers/qmk-toolbox'
