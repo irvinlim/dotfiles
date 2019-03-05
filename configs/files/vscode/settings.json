@@ -233,5 +233,7 @@
       }
     ]
   },
-  "git.autofetch": true
+  "git.autofetch": true,
+  "python.jediEnabled": false,
+  "breadcrumbs.enabled": true
 }
