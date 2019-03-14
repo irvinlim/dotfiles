@@ -1,11 +1,14 @@
 {
   // General editor settings
+  "breadcrumbs.enabled": true,
   "editor.fontSize": 14,
   "editor.formatOnSave": true,
   "editor.renderWhitespace": "boundary",
+  "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "files.autoSave": "off",
   "files.insertFinalNewline": true,
   "window.zoomLevel": 0,
   "workbench.settings.editor": "json",
@@ -43,6 +46,7 @@
 
   // Git
   "diffEditor.ignoreTrimWhitespace": false,
+  "git.autofetch": true,
   "git.confirmSync": false,
   "git.defaultCloneDirectory": "~/Projects",
   "git.enableSmartCommit": true,
@@ -50,8 +54,10 @@
 
   // Libraries/Interpreters
   "C_Cpp.intelliSenseEngine": "Default",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "composer.executablePath": "/usr/local/bin/composer",
   "python.pythonPath": "~/.virtualenvs/python3.6/bin/python",
+  "python.jediEnabled": false,
   "prolog.executablePath": "/usr/local/bin/swipl",
   "prolog.linter.run": "onSave",
   "terminal.external.osxExec": "iTerm.app",
@@ -232,10 +238,5 @@
         }
       }
     ]
-  },
-  "git.autofetch": true,
-  "python.jediEnabled": false,
-  "breadcrumbs.enabled": true,
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+  }
 }
