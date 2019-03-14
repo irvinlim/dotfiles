@@ -156,6 +156,22 @@
       "args": ["%DOCFILE%"]
     }
   ],
+  "latex-workshop.latex.watch.files.ignore": [
+    "**/*.bbx",
+    "**/*.bbl",
+    "**/*.cbx",
+    "**/*.cfg",
+    "**/*.clo",
+    "**/*.cnf",
+    "**/*.def",
+    "**/*.fmt",
+    "**/*.lbx",
+    "**/*.map",
+    "**/*.pfb",
+    "**/*.tfm",
+    "**/texmf-{dist,var}/**",
+    "/dev/null"
+  ],
 
   // Themes
   "workbench.iconTheme": "file-icons",
