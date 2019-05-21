@@ -18,6 +18,9 @@ echo -e '\033[0;33mSetting up df-install.\033[0m'
 pip install -U pip > /dev/null
 pip install installer/ > /dev/null
 
+# Export any env vars required from .profile when it doesn't exist yet.
+export DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"`
+
 # Symlink configs
 df-install link-configs
 
