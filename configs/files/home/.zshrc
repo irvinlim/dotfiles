@@ -135,7 +135,10 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Add haosdent/s
 if [[ $platform == 'Darwin' ]]; then
-  . `brew --prefix`/etc/profile.d/s.sh
+  if [ -f `brew --prefix`/etc/profile.d/s.sh ]
+  then
+    . `brew --prefix`/etc/profile.d/s.sh
+  fi
 fi
 
 # Add opam configuration
