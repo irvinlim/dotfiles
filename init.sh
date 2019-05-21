@@ -153,11 +153,18 @@ if [ ! -x `which virtualenv` ]; then
 fi
 
 # Initialisation of setup packages
-pip install -r setup/requirements.txt
+pip install -r installer/requirements.txt
 
 # Install fonts
 if [ "$is_gui" -eq "1" ]; then
-  python -m setup.install_fonts
+  # Install the installer
+  echo -e '\033[0;33mSetting up df-install.\033[0m'
+  pip install -U pip > /dev/null
+  pip install installer/ > /dev/null
+
+  # Install fonts
+  echo -e '\033[0;33mRunning df-install install-fonts.\033[0m'
+  DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"` df-install install-fonts
 fi
 
 echo -e '\033[0;32mFirst time installation is complete.\033[0m'
