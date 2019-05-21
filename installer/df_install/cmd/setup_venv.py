@@ -146,4 +146,7 @@ def setup_venv(venv_name, from_config):
 
 
 if __name__ == '__main__':
+    if not os.path.exists(GLOBAL_VIRTUALENV_ROOT):
+        os.makedirs(GLOBAL_VIRTUALENV_ROOT)
+
     setup_venv()  # pylint: disable=no-value-for-parameter
