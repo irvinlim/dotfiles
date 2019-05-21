@@ -35,9 +35,9 @@
     }
   },
   "pythonPaths": {
-    "python2": ["/usr/local/bin/python2.7", "/usr/bin/python2.7"],
+    "python2": ["/usr/local/bin/python2.7", "/usr/bin/python2.7", "/usr/local/bin/python2"],
     "python2.7": ["/usr/local/bin/python2.7", "/usr/bin/python2.7"],
-    "python3": ["/usr/local/bin/python3.6", "/usr/bin/python3.6"],
+    "python3": ["/usr/local/bin/python3.6", "/usr/bin/python3.6", "/usr/local/bin/python3"],
     "python3.6": ["/usr/local/bin/python3.6", "/usr/bin/python3.6"],
     "python3.7": ["~/anaconda3/bin/python3.7", "/usr/local/bin/python3.7", "/usr/bin/python3.7"]
   }
