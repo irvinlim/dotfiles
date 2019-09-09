@@ -31,6 +31,9 @@ export PATH="/usr/texbin:$PATH"
 # Mesos
 export MESOS_NATIVE_JAVA_LIBRARY=/usr/local/Cellar/mesos/1.4.1/lib/libmesos.dylib
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # GNU Core Utils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
