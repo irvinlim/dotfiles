@@ -1,5 +1,5 @@
 {
-  "default": "python3",
+  "default": "python3.7",
   "venvs": {
     "base": {
       "interpreter": "python3",

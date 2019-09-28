@@ -34,7 +34,6 @@
     "**/.factorypath": true,
     "**/*.o": true
   },
-
   // Sync settings
   "sync.gist": "3a25be054cfda0823df5c0a42589347b",
   "sync.quietSync": false,
@@ -43,7 +42,6 @@
   "sync.autoDownload": false,
   "sync.autoUpload": false,
   "sync.forceDownload": false,
-
   // Git
   "diffEditor.ignoreTrimWhitespace": false,
   "git.autofetch": true,
@@ -51,12 +49,11 @@
   "git.defaultCloneDirectory": "~/Projects",
   "git.enableSmartCommit": true,
   "gitlab.instanceUrl": "https://git.irvinlim.com/",
-
   // Libraries/Interpreters
   "C_Cpp.intelliSenseEngine": "Default",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "composer.executablePath": "/usr/local/bin/composer",
-  "python.pythonPath": "~/.virtualenvs/python3.6/bin/python",
+  "python.pythonPath": "~/.virtualenvs/python3.7/bin/python",
   "python.jediEnabled": false,
   "prolog.executablePath": "/usr/local/bin/swipl",
   "prolog.linter.run": "onSave",
@@ -64,7 +61,6 @@
   "terminal.integrated.fontFamily": "'Meslo LG M for Powerline'",
   "terminal.integrated.shell.osx": "zsh",
   "terminal.integrated.shell.linux": "/usr/bin/zsh",
-
   // Formatters
   "C_Cpp.clang_format_fallbackStyle": "WebKit",
   "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
@@ -81,22 +77,27 @@
     "--style",
     "/Users/irvin/.config/yapf/style.cfg"
   ],
-  "python.formatting.yapfPath": "~/.virtualenvs/python3.6/bin/yapf",
+  "python.formatting.yapfPath": "~/.virtualenvs/python3.7/bin/yapf",
   "python.linting.ignorePatterns": [
     ".vscode/*.py",
     ".venv/*.py",
     "**/site-packages/**/*.py"
   ],
   "vetur.format.defaultFormatter.html": "js-beautify-html",
-
   // SpellRight
-  "spellright.language": ["en_GB", "en"],
+  "spellright.language": [
+    "en_GB",
+    "en"
+  ],
   "spellright.groupDictionaries": false,
-  "spellright.documentTypes": ["markdown", "latex"],
-
+  "spellright.documentTypes": [
+    "markdown",
+    "latex"
+  ],
   // Project Manager
-  "projectManager.vscode.baseFolders": ["~/Projects"],
-
+  "projectManager.vscode.baseFolders": [
+    "~/Projects"
+  ],
   // Emmet
   "emmet.includeLanguages": {
     "blade": "html",
@@ -106,12 +107,10 @@
   "emmet.showAbbreviationSuggestions": false,
   "emmet.showExpandedAbbreviation": "always", // required to work with "emmet.includeLanguages"
   "emmet.triggerExpansionOnTab": true,
-
   // Licenser
   "licenser.author": "Irvin Lim",
   "licenser.license": "MIT",
   "licenser.useSingleLineStyle": false,
-
   // Markdown
   "[markdown]": {
     "editor.wordWrap": "on",
@@ -123,7 +122,6 @@
   },
   "markdown-pdf.highlightStyle": "github.css",
   "markdown-pdf.breaks": true,
-
   // LaTeX
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.tools": [
@@ -153,10 +151,11 @@
     {
       "name": "bibtex",
       "command": "bibtex",
-      "args": ["%DOCFILE%"]
+      "args": [
+        "%DOCFILE%"
+      ]
     }
   ],
-
   // Themes
   "workbench.iconTheme": "file-icons",
   "editor.tokenColorCustomizations": {
