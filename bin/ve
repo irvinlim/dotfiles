@@ -10,13 +10,4 @@
 #   $ ve python2.7
 #
 
-cmd=(df-install setup-venv --from)
-
-if [[ -n "$1" ]]
-then
-  cmd+="$1"
-else
-  cmd+="base"
-fi
-
-PYTHONPATH="$DOTFILES_ROOT" $cmd
+PYTHONPATH="$DOTFILES_ROOT" exec df-install setup-venv $@
