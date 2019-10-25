@@ -91,8 +91,8 @@ install_virtualenv() {
     sudo apt-get install -y python3-pip
     pip3 install virtualenv
   elif [[ $platform == "Darwin" ]]; then
-    brew install python@2
-    pip install virtualenv
+    brew install python
+    pip3 install virtualenv
   fi
 }
 
@@ -153,14 +153,14 @@ if [ ! -x `which virtualenv` ]; then
 fi
 
 # Initialisation of setup packages
-pip install -r installer/requirements.txt
+pip3 install -r installer/requirements.txt
 
 # Install fonts
 if [ "$is_gui" -eq "1" ]; then
   # Install the installer
   echo -e '\033[0;33mSetting up df-install.\033[0m'
-  pip install -U pip > /dev/null
-  pip install installer/ > /dev/null
+  pip3 install -U pip > /dev/null
+  pip3 install installer/ > /dev/null
 
   # Install fonts
   echo -e '\033[0;33mRunning df-install install-fonts.\033[0m'
