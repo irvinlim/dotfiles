@@ -35,7 +35,7 @@ brew 'telnet'
 brew 'tldr'
 brew 'tmux'
 brew 'watch'
-brew 'wdiff', args: ['with-gettext']
+brew 'wdiff'
 brew 'wget'
 brew 'youtube-dl'
 
