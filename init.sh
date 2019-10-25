@@ -87,6 +87,8 @@ install_tmux() {
 install_virtualenv() {
   platform=$(uname)
 
+  mkdir -p "$HOME/.virtualenvs"
+
   if [[ $platform == "Linux" ]]; then
     sudo apt-get install -y python3-pip
     pip3 install virtualenv
