@@ -1,6 +1,6 @@
 bs4
 chipwhisperer
-gmpy2 --global-option=build_ext --global-option="-I/opt/local/include/" --global-option="-L/opt/local/lib/"
+gmpy2
 numpy
 Pillow
 pwntools
