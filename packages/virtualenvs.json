@@ -2,24 +2,12 @@
   "default": "python3.7",
   "venvs": {
     "base": {
-      "interpreter": "python3",
+      "interpreter": "python3.7",
       "requirements": ["base"]
-    },
-    "python2": {
-      "interpreter": "python2",
-      "requirements": ["base", "python2", "tools"]
     },
     "python2.7": {
       "interpreter": "python2.7",
       "requirements": ["base", "python2", "tools"]
-    },
-    "python3": {
-      "interpreter": "python3",
-      "requirements": ["base", "python3", "tools"]
-    },
-    "python3.6": {
-      "interpreter": "python3.6",
-      "requirements": ["base", "python3", "tools"]
     },
     "python3.7": {
       "interpreter": "python3.7",
@@ -30,15 +18,16 @@
       "requirements": ["base", "python2", "tools", "ctf"]
     },
     "ds": {
-      "interpreter": "python3.6",
+      "interpreter": "python3.7",
       "requirements": ["base", "python3", "tools", "ds"]
     }
   },
   "pythonPaths": {
-    "python2": ["/usr/local/bin/python2.7", "/usr/bin/python2.7", "/usr/local/bin/python2"],
     "python2.7": ["/usr/local/bin/python2.7", "/usr/bin/python2.7"],
-    "python3": ["/usr/local/bin/python3.6", "/usr/bin/python3.6", "/usr/local/bin/python3"],
-    "python3.6": ["/usr/local/bin/python3.6", "/usr/bin/python3.6"],
-    "python3.7": ["~/anaconda3/bin/python3.7", "/usr/local/bin/python3.7", "/usr/bin/python3.7"]
+    "python3.7": [
+      "~/anaconda3/bin/python3.7",
+      "/usr/local/bin/python3.7",
+      "/usr/bin/python3.7"
+    ]
   }
 }
