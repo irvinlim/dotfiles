@@ -26,7 +26,7 @@ export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
 # LaTeX
-export PATH="/usr/texbin:$PATH"
+export PATH="/usr/texbin:/Library/TeX/texbin:$PATH"
 
 # Mesos
 export MESOS_NATIVE_JAVA_LIBRARY=/usr/local/Cellar/mesos/1.4.1/lib/libmesos.dylib
