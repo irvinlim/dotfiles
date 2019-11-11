@@ -7,6 +7,7 @@ import sys
 import click
 from six import string_types
 from virtualenvapi.manage import VirtualEnvironment
+from virtualenvapi.exceptions import VirtualenvCreationException
 
 from .base import cli
 from df_install.utils import log
@@ -48,10 +49,19 @@ def install_venv(name, path, requirements, python_path):
 
     try:
         # Create new virtualenv if it doesn't exist.
-        env = VirtualEnvironment(path, python=python_path)
-        env.open_or_create()
+        if not os.path.exists(path):
+            env = VirtualEnvironment(path, python=python_path)
+            env.open_or_create()
+
+        # Reopen virtualenv to use the correct Python path
+        env = VirtualEnvironment(path)
+        assert env.path == os.path.abspath(path)
 
         # Install requirements for the virtualenv.
+        # TODO: Shebang lines in binaries installed this way
+        #       use the path in python_path instead of this virtualenv's,
+        #       which I haven't been able to solve yet. A workaround
+        #       is just to pip uninstall and then install it back.
         requirements = get_requirements(requirements)
         for requirement in requirements:
             requirement = requirement.split(' ')
@@ -60,6 +70,10 @@ def install_venv(name, path, requirements, python_path):
             if not env.is_installed(package):
                 print('    Installing %s...' % log.color('1;33', package))
                 env.install(package, options=options)
+    except AssertionError as e:
+        raise e
+    except VirtualenvCreationException as e:
+        raise e
     except Exception as e:
         log.error('Exception occurred while setting up %s: %s' % (name, e))
 
