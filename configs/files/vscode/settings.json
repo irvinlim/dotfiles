@@ -4,6 +4,9 @@
   "editor.fontSize": 14,
   "editor.formatOnSave": true,
   "editor.renderWhitespace": "boundary",
+  "editor.rulers": [
+    120
+  ],
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "explorer.confirmDelete": false,
@@ -239,6 +242,9 @@
     ]
   },
   "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
