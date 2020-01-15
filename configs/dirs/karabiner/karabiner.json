@@ -453,6 +453,9 @@
                 }
             ],
             "name": "Irvin",
+            "parameters": {
+                "delay_milliseconds_before_open_device": 1000
+            },
             "selected": true,
             "simple_modifications": [],
             "virtual_hid_keyboard": {
