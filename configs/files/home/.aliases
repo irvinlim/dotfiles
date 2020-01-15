@@ -25,3 +25,10 @@ alias datei='date --iso-8601 | sed s/-//g'
 
 # Return datetime without timezone in a compressed format
 alias datetime='date +"%Y%m%d-%H%M%S"'
+
+## Linux command rewriting
+
+routes () {
+  echo Use "netstat -rn" instead.
+  return 127
+}
