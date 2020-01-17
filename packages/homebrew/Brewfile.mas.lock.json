@@ -1,0 +1,30 @@
+{
+  "entries": {
+    "mas": {
+      "Monit": {
+        "id": "1014850245",
+        "version": "2.0"
+      },
+      "Spark": {
+        "id": "1176895641",
+        "version": "2.5.2"
+      },
+      "Xcode": {
+        "id": "497799835",
+        "version": "11.3.1"
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "catalina": {
+        "HOMEBREW_VERSION": "2.2.1",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "25f2bbf1d01bdcaa04878e7e45042d3fdbb9ef18",
+        "CLT": "11.3.0.0.1.1574140115",
+        "Xcode": "11.3.1",
+        "macOS": "10.15.2"
+      }
+    }
+  }
+}
