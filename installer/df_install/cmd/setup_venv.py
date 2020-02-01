@@ -2,6 +2,7 @@ from __future__ import print_function
 
 import json
 import os
+import shutil
 import sys
 
 import click
@@ -73,9 +74,24 @@ def install_venv(name, path, requirements, python_path):
     except AssertionError as e:
         raise e
     except VirtualenvCreationException as e:
-        raise e
+        # Could not create virtualenv, which executes `virtualenv` as a subprocess under the hood.
+        log.error('Exception occurred while creating virtualenv: %s' % e)
+
+        # Check if we can find the virtualenv bin.
+        which = shutil.which('virtualenv')
+        if which is None:
+            log.error('Most probable error: Could not locate `virtualenv` in $PATH.')
+            return False
+
+        log.error('Possible errors:\n' + \
+                  '1. Check the shebang of %s' % which)
+
+        return False
     except Exception as e:
         log.error('Exception occurred while setting up %s: %s' % (name, e))
+        return False
+
+    return True
 
 
 def setup_from(venv_name):
@@ -94,8 +110,7 @@ def setup_from(venv_name):
         return False
 
     log.debug('Using Python interpreter %s.' % python_path)
-    install_venv(LOCAL_VIRTUALENV_PATH, LOCAL_VIRTUALENV_PATH, requirements, python_path)
-    return True
+    return install_venv(LOCAL_VIRTUALENV_PATH, LOCAL_VIRTUALENV_PATH, requirements, python_path)
 
 
 def setup_venvs_from_config():
@@ -114,7 +129,8 @@ def setup_venvs_from_config():
             continue
 
         path = os.path.join(GLOBAL_VIRTUALENV_ROOT, name)
-        install_venv(name, path, requirements, python_path)
+        if not install_venv(name, path, requirements, python_path):
+            return False
 
     log.success('All virtualenvs have been set up!')
     return True
@@ -151,7 +167,8 @@ def setup_venv_from_path(python_path):
     log.debug('Using Python interpreter %s.' % python_path)
 
     # Install new Virtualenv locally
-    install_venv(LOCAL_VIRTUALENV_PATH, LOCAL_VIRTUALENV_PATH, [], python_path)
+    if not install_venv(LOCAL_VIRTUALENV_PATH, LOCAL_VIRTUALENV_PATH, [], python_path):
+        return False
 
     print(log.color('0;32', 'Virtualenv is created! Now run'), log.color('1;34', 'venv'), log.color('0;32', 'in your shell to activate.'))
     return True
