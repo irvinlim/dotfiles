@@ -2,10 +2,10 @@
   "entries": {
     "tap": {
       "homebrew/cask-drivers": {
-        "revision": "585aaedc2111392d512f8fc9f43922a4e0f4a6c0"
+        "revision": "dc546be64fab4db0017e6aa4b1562cc94fad7702"
       },
       "homebrew/cask-versions": {
-        "revision": "1e522037523b8fb2bc69bdb3cb2dc3e1ac7d9552"
+        "revision": "53ea2bc84e8406a6edc5540c9f6d85481a7280c6"
       }
     },
     "cask": {
@@ -226,7 +226,7 @@
         }
       },
       "vagrant": {
-        "version": "2.2.6",
+        "version": "2.2.7",
         "options": {
           "args": {
             "appdir": "/Applications"
@@ -242,7 +242,7 @@
         }
       },
       "virtualbox": {
-        "version": "6.1.0,135406",
+        "version": "6.1.2,135662",
         "options": {
           "args": {
             "appdir": "/Applications"
@@ -290,7 +290,7 @@
         }
       },
       "qmk-toolbox": {
-        "version": "0.0.14",
+        "version": "0.0.16",
         "options": {
           "args": {
             "appdir": "/Applications"
@@ -302,11 +302,11 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.2.1",
+        "HOMEBREW_VERSION": "2.2.4",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "25f2bbf1d01bdcaa04878e7e45042d3fdbb9ef18",
-        "CLT": "11.3.0.0.1.1574140115",
-        "Xcode": "11.2",
+        "Homebrew/homebrew-core": "f28ccab881edd703d4f53fdac9661696f0f414d6",
+        "CLT": "11.3.1.0.1.1576735732",
+        "Xcode": "11.3.1",
         "macOS": "10.15.2"
       }
     }
