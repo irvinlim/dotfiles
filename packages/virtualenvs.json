@@ -13,10 +13,6 @@
       "interpreter": "python3.7",
       "requirements": ["base", "python3", "tools"]
     },
-    "ctf": {
-      "interpreter": "python2.7",
-      "requirements": ["base", "python2", "tools", "ctf"]
-    },
     "ds": {
       "interpreter": "python3.7",
       "requirements": ["base", "python3", "tools", "ds"]
