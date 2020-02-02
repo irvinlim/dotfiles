@@ -45,6 +45,18 @@ Several package managers are used to maintain a consistent environment for which
 - opam
 - stack
 
+#### `.brewfiles`
+
+Override the fixed list of Brewfiles that should be used for Homebrew package installation by creating `.brewfiles` in `$DOTFILES_ROOT`, like as follows:
+
+```
+Brewfile
+Brewfile.casks
+Brewfile.custom_file
+```
+
+All filenames should be relative to `$DOTFILES_ROOT/packages/homebrew`.
+
 ### Virtualenv management
 
 Since I use Python almost daily in different contexts, it makes sense to maintain separate virtualenvs that can be kept consistent across machines. As such, package management for Python modules are installed by virtualenv. See `packages/virtualenvs.json` for the configuration of virtualenvs that will be installed.

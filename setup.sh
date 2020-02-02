@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-export PIP_REQUIRE_VIRTUALENV= 
+export PIP_REQUIRE_VIRTUALENV=
 
 #
 # Setup script for setting up symlinks and installing applications.
@@ -31,14 +31,15 @@ if [ ! -d "$HOME/scripts" ]; then
 fi
 
 if [[ $platform == 'Darwin' ]]; then
-  # Install Brew formulae
-  brew bundle --file=packages/homebrew/Brewfile
-
-  # Install casks
-  brew bundle --file=packages/homebrew/Brewfile.casks
-
-  # Install MAS apps
-  brew bundle --file=packages/homebrew/Brewfile.mas
+  if [ -f "$DOTFILES_ROOT/.brewfiles" ]; then
+    # Use .brewfiles to determine formulae files
+    cat "$DOTFILES_ROOT/.brewfiles" | xargs -I {} brew bundle --file=packages/homebrew/{}
+  else
+    # Install hardcoded formulae
+    brew bundle --file=packages/homebrew/Brewfile
+    brew bundle --file=packages/homebrew/Brewfile.casks
+    brew bundle --file=packages/homebrew/Brewfile.mas
+  fi
 
   # Upgrade all Brew packages
   brew upgrade
