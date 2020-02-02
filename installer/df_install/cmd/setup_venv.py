@@ -4,6 +4,7 @@ import json
 import os
 import shutil
 import sys
+import traceback
 
 import click
 from six import string_types
@@ -88,7 +89,8 @@ def install_venv(name, path, requirements, python_path):
 
         return False
     except Exception as e:
-        log.error('Exception occurred while setting up %s: %s' % (name, e))
+        log.error('Exception (%s) occurred while setting up %s: %s' % (e.__class__, name, e))
+        traceback.print_exc()
         return False
 
     return True
