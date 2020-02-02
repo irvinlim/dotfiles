@@ -6,18 +6,13 @@ import shutil
 import sys
 import traceback
 
-import click
-from six import string_types
-from virtualenvapi.manage import VirtualEnvironment
 from virtualenvapi.exceptions import VirtualenvCreationException
+from virtualenvapi.manage import VirtualEnvironment
 
-from .base import cli
-from df_install.utils import log
-
-DOTFILES_ROOT = os.getenv('DOTFILES_ROOT')
-GLOBAL_VIRTUALENV_ROOT = os.path.expanduser('~/.virtualenvs')
-LOCAL_VIRTUALENV_PATH = '.venv'
-VIRTUALENVS_JSON = os.path.join(DOTFILES_ROOT, 'packages', 'virtualenvs.json')
+import click
+from df_install.cmd.base import cli
+from df_install.utils import log, virtualenvs
+from df_install.utils.constants import *
 
 
 def get_requirements(filenames):
@@ -28,22 +23,6 @@ def get_requirements(filenames):
 
     requirements.sort()
     return requirements
-
-
-def resolve_python_paths(interpreter, data):
-    python_paths = data.get('pythonPaths').get(interpreter, [])
-
-    if isinstance(python_paths, string_types):
-        python_paths = [python_paths]
-
-    python_path = None
-    for path in python_paths:
-        path = os.path.expanduser(path)
-        if os.path.exists(path):
-            python_path = path
-            break
-
-    return python_path
 
 
 def install_venv(name, path, requirements, python_path):
@@ -97,9 +76,7 @@ def install_venv(name, path, requirements, python_path):
 
 
 def setup_from(venv_name):
-    with open(VIRTUALENVS_JSON) as f:
-        data = json.load(f)
-
+    data = virtualenvs.get_virtualenvs()
     venv_from = data.get('venvs').get(venv_name)
     if not venv_from:
         log.error('No virtualenv config named "%s" found.' % venv_name)
@@ -118,9 +95,7 @@ def setup_from(venv_name):
 def setup_venvs_from_config():
     log.info('Installing virtualenvs from config...')
 
-    with open(VIRTUALENVS_JSON) as f:
-        data = json.load(f)
-
+    data = virtualenvs.get_virtualenvs()
     venvs = data.get('venvs')
 
     for name, venv in venvs.items():
