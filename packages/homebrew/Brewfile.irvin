@@ -1,0 +1,4 @@
+## Brewfile for highly workstation-specific installs.
+
+# Packages for Brown
+cask 'racket'
