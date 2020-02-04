@@ -1,4 +1,4 @@
 click>=7.0
 requests
 six
-virtualenv-api>=2.1.18.dev1
+virtualenv-api>=2.1.18
