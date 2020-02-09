@@ -83,7 +83,7 @@ def setup_from(venv_name):
         return False
 
     requirements = venv_from.get('requirements')
-    python_path = resolve_python_paths(venv_from.get('interpreter'), data)
+    python_path = virtualenvs.resolve_python_paths(venv_from.get('interpreter'), data)
     if not python_path:
         log.error('No valid interpreter path found.')
         return False
@@ -100,7 +100,7 @@ def setup_venvs_from_config():
 
     for name, venv in venvs.items():
         requirements = venv.get('requirements')
-        python_path = resolve_python_paths(venv.get('interpreter'), data)
+        python_path = virtualenvs.resolve_python_paths(venv.get('interpreter'), data)
         if not python_path:
             log.error('Cannot setup virtualenv for %s, no valid interpreter path found.' % name)
             continue
