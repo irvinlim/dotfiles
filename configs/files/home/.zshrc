@@ -75,6 +75,7 @@ plugins=(
   go
   git
   iterm2
+  kubectl
   mosh
   pip
   python
