@@ -1,4 +1,9 @@
 ## Brewfile for highly workstation-specific installs.
+## You might want to just keep track of packages here and install those that you need manually.
+
+# Packages that aren't really used at all
+brew 'grpcurl'
+brew 'youtube-dl'
 
 # Packages for Brown
 cask 'racket'
