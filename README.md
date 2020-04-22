@@ -119,3 +119,8 @@ Most configuration should live in this repository, except for the following, whi
 Ideally, this repository should contain only public configuration.
 
 For private or environment-specific configuration, maintain a downstream fork that is based on this repository and branch from `master`. The branch needs to be kept up to date with upstream manually using `git merge origin/master`. This is definitely more troublesome, so it should be avoided unless necessary (e.g. work environment contains sensitive configs).
+
+## Reference
+
+- [Terminal keybindings for macOS](https://stackoverflow.com/a/29403520/2037090)
+
