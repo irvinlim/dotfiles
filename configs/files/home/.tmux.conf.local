@@ -268,3 +268,7 @@ set -g mouse on
 
 # Disable pane renaming
 set-option -g allow-rename off
+
+# Allow whole word traversal
+set-window-option -g xterm-keys on
+
