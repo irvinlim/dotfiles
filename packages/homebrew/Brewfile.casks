@@ -3,6 +3,7 @@ cask_args appdir: '/Applications'
 tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-versions'
 
+cask 'alacritty'
 cask 'appcleaner'
 cask 'brave-browser'
 cask 'chrome-remote-desktop-host'
