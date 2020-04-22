@@ -54,28 +54,28 @@ install_zsh () {
 }
 
 install_vim() {
-  # Check if oh-my-vim is already present
-  if [ -d "$HOME/.oh-my-vim" ]; then
-    exit
+  # Install Vundle
+  if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   fi
 
-  # Perform installation instructions here:
-  # https://github.com/liangxianzhe/oh-my-vim
+  # Install oh-my-vim: https://github.com/liangxianzhe/oh-my-vim
+  if [ ! -d "$HOME/.oh-my-vim" ]; then
+    platform=$(uname)
 
-  platform=$(uname)
+    if [[ $platform == 'Darwin' ]]; then
+      # Install dependencies for macOS
+      curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/prepare_mac.sh | sh
 
-  if [[ $platform == 'Darwin' ]]; then
-    # Install dependencies for macOS
-    curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/prepare_mac.sh | sh
+      # Install oh-my-vim
+      curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
+    elif [[ $platform == 'Linux' ]]; then
+      echo 'Installation for dependencies for oh-my-vim on Linux is not available, you have to install dependencies yourself.'
+      echo 'For more information, see https://github.com/liangxianzhe/oh-my-vim'
 
-    # Install oh-my-vim
-    curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
-  elif [[ $platform == 'Linux' ]]; then
-    echo 'Installation for dependencies for oh-my-vim on Linux is not available, you have to install dependencies yourself.'
-    echo 'For more information, see https://github.com/liangxianzhe/oh-my-vim'
-
-    # Install oh-my-vim
-    curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
+      # Install oh-my-vim
+      curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
+    fi
   fi
 }
 
@@ -131,11 +131,8 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   install_zsh
 fi
 
-# Install oh-my-vim
-if [ ! -d "$HOME/.oh-my-vim" ]; then
-  echo -e '\033[0;33mInstalling oh-my-vim...\033[0m'
-  install_vim
-fi
+# Install vim stuff
+install_vim
 
 # Install .tmux
 if [ ! -d "$HOME/.tmux" ]; then

@@ -25,6 +25,9 @@ export DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"`
 # Symlink configs
 /usr/local/bin/df-install link-configs
 
+# Install Vundle plugins
+vim +PluginInstall +qall
+
 # Symlink scripts folder
 if [ ! -d "$HOME/scripts" ]; then
   ln -s `pwd`/scripts "$HOME"
