@@ -45,7 +45,12 @@ if [[ $platform == 'Darwin' ]]; then
   fi
 
   # Upgrade all Brew packages
-  brew upgrade
+  brew upgrade -n
+  read -p 'Continue? [y/N] ' -n1 ans
+  echo -en '\n'
+  if [[ $ans == 'y' ]]; then
+    brew upgrade
+  fi
 
   # Upgrade all casks (don't use --greedy flag)
   brew cask upgrade
