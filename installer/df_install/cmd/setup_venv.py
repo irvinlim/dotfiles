@@ -75,7 +75,7 @@ def install_venv(name, path, requirements, python_path):
     return True
 
 
-def setup_from(venv_name):
+def setup_from(venv_name, target_path, python_path=None):
     data = virtualenvs.get_virtualenvs()
     venv_from = data.get('venvs').get(venv_name)
     if not venv_from:
@@ -83,17 +83,21 @@ def setup_from(venv_name):
         return False
 
     requirements = venv_from.get('requirements')
-    python_path = virtualenvs.resolve_python_paths(venv_from.get('interpreter'), data)
+
+    # Use interpreter python path if not specified
+    if not python_path:
+        python_path = virtualenvs.resolve_python_paths(venv_from.get('interpreter'), data)
+
     if not python_path:
         log.error('No valid interpreter path found.')
         return False
 
     log.debug('Using Python interpreter %s.' % python_path)
-    return install_venv(LOCAL_VIRTUALENV_PATH, LOCAL_VIRTUALENV_PATH, requirements, python_path)
+    return install_venv(target_path, target_path, requirements, python_path)
 
 
 def setup_venvs_from_config():
-    log.info('Installing virtualenvs from config...')
+    log.info('Installing virtualenvs using config...')
 
     data = virtualenvs.get_virtualenvs()
     venvs = data.get('venvs')
@@ -113,38 +117,19 @@ def setup_venvs_from_config():
     return True
 
 
-def setup_venv_from(venv_name):
+def setup_venv_from(venv_name, target_path=LOCAL_VIRTUALENV_PATH, python_path=None):
+    fullpath = os.path.abspath(target_path)
+    if os.path.exists(fullpath):
+        log.error('Virtualenv already exists at %s.' % fullpath)
+        return False
+
     if not venv_name:
         log.error('Please specify venv name.')
         return False
 
     log.info('Installing virtualenv from %s...' % venv_name)
 
-    if not setup_from(venv_name):
-        return False
-
-
-def setup_venv_from_base():
-    if os.path.exists(os.path.abspath(LOCAL_VIRTUALENV_PATH)):
-        log.error('Virtualenv already exists.')
-        return False
-
-    if not setup_from('base'):
-        return False
-
-    print(log.color('0;32', 'Virtualenv is created! Now run'), log.color('1;34', 'venv'), log.color('0;32', 'in your shell to activate.'))
-    return True
-
-
-def setup_venv_from_python_path(python_path):
-    if os.path.exists(os.path.abspath(LOCAL_VIRTUALENV_PATH)):
-        log.error('Virtualenv already exists.')
-        return False
-
-    log.debug('Using Python interpreter %s.' % python_path)
-
-    # Install new Virtualenv locally
-    if not install_venv(LOCAL_VIRTUALENV_PATH, LOCAL_VIRTUALENV_PATH, [], python_path):
+    if not setup_from(venv_name, target_path, python_path=python_path):
         return False
 
     print(log.color('0;32', 'Virtualenv is created! Now run'), log.color('1;34', 'venv'), log.color('0;32', 'in your shell to activate.'))
@@ -153,29 +138,30 @@ def setup_venv_from_python_path(python_path):
 
 @cli.command()
 @click.argument(
-    'venv_name',
+    'target_path',
+    default=LOCAL_VIRTUALENV_PATH,
     required=False,
 )
 @click.option(
-    '--from-config',
-    is_flag=True,
-    help='Whether to setup all virtualenvs from the config file.',
+    '-f',
+    '--from-venv',
+    default='base',
+    help='Name of virtualenv to setup from.',
 )
 @click.option(
     '--python-path',
     help='Path to specific Python interpreter.',
 )
-def setup_venv(venv_name, from_config, python_path):
-    if from_config is True:
+@click.option(
+    '--use-config',
+    is_flag=True,
+    help='Whether to setup all virtualenvs from the config file.',
+)
+def setup_venv(target_path, from_venv, use_config, python_path):
+    if use_config is True:
         return setup_venvs_from_config()
 
-    if python_path:
-        return setup_venv_from_python_path(python_path)
-
-    if not venv_name:
-        return setup_venv_from_base()
-
-    return setup_venv_from(venv_name)
+    return setup_venv_from(from_venv, target_path=target_path, python_path=python_path)
 
 
 if __name__ == '__main__':

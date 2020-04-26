@@ -5,6 +5,10 @@
       "interpreter": "python3.7",
       "requirements": ["base"]
     },
+    "base2.7": {
+      "interpreter": "python2.7",
+      "requirements": ["base"]
+    },
     "python2.7": {
       "interpreter": "python2.7",
       "requirements": ["base", "python2", "tools"]

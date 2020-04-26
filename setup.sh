@@ -55,4 +55,4 @@ if [[ $platform == 'Darwin' ]]; then
 fi
 
 # Setup virtualenvs and install packages
-/usr/local/bin/df-install setup-venv --from-config
+/usr/local/bin/df-install setup-venv --use-config
