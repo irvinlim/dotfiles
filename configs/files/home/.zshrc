@@ -12,7 +12,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 
 # Set default user.
-export DEFAULT_USER='irvin'
+export DEFAULT_USER=`whoami`
 
 # Source .profile.
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
