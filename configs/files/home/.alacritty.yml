@@ -202,6 +202,8 @@ key_bindings:
   # Requires mapping keybinding for redo to work in zsh
   - { key: Z,       mods: Command,          chars: "\x1f" }
   - { key: Z,       mods: Command|Shift,    chars: "\x18\x1f" }
+  # Open new window
+  - { key: N, mods: Command, action: SpawnNewInstance  }
 
 # Mouse bindings
 #
