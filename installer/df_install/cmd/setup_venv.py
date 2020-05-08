@@ -29,6 +29,10 @@ def install_venv(name, path, requirements, python_path):
     print('[*] Setting up %s virtualenv...' % log.color('1;34', name))
 
     try:
+        # Make sure that base path exists.
+        if not os.path.exists(os.path.dirname(path)):
+            os.makedirs(os.path.dirname(path))
+
         # Create new virtualenv if it doesn't exist.
         if not os.path.exists(path):
             env = VirtualEnvironment(path, python=python_path)
