@@ -171,7 +171,7 @@ if [ ! -d "$HOME/.nvm" ]; then
 fi
 
 # Install pip and virtualenv
-if [ -x `which virtualenv` ]; then
+if [[ -x `which virtualenv` ]]; then
   echo -e '\033[0;33mInstalling virtualenv...\033[0m'
   install_virtualenv
 fi
@@ -184,7 +184,7 @@ if [ "$is_gui" -eq "1" ]; then
   platform=$(uname)
 
   # Install the installer
-  if [ -x `pip3 show df-install` ]; then
+  if [[ -x `pip3 show df-install` ]]; then
     echo -e '\033[0;33mSetting up df-install.\033[0m'
     if [[ $platform == "Linux" ]]; then
       # Add sudo to install to /usr/local/bin
