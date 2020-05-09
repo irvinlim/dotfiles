@@ -165,7 +165,7 @@ if [ ! -d "$HOME/.nvm" ]; then
 fi
 
 # Install pip and virtualenv
-if [ ! -x `which virtualenv` ]; then
+if [ -x `which virtualenv` ]; then
   echo -e '\033[0;33mInstalling virtualenv...\033[0m'
   install_virtualenv
 fi
