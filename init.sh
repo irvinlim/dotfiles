@@ -54,6 +54,8 @@ install_zsh () {
 }
 
 install_vim() {
+  platform=$(uname)
+
   # Install Vundle
   if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -61,21 +63,17 @@ install_vim() {
 
   # Install oh-my-vim: https://github.com/liangxianzhe/oh-my-vim
   if [ ! -d "$HOME/.oh-my-vim" ]; then
-    platform=$(uname)
 
     if [[ $platform == 'Darwin' ]]; then
       # Install dependencies for macOS
       curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/prepare_mac.sh | sh
-
-      # Install oh-my-vim
-      curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
     elif [[ $platform == 'Linux' ]]; then
       echo 'Installation for dependencies for oh-my-vim on Linux is not available, you have to install dependencies yourself.'
       echo 'For more information, see https://github.com/liangxianzhe/oh-my-vim'
-
-      # Install oh-my-vim
-      curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
     fi
+
+    # Install oh-my-vim
+    curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
   fi
 }
 
