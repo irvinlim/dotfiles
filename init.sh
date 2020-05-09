@@ -11,6 +11,7 @@ export PIP_REQUIRE_VIRTUALENV=
 #
 # Heavily inspired from https://github.com/nicksp/dotfiles/blob/master/setup.sh
 #
+# NOTE: This script only supports Ubuntu for Linux!
 
 install_homebrew() {
   platform=$(uname)
@@ -117,6 +118,14 @@ fi
 is_gui=`cat "$HOME/.dotfiles_gui"`
 platform=$(uname)
 
+# Install dependencies for Linux
+if [[ $platform == 'Linux' ]]; then
+  sudo apt-get update
+
+  DEPS="curl git python3-pip"
+  sudo apt-get install $DEPS
+fi
+
 # Install Homebrew
 if [[ $platform == 'Darwin' && ! -f /usr/local/bin/brew ]]; then
   echo -e '\033[0;33mInstalling Homebrew...\033[0m'
@@ -151,14 +160,14 @@ if [ ! -x `which virtualenv` ]; then
 fi
 
 # Initialisation of setup packages
-/usr/local/bin/pip3 install -r installer/requirements.txt
+pip3 install -r installer/requirements.txt
 
 # Install fonts
 if [ "$is_gui" -eq "1" ]; then
   # Install the installer
   echo -e '\033[0;33mSetting up df-install.\033[0m'
-  /usr/local/bin/pip3 install -U pip > /dev/null
-  /usr/local/bin/pip3 install installer/ > /dev/null
+  pip3 install -U pip > /dev/null
+  pip3 install installer/ > /dev/null
 
   # Install fonts
   echo -e '\033[0;33mRunning df-install install-fonts.\033[0m'
