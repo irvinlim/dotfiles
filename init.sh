@@ -57,6 +57,12 @@ install_zsh () {
 install_vim() {
   platform=$(uname)
 
+  # Install vim
+  if [[ $platform == 'Linux' ]]; then
+    echo -e '\033[0;33mInstalling vim...\033[0m'
+    sudo apt-get -y install vim
+  fi
+
   # Install Vundle
   if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
     echo -e '\033[0;33mInstalling Vundle...\033[0m'
@@ -136,7 +142,7 @@ platform=$(uname)
 if [[ $platform == 'Linux' ]]; then
   sudo apt-get update
 
-  DEPS="curl git python3-pip"
+  DEPS="curl git jq python3-pip"
   sudo apt-get -y install $DEPS
 fi
 
