@@ -59,11 +59,13 @@ install_vim() {
 
   # Install Vundle
   if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
+    echo -e '\033[0;33mInstalling Vundle...\033[0m'
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   fi
 
   # Install oh-my-vim: https://github.com/liangxianzhe/oh-my-vim
   if [ ! -d "$HOME/.oh-my-vim" ]; then
+    echo -e '\033[0;33mInstalling .oh-my-vim...\033[0m'
 
     if [[ $platform == 'Darwin' ]]; then
       # Install dependencies for macOS
@@ -79,9 +81,21 @@ install_vim() {
 }
 
 install_tmux() {
-  # See https://github.com/gpakosz/.tmux
-  git clone https://github.com/gpakosz/.tmux.git ~/.tmux
-  ln -sf .tmux/.tmux.conf ~/.tmux.conf
+  platform=$(uname)
+
+  # Install tmux itself
+  if [[ $platform == 'Linux' ]]; then
+    sudo apt-get -y install tmux
+  fi
+
+  # Install .tmux
+  if [ ! -d "$HOME/.tmux" ]; then
+    echo -e '\033[0;33mInstalling .tmux...\033[0m'
+
+    # See https://github.com/gpakosz/.tmux
+    git clone https://github.com/gpakosz/.tmux.git ~/.tmux
+    ln -sf .tmux/.tmux.conf ~/.tmux.conf
+  fi
 }
 
 install_virtualenv() {
@@ -123,7 +137,7 @@ if [[ $platform == 'Linux' ]]; then
   sudo apt-get update
 
   DEPS="curl git python3-pip"
-  sudo apt-get install $DEPS
+  sudo apt-get -y install $DEPS
 fi
 
 # Install Homebrew
@@ -142,10 +156,7 @@ fi
 install_vim
 
 # Install .tmux
-if [ ! -d "$HOME/.tmux" ]; then
-  echo -e '\033[0;33mInstalling .tmux...\033[0m'
-  install_tmux
-fi
+install_tmux
 
 # Install nvm
 if [ ! -d "$HOME/.nvm" ]; then
