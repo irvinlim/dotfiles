@@ -16,8 +16,8 @@ echo `pwd` > "$HOME/.dotfiles_root"
 
 # Install the installer
 echo -e '\033[0;33mSetting up df-install.\033[0m'
-/usr/local/bin/pip3 install -U pip
-/usr/local/bin/pip3 install installer/
+pip3 install -U pip
+pip3 install installer/
 
 # Export any env vars required from .profile when it doesn't exist yet.
 export DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"`
