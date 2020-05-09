@@ -11,7 +11,7 @@ from df_install.utils import log
 
 fonts = ['https://github.com/powerline/fonts/raw/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf']
 
-font_locations = {'darwin': '~/Library/Fonts'}
+font_locations = {'darwin': '~/Library/Fonts', 'linux': '~/.local/share/fonts'}
 
 
 @cli.command()
