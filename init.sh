@@ -176,9 +176,15 @@ pip3 install -r installer/requirements.txt
 # Install fonts
 if [ "$is_gui" -eq "1" ]; then
   # Install the installer
-  echo -e '\033[0;33mSetting up df-install.\033[0m'
-  pip3 install -U pip > /dev/null
-  pip3 install installer/ > /dev/null
+  if [ -x `pip3 show df-install` ]; then
+    echo -e '\033[0;33mSetting up df-install.\033[0m'
+    if [[ $platform == "Linux" ]]; then
+      # Add sudo to install to /usr/local/bin
+      sudo pip3 install installer/
+    elif [[ $platform == "Darwin" ]]; then
+      pip3 install installer/
+    fi
+  fi
 
   # Install fonts
   echo -e '\033[0;33mRunning df-install install-fonts.\033[0m'
