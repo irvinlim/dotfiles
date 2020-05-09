@@ -5,7 +5,7 @@
 import sys
 
 from .cmd import base
-from .cmd import fix_venv, install_fonts, link_configs, setup_venv
+from .cmd import fix_venv, install_fonts, link_configs, setup_venv, version
 
 
 def run():
