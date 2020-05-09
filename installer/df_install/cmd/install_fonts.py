@@ -23,6 +23,8 @@ def install_fonts():
     font_location = font_locations[sys.platform]
     no_error = True
 
+    os.makedirs(font_location)
+
     for font in fonts:
         font_name = urllib.parse.unquote(os.path.basename(font))
         font_path = os.path.expanduser(os.path.join(font_location, font_name))
