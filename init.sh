@@ -3,6 +3,9 @@
 set -e
 export PIP_REQUIRE_VIRTUALENV=
 
+# Add Python bin PATH temporarily
+export PATH="$PATH:$HOME/.local/bin"
+
 #
 # First-time init script.
 # There should be no need to run this script once a machine has been initialised,
@@ -179,24 +182,15 @@ fi
 # Initialisation of setup packages
 pip3 install -r installer/requirements.txt
 
+# Install the installer
+echo -e '\033[0;33mSetting up df-install.\033[0m'
+pip3 install installer/
+
 # Install fonts
 if [ "$is_gui" -eq "1" ]; then
-  platform=$(uname)
-
-  # Install the installer
-  if [[ -x `pip3 show df-install` ]]; then
-    echo -e '\033[0;33mSetting up df-install.\033[0m'
-    if [[ $platform == "Linux" ]]; then
-      # Add sudo to install to /usr/local/bin
-      sudo pip3 install installer/
-    elif [[ $platform == "Darwin" ]]; then
-      pip3 install installer/
-    fi
-  fi
-
   # Install fonts
   echo -e '\033[0;33mRunning df-install install-fonts.\033[0m'
-  DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"` /usr/local/bin/df-install install-fonts
+  DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"` df-install install-fonts
 fi
 
 echo -e '\033[0;32mFirst time installation is complete.\033[0m'

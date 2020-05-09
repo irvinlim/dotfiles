@@ -2,6 +2,7 @@
 
 set -e
 export PIP_REQUIRE_VIRTUALENV=
+export PATH="$PATH:$HOME/.local/bin"
 
 #
 # Setup script for setting up symlinks and installing applications.
@@ -16,18 +17,13 @@ echo `pwd` > "$HOME/.dotfiles_root"
 
 # Install the installer
 echo -e '\033[0;33mSetting up df-install.\033[0m'
-if [[ $platform == "Linux" ]]; then
-  # Add sudo to install to /usr/local/bin
-  sudo pip3 install installer/
-elif [[ $platform == "Darwin" ]]; then
-  pip3 install installer/
-fi
+pip3 install installer/
 
 # Export any env vars required from .profile when it doesn't exist yet.
 export DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"`
 
 # Symlink configs
-/usr/local/bin/df-install link-configs
+df-install link-configs
 
 # Install Vundle plugins
 vim +PluginInstall +qall
@@ -64,4 +60,4 @@ if [[ $platform == 'Darwin' ]]; then
 fi
 
 # Setup virtualenvs and install packages
-/usr/local/bin/df-install setup-venv --use-config
+df-install setup-venv --use-config
