@@ -22,7 +22,6 @@ if [[ $platform == "Linux" ]]; then
 elif [[ $platform == "Darwin" ]]; then
   pip3 install installer/
 fi
-pip3 install installer/
 
 # Export any env vars required from .profile when it doesn't exist yet.
 export DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"`
