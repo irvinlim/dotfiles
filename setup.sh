@@ -16,7 +16,12 @@ echo `pwd` > "$HOME/.dotfiles_root"
 
 # Install the installer
 echo -e '\033[0;33mSetting up df-install.\033[0m'
-pip3 install -U pip
+if [[ $platform == "Linux" ]]; then
+  # Add sudo to install to /usr/local/bin
+  sudo pip3 install installer/
+elif [[ $platform == "Darwin" ]]; then
+  pip3 install installer/
+fi
 pip3 install installer/
 
 # Export any env vars required from .profile when it doesn't exist yet.

@@ -181,20 +181,22 @@ pip3 install -r installer/requirements.txt
 
 # Install fonts
 if [ "$is_gui" -eq "1" ]; then
-  # Install the installer
-  if [ -x `pip3 show df-install` ]; then
-    echo -e '\033[0;33mSetting up df-install.\033[0m'
-    if [[ $platform == "Linux" ]]; then
-      # Add sudo to install to /usr/local/bin
-      sudo pip3 install installer/
-    elif [[ $platform == "Darwin" ]]; then
+  platform=$(uname)
+
+  if [[ $platform == "Linux" ]]; then
+    # Install directly from apt
+    sudo apt-get install -y powerline-fonts
+  elif [[ $platform == "Darwin" ]]; then
+    # Install the installer
+    if [ -x `pip3 show df-install` ]; then
+      echo -e '\033[0;33mSetting up df-install.\033[0m'
       pip3 install installer/
     fi
-  fi
 
-  # Install fonts
-  echo -e '\033[0;33mRunning df-install install-fonts.\033[0m'
-  DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"` /usr/local/bin/df-install install-fonts
+    # Install fonts
+    echo -e '\033[0;33mRunning df-install install-fonts.\033[0m'
+    DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"` /usr/local/bin/df-install install-fonts
+  fi
 fi
 
 echo -e '\033[0;32mFirst time installation is complete.\033[0m'
