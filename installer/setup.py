@@ -26,7 +26,7 @@ def _setup():
 
         setup(
             name='df-install',
-            version='1.1.0',
+            version='1.1.2',
             author='Irvin Lim',
             author_email='me@irvinlim.com',
             url='https://github.com/irvinlim/dotfiles',

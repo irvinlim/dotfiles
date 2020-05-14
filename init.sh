@@ -3,6 +3,9 @@
 set -e
 export PIP_REQUIRE_VIRTUALENV=
 
+# Add Python bin PATH temporarily
+export PATH="$PATH:$HOME/.local/bin"
+
 #
 # First-time init script.
 # There should be no need to run this script once a machine has been initialised,
@@ -11,6 +14,7 @@ export PIP_REQUIRE_VIRTUALENV=
 #
 # Heavily inspired from https://github.com/nicksp/dotfiles/blob/master/setup.sh
 #
+# NOTE: This script only supports Ubuntu for Linux!
 
 install_homebrew() {
   platform=$(uname)
@@ -54,35 +58,53 @@ install_zsh () {
 }
 
 install_vim() {
+  platform=$(uname)
+
+  # Install vim
+  if [[ $platform == 'Linux' ]]; then
+    echo -e '\033[0;33mInstalling vim...\033[0m'
+    sudo apt-get -y install vim
+  fi
+
   # Install Vundle
   if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
+    echo -e '\033[0;33mInstalling Vundle...\033[0m'
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   fi
 
   # Install oh-my-vim: https://github.com/liangxianzhe/oh-my-vim
   if [ ! -d "$HOME/.oh-my-vim" ]; then
-    platform=$(uname)
+    echo -e '\033[0;33mInstalling .oh-my-vim...\033[0m'
 
     if [[ $platform == 'Darwin' ]]; then
       # Install dependencies for macOS
       curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/prepare_mac.sh | sh
-
-      # Install oh-my-vim
-      curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
     elif [[ $platform == 'Linux' ]]; then
       echo 'Installation for dependencies for oh-my-vim on Linux is not available, you have to install dependencies yourself.'
       echo 'For more information, see https://github.com/liangxianzhe/oh-my-vim'
-
-      # Install oh-my-vim
-      curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
     fi
+
+    # Install oh-my-vim
+    curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
   fi
 }
 
 install_tmux() {
-  # See https://github.com/gpakosz/.tmux
-  git clone https://github.com/gpakosz/.tmux.git ~/.tmux
-  ln -sf .tmux/.tmux.conf ~/.tmux.conf
+  platform=$(uname)
+
+  # Install tmux itself
+  if [[ $platform == 'Linux' ]]; then
+    sudo apt-get -y install tmux
+  fi
+
+  # Install .tmux
+  if [ ! -d "$HOME/.tmux" ]; then
+    echo -e '\033[0;33mInstalling .tmux...\033[0m'
+
+    # See https://github.com/gpakosz/.tmux
+    git clone https://github.com/gpakosz/.tmux.git ~/.tmux
+    ln -sf .tmux/.tmux.conf ~/.tmux.conf
+  fi
 }
 
 install_virtualenv() {
@@ -119,6 +141,14 @@ fi
 is_gui=`cat "$HOME/.dotfiles_gui"`
 platform=$(uname)
 
+# Install dependencies for Linux
+if [[ $platform == 'Linux' ]]; then
+  sudo apt-get update
+
+  DEPS="curl git jq python3-pip"
+  sudo apt-get -y install $DEPS
+fi
+
 # Install Homebrew
 if [[ $platform == 'Darwin' && ! -f /usr/local/bin/brew ]]; then
   echo -e '\033[0;33mInstalling Homebrew...\033[0m'
@@ -135,10 +165,7 @@ fi
 install_vim
 
 # Install .tmux
-if [ ! -d "$HOME/.tmux" ]; then
-  echo -e '\033[0;33mInstalling .tmux...\033[0m'
-  install_tmux
-fi
+install_tmux
 
 # Install nvm
 if [ ! -d "$HOME/.nvm" ]; then
@@ -147,24 +174,23 @@ if [ ! -d "$HOME/.nvm" ]; then
 fi
 
 # Install pip and virtualenv
-if [ ! -x `which virtualenv` ]; then
+if [[ -x `which virtualenv` ]]; then
   echo -e '\033[0;33mInstalling virtualenv...\033[0m'
   install_virtualenv
 fi
 
 # Initialisation of setup packages
-/usr/local/bin/pip3 install -r installer/requirements.txt
+pip3 install -r installer/requirements.txt
+
+# Install the installer
+echo -e '\033[0;33mSetting up df-install.\033[0m'
+pip3 install installer/
 
 # Install fonts
 if [ "$is_gui" -eq "1" ]; then
-  # Install the installer
-  echo -e '\033[0;33mSetting up df-install.\033[0m'
-  /usr/local/bin/pip3 install -U pip > /dev/null
-  /usr/local/bin/pip3 install installer/ > /dev/null
-
   # Install fonts
   echo -e '\033[0;33mRunning df-install install-fonts.\033[0m'
-  DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"` /usr/local/bin/df-install install-fonts
+  DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"` df-install install-fonts
 fi
 
 echo -e '\033[0;32mFirst time installation is complete.\033[0m'
