@@ -28,7 +28,6 @@ let &runtimepath=substitute(&runtimepath, '^', $OH_MY_VIM.",", 'g')
 let g:oh_my_vim_packages=[
             \'vim',
             \'basic',
-            \'code',
             \'text',
             \'grep',
             \'searching',
