@@ -29,6 +29,9 @@ def install_venv(name, path, requirements, python_path):
     print('[*] Setting up %s virtualenv...' % log.color('1;34', name))
 
     try:
+        # Convert target path to absolute path.
+        path = os.path.abspath(path)
+
         # Make sure that base path exists.
         if not os.path.exists(os.path.dirname(path)):
             os.makedirs(os.path.dirname(path))
