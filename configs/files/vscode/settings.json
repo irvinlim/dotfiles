@@ -4,9 +4,7 @@
   "editor.fontSize": 14,
   "editor.formatOnSave": true,
   "editor.renderWhitespace": "boundary",
-  "editor.rulers": [
-    120
-  ],
+  "editor.rulers": [120],
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "explorer.confirmDelete": false,
@@ -88,19 +86,11 @@
   ],
   "vetur.format.defaultFormatter.html": "js-beautify-html",
   // SpellRight
-  "spellright.language": [
-    "en_GB",
-    "en"
-  ],
+  "spellright.language": ["en_GB", "en"],
   "spellright.groupDictionaries": false,
-  "spellright.documentTypes": [
-    "markdown",
-    "latex"
-  ],
+  "spellright.documentTypes": ["markdown", "latex"],
   // Project Manager
-  "projectManager.vscode.baseFolders": [
-    "~/Projects"
-  ],
+  "projectManager.vscode.baseFolders": ["~/Projects"],
   // Emmet
   "emmet.includeLanguages": {
     "blade": "html",
@@ -154,9 +144,7 @@
     {
       "name": "bibtex",
       "command": "bibtex",
-      "args": [
-        "%DOCFILE%"
-      ]
+      "args": ["%DOCFILE%"]
     }
   ],
   // Themes
@@ -247,5 +235,8 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "go.useLanguageServer": true
+  "go.useLanguageServer": true,
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
