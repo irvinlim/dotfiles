@@ -59,5 +59,10 @@ if [[ $platform == 'Darwin' ]]; then
   mas upgrade
 fi
 
+if [[ -n $GOPATH ]]; then
+  # Use gobin to install go binaries
+  ./packages/go/gobin.sh
+fi
+
 # Setup virtualenvs and install packages
 df-install setup-venv --use-config
