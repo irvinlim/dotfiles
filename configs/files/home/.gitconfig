@@ -23,5 +23,7 @@
 	sslVerify = true
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[url "ssh://git@git.irvinlim.com:2222/"]
+	insteadOf = https://git.irvinlim.com/
 [url "gitlab@git.garena.com:"]
 	insteadOf = https://git.garena.com/
