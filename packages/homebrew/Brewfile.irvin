@@ -5,5 +5,14 @@
 brew 'grpcurl'
 brew 'youtube-dl'
 
+# Casks for personal laptop only
+cask 'keybase'
+cask 'ngrok'
+cask 'qmk-toolbox'
+cask 'skype'
+cask 'teamviewer'
+cask 'transmission'
+cask 'tunnelblick'
+
 # Packages for Brown
-cask 'racket'
+# cask 'racket'
