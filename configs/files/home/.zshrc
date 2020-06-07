@@ -72,7 +72,7 @@ export DEFAULT_USER=`whoami`
 plugins=(
   docker
   docker-compose
-  go
+  golang
   git
   iterm2
   kubectl
