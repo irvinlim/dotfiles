@@ -145,7 +145,7 @@ platform=$(uname)
 if [[ $platform == 'Linux' ]]; then
   sudo apt-get update
 
-  DEPS="curl git jq python3-pip"
+  DEPS="curl git jq python3-pip language-pack-en"
   sudo apt-get -y install $DEPS
 fi
 
