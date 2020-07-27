@@ -27,3 +27,5 @@
 	insteadOf = https://git.irvinlim.com/
 [url "gitlab@git.garena.com:"]
 	insteadOf = https://git.garena.com/
+[push]
+	default = simple
