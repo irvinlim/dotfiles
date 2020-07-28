@@ -41,7 +41,6 @@ if [[ $platform == 'Darwin' ]]; then
     # Install hardcoded formulae
     brew bundle --file=packages/homebrew/Brewfile
     brew bundle --file=packages/homebrew/Brewfile.casks
-    brew bundle --file=packages/homebrew/Brewfile.mas
   fi
 
   # Upgrade all Brew packages

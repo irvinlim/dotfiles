@@ -165,10 +165,14 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # Install vim stuff
-install_vim
+if [ ! -d "$HOME/.oh-my-vim" ]; then
+  install_vim
+fi
 
 # Install .tmux
-install_tmux
+if [ ! -d "$HOME/.tmux" ]; then
+  install_tmux
+fi
 
 # Install nvm
 if [ ! -d "$HOME/.nvm" ]; then
@@ -177,7 +181,7 @@ if [ ! -d "$HOME/.nvm" ]; then
 fi
 
 # Install pip and virtualenv
-if [[ -x `which virtualenv` ]]; then
+if ! command -v virtualenv &> /dev/null; then
   echo -e '\033[0;33mInstalling virtualenv...\033[0m'
   install_virtualenv
 fi
