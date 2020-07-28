@@ -3,19 +3,31 @@
   "venvs": {
     "base": {
       "interpreter": "python3",
-      "requirements": ["base"]
+      "requirements": [
+        "base"
+      ]
     },
     "base2.7": {
       "interpreter": "python2.7",
-      "requirements": ["base"]
+      "requirements": [
+        "base"
+      ]
     },
     "python2.7": {
       "interpreter": "python2.7",
-      "requirements": ["base", "python2", "tools"]
+      "requirements": [
+        "base",
+        "python2",
+        "tools"
+      ]
     },
     "python3": {
       "interpreter": "python3",
-      "requirements": ["base", "python3", "tools"]
+      "requirements": [
+        "base",
+        "python3",
+        "tools"
+      ]
     }
   },
   "pythonPaths": {
