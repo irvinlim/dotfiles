@@ -1,4 +1,5 @@
 tap 'homebrew/bundle'
+tap 'irvinlim/apps'
 
 brew 'binutils'
 brew 'clang-format'
