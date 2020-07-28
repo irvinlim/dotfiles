@@ -64,6 +64,9 @@ install_vim() {
   if [[ $platform == 'Linux' ]]; then
     echo -e '\033[0;33mInstalling vim...\033[0m'
     sudo apt-get -y install vim
+  elif [[ $platform == 'Darwin' ]]; then
+    echo -e '\033[0;33mInstalling vim...\033[0m'
+    brew install vim
   fi
 
   # Install Vundle
@@ -78,7 +81,7 @@ install_vim() {
 
     if [[ $platform == 'Darwin' ]]; then
       # Install dependencies for macOS
-      curl -sL https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/prepare_mac.sh | sh
+      brew install ctags ag ack ranger tig lua luajit
     elif [[ $platform == 'Linux' ]]; then
       echo 'Installation for dependencies for oh-my-vim on Linux is not available, you have to install dependencies yourself.'
       echo 'For more information, see https://github.com/liangxianzhe/oh-my-vim'
