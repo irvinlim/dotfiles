@@ -29,3 +29,5 @@
 	insteadOf = https://git.garena.com/
 [push]
 	default = simple
+[pull]
+	rebase = false
