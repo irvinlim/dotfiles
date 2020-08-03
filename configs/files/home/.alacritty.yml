@@ -203,7 +203,7 @@ key_bindings:
   - { key: Z,       mods: Command,          chars: "\x1f" }
   - { key: Z,       mods: Command|Shift,    chars: "\x18\x1f" }
   # Open new window
-  - { key: N, mods: Command, action: SpawnNewInstance  }
+  - { key: N,       mods: Command|Shift,    action: SpawnNewInstance  }
 
 # Mouse bindings
 #
