@@ -38,6 +38,3 @@ brew 'vim'
 brew 'watch'
 brew 'wdiff'
 brew 'wget'
-
-tap 'vitorgalvao/tiny-scripts'
-brew 'cask-repair'

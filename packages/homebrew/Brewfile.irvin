@@ -1,6 +1,9 @@
 ## Brewfile for highly workstation-specific installs.
 ## You might want to just keep track of packages here and install those that you need manually.
 
+tap 'vitorgalvao/tiny-scripts'
+brew 'cask-repair'
+
 # Packages that aren't really used at all
 brew 'grpcurl'
 brew 'youtube-dl'
@@ -13,6 +16,3 @@ cask 'skype'
 cask 'teamviewer'
 cask 'transmission'
 cask 'tunnelblick'
-
-# Packages for Brown
-# cask 'racket'
