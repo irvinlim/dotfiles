@@ -238,5 +238,6 @@
   "go.useLanguageServer": true,
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+},
+"python.languageServer": "Microsoft"
 }
