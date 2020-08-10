@@ -15,5 +15,5 @@
 
 VERSION_FILE="${1:-version}"
 
-bumpversion patch "$VERSION_FILE" --commit --current-version=`cat "$VERSION_FILE"`
-echo "Bumped and committed version: `cat $VERSION_FILE`."
+bumpversion patch "$VERSION_FILE" --commit --current-version=`cat "$VERSION_FILE"` --tag
+echo "Bumped, committed and tagged version: `cat $VERSION_FILE`."
