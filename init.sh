@@ -61,12 +61,14 @@ install_vim() {
   platform=$(uname)
 
   # Install vim
-  if [[ $platform == 'Linux' ]]; then
-    echo -e '\033[0;33mInstalling vim...\033[0m'
-    sudo apt-get -y install vim
-  elif [[ $platform == 'Darwin' ]]; then
-    echo -e '\033[0;33mInstalling vim...\033[0m'
-    brew install vim
+  if ! command -v vim &> /dev/null; then
+    if [[ $platform == 'Linux' ]]; then
+      echo -e '\033[0;33mInstalling vim...\033[0m'
+      sudo apt-get -y install vim
+    elif [[ $platform == 'Darwin' ]]; then
+      echo -e '\033[0;33mInstalling vim...\033[0m'
+      brew install vim
+    fi
   fi
 
   # Install Vundle
@@ -107,6 +109,13 @@ install_tmux() {
     # See https://github.com/gpakosz/.tmux
     git clone https://github.com/gpakosz/.tmux.git ~/.tmux
     ln -sf .tmux/.tmux.conf ~/.tmux.conf
+  fi
+
+  # Install tpm
+  if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    mkdir -p ~/.tmux/plugins
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ~/.tmux/plugins/tpm/bin/install_plugins
   fi
 }
 
@@ -165,14 +174,10 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # Install vim stuff
-if [ ! -d "$HOME/.oh-my-vim" ]; then
-  install_vim
-fi
+install_vim
 
-# Install .tmux
-if [ ! -d "$HOME/.tmux" ]; then
-  install_tmux
-fi
+# Install tmux stuff
+install_tmux
 
 # Install nvm
 if [ ! -d "$HOME/.nvm" ]; then

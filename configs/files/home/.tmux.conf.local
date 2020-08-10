@@ -272,3 +272,12 @@ set-option -g allow-rename off
 # Allow whole word traversal
 set-window-option -g xterm-keys on
 
+# -- Tmux Plugin Manager -------------------------------------------------------
+
+# Install plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
