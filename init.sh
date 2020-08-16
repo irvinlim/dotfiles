@@ -123,7 +123,7 @@ install_tmux() {
   fi
 }
 
-install_virtualenv() {
+ensure_python() {
   platform=$(uname)
 
   mkdir -p "$HOME/.virtualenvs"
@@ -132,7 +132,8 @@ install_virtualenv() {
     sudo apt-get install -y python3-pip
     $pip3 install virtualenv
   elif [[ $platform == "Darwin" ]]; then
-    brew install python
+    brew install python 2> /dev/null
+    curl https://bootstrap.pypa.io/get-pip.py -sSL | python3
     $pip3 install virtualenv
   fi
 }
@@ -189,11 +190,10 @@ if [ ! -d "$HOME/.nvm" ]; then
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 fi
 
-# Install pip and virtualenv
-if ! command -v virtualenv &> /dev/null; then
-  echo -e '\033[0;33mInstalling virtualenv...\033[0m'
-  install_virtualenv
-fi
+# Ensure Python installation is alright
+# Installs pip and virtualenv
+echo -e '\033[0;33mEnsuring Python installation is valid...\033[0m'
+ensure_python
 
 # Initialisation of setup packages
 $pip3 install -r installer/requirements.txt
