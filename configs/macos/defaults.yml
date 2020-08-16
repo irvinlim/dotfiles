@@ -3,8 +3,23 @@ NSGlobalDomain:
   domain: NSGlobalDomain
   restart: false
   configs:
-    # Show all filename extensions
+    # Finder: Show all filename extensions
     AppleShowAllExtensions: true
+    # Trackpad: Disable "natural" scroll direction
+    com.apple.swipescrolldirection: false
+    # Keyboard: Disable smart quotes and dashes
+    NSAutomaticQuoteSubstitutionEnabled: false
+    # Keyboard: Disable spelling correction
+    NSAutomaticSpellingCorrectionEnabled: false
+    WebAutomaticSpellingCorrectionEnabled: false
+    # Keyboard: Disable word capitalization
+    NSAutomaticCapitalizationEnabled: false
+    # Keyboard: Disable period substitution
+    NSAutomaticPeriodSubstitutionEnabled: false
+    # Keyboard: Remove all text replacement rules
+    NSUserDictionaryReplacementItems:
+      type: array
+      operation: clear
 
 Finder:
   domain: com.apple.finder
