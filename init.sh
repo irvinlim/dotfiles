@@ -6,6 +6,10 @@ export PIP_REQUIRE_VIRTUALENV=
 # Add Python bin PATH temporarily
 export PATH="$PATH:$HOME/.local/bin"
 
+# Use python -m format instead
+pip3="python3 -m pip"
+df_install="python3 -m df_install.main"
+
 #
 # First-time init script.
 # There should be no need to run this script once a machine has been initialised,
@@ -126,10 +130,10 @@ install_virtualenv() {
 
   if [[ $platform == "Linux" ]]; then
     sudo apt-get install -y python3-pip
-    pip3 install virtualenv
+    $pip3 install virtualenv
   elif [[ $platform == "Darwin" ]]; then
     brew install python
-    pip3 install virtualenv
+    $pip3 install virtualenv
   fi
 }
 
@@ -192,17 +196,17 @@ if ! command -v virtualenv &> /dev/null; then
 fi
 
 # Initialisation of setup packages
-pip3 install -r installer/requirements.txt
+$pip3 install -r installer/requirements.txt
 
 # Install the installer
 echo -e '\033[0;33mSetting up df-install.\033[0m'
-pip3 install installer/
+$pip3 install installer/
 
 # Install fonts
 if [ "$is_gui" -eq "1" ]; then
   # Install fonts
   echo -e '\033[0;33mRunning df-install install-fonts.\033[0m'
-  DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"` df-install install-fonts
+  DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"` $df_install install-fonts
 fi
 
 echo -e '\033[0;32mFirst time installation is complete.\033[0m'
