@@ -60,7 +60,7 @@ def pkill(names, killsig=signal.SIGTERM):
         proc.send_signal(killsig)
 
     # Poll until each process is killed
-    while True:
+    while alive:
         for name, proc in procs.items():
             if proc.pid in alive and not proc.is_running():
                 # log.debug('[+] Process %s (pid %d) is no longer running' % (name, proc.pid))
