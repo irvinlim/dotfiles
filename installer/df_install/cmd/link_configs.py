@@ -4,7 +4,6 @@ import json
 import os
 import shutil
 from sys import platform
-from argparse import ArgumentParser
 
 import click
 from six import string_types

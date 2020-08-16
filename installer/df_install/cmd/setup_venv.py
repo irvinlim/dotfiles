@@ -1,9 +1,7 @@
 from __future__ import print_function
 
-import json
 import os
 import shutil
-import sys
 import traceback
 
 from virtualenvapi.exceptions import VirtualenvCreationException
