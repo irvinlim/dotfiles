@@ -4,8 +4,15 @@ import click
 import yaml
 
 from .base import cli
-from df_install.utils import log, merge, process
+from df_install.utils import log, merge, process, plist
 from df_install.utils.constants import *
+
+TYPEDEFS = {
+    'bool': bool,
+    'int': int,
+    'float': float,
+    'string': str,
+}
 
 
 def load_config(filepath):
@@ -27,26 +34,54 @@ def merge_configs(configs):
     return result
 
 
-def get_typed_value(value):
-    if isinstance(value, bool):
-        if value is True:
-            value = 'true'
-        elif value is False:
-            value = 'false'
-        else:
-            raise Exception('Unexpected value for bool: %s' % value)
-        return '-bool', value
-    if isinstance(value, int):
-        return '-int', value
-    if isinstance(value, float):
-        return '-float', value
-    if isinstance(value, str):
-        return '-string', value
+def get_write_args(value):
+    # Dynamically typed value (using schema)
+    if isinstance(value, dict):
+        type_name = value.get('type')
+
+        # Handle special types
+        if type_name == 'array':
+            args = _get_array_write_args(value)
+            if args is not None:
+                return args
+
+        # Resolve type definition using schema
+        if type_name in TYPEDEFS:
+            return _get_value_from_typedef(type_name, value.get('value'))
+
+    # Fallback to static type definitions (single value)
+    return _get_typed_value(value)
+
+
+def _get_array_write_args(value):
+    operation = value.get('operation')
+
+    # Clear array value
+    if operation == 'clear':
+        return '-array',
+
+    # Set array value from 'items' field.
+    # TODO: Experimental.
+    if operation == 'set':
+        return "'%s'" % plist.dumps(value.get('items')),
+
+    return None
+
+
+def _get_typed_value(value):
+    for type_name, typedef in TYPEDEFS.items():
+        if isinstance(value, typedef):
+            return _get_value_from_typedef(type_name, value)
+
     raise Exception('Unknown type for value: %s' % value)
 
 
-def generate_cmd(domain, key, vtype, value):
-    return 'defaults write %s %s %s %s' % (domain, key, vtype, value)
+def _get_value_from_typedef(type_name, value):
+    return '-' + type_name, plist.dumps(value)
+
+
+def generate_cmd(domain, key, *args):
+    return 'defaults write %s %s %s' % (domain, key, ' '.join(args))
 
 
 def apply_config(config):
@@ -61,10 +96,10 @@ def apply_config(config):
 
         for key, value in app_config.get('configs').items():
             # Determine type of value
-            vtype, value = get_typed_value(value)
+            args = get_write_args(value)
 
             # Generate command
-            command = generate_cmd(domain, key, vtype, value)
+            command = generate_cmd(domain, key, *args)
             commands.append(command)
 
     # Print commands to be executed
@@ -73,11 +108,16 @@ def apply_config(config):
         log.debug('    %s' % command)
 
     # Execute commands
+    # TODO: Execute commands using exec form like in Dockerfile.
     log.info('[*] Applying defaults...')
-    retcode, stdout, stderr = process.execute_cmds(commands)
+    retcode, stdout, stderr = process.execute_cmds(commands, fail_on_error=True)
+
+    if stdout:
+        log.info('[!] Command stdout:\n%s' % stdout)
 
     if retcode != 0:
-        raise Exception('Commands returned exit code %d' % retcode)
+        log.error('[!] Command stderr:\n%s' % stderr)
+        raise Exception('Applying configs returned exit code %d' % retcode)
 
 
 def restart_apps(config):
