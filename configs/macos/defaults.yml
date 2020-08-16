@@ -35,7 +35,7 @@ Trackpad:
       com.apple.swipescrolldirection: false
 
 Date & Time:
-  restart:
+  kill:
     - SystemUIServer
   configs:
     com.apple.menuextra.clock:
@@ -43,7 +43,7 @@ Date & Time:
       DateFormat: HH:mm:ss
 
 Finder:
-  restart:
+  kill:
     - Finder
   configs:
     NSGlobalDomain:
@@ -67,7 +67,7 @@ Finder:
       ShowStatusBar: true
 
 Dock:
-  restart:
+  kill:
     - Dock
   configs:
     com.apple.dock:
@@ -87,7 +87,7 @@ Dock:
       show-process-indicators: true
 
 Battery:
-  restart:
+  kill:
     - SystemUIServer
   configs:
     com.apple.menuextra.battery:

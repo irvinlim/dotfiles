@@ -118,19 +118,33 @@ def apply_config(config):
 
 
 def restart_apps(config):
-    apps = set()
+    result = True
+
+    kill_apps = set()
+    start_apps = set()
     for _, meta in config.items():
+        for app in meta.get('kill', []):
+            kill_apps.add(app)
+        for app in meta.get('start', []):
+            start_apps.add(app)
         for app in meta.get('restart', []):
-            apps.add(app)
+            kill_apps.add(app)
+            start_apps.add(app)
 
-    log.debug('[*] Sending SIGTERM to apps:')
-    for app in sorted(apps):
-        log.debug('    %s' % app)
+    # Simply send SIGTERM to kill_apps which should restart automatically.
+    log.info('[*] Killing apps...')
+    process.pkill(kill_apps)
 
-    # Simply send SIGTERM to apps which will restart.
-    # TODO: Maybe consider adding a restart signal in the config to differentiate.
-    log.info('[*] Restarting apps...')
-    process.pkill(apps)
+    # If app does not restart, we have to start them again.
+    log.info('[*] Starting apps...')
+    for app in sorted(start_apps):
+        log.debug('[*] Opening app: %s' % app)
+        retcode = process.mac_open(app)
+        if retcode != 0:
+            log.error('[!] Opening app command returned exit code %s' % retcode)
+            result = False
+
+    return result
 
 
 @cli.command()
@@ -159,7 +173,8 @@ def set_macos_defaults(file, restart):
 
     # Restart applications
     if restart:
-        restart_apps(full_config)
+        if not restart_apps(full_config):
+            return False
 
     log.success('[*] Successfully applied configs.')
     return True

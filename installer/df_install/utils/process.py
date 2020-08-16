@@ -2,7 +2,10 @@ import os
 import psutil
 import subprocess
 import tempfile
+import time
 import signal
+
+from . import log
 
 
 def get_shebang_line():
@@ -42,11 +45,34 @@ def execute_cmds(cmds, fail_on_error=False):
 
 def pkill(names, killsig=signal.SIGTERM):
     names = set(names)
-    killed = set()
+    procs = {}
+    alive = set()
 
+    # Get PID of each process
+    lower_names = set(name.lower() for name in names)
     for proc in psutil.process_iter():
-        if proc.is_running() and proc.status() != 'zombie' and proc.name() in names:
-            proc.send_signal(killsig)
-            killed.add(proc.name())
+        if proc.is_running() and proc.status() != 'zombie':
+            if proc.name().lower() in lower_names:
+                procs[proc.name()] = proc
+                alive.add(proc.pid)
 
-    return killed
+    # Send signal to each process
+    for name, proc in procs.items():
+        # log.debug('[+] Killing process %s (pid %d)...' % (name, proc.pid))
+        proc.send_signal(killsig)
+
+    # Poll until each process is killed
+    while True:
+        for name, proc in procs.items():
+            if proc.pid in alive and not proc.is_running():
+                # log.debug('[+] Process %s (pid %d) is no longer running' % (name, proc.pid))
+                alive.remove(proc.pid)
+
+            if not alive:
+                return
+
+        time.sleep(1)
+
+
+def mac_open(name):
+    return subprocess.call(['open', '-a', name])
