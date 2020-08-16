@@ -1,4 +1,6 @@
 click>=7.0
+PyYAML
 requests
+psutil
 six
 virtualenv-api>=2.1.18

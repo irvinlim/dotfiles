@@ -1,0 +1,26 @@
+---
+Finder:
+  domain: com.apple.finder
+  configs:
+    # Show removable media on desktop
+    ShowExternalHardDrivesOnDesktop: true
+    # Hide internal hard disks on desktop
+    ShowHardDrivesOnDesktop: false
+
+Dock:
+  domain: com.apple.dock
+  configs:
+    # Auto-hide the Dock
+    autohide: true
+    # Set size of icons
+    tilesize: 50
+    # Enable Dock icon magnification
+    magnification: true
+    # Set Dock icon magnification size
+    largesize: 90
+    # Don't show recent applications in the Dock
+    show-recents: false
+    # Don't animate opening applications
+    launchanim: false
+    # Show indicator lights for open applications in the Dock
+    show-process-indicators: true

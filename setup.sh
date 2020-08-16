@@ -19,19 +19,24 @@ sudo -v
 
 # Keep-alive sudo
 # Inspired from mathiasbynens/dotfiles
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
 
 platform=$(uname)
+DOTFILES_ROOT=$(cat "$HOME/.dotfiles_root")
 
 # Save location of dotfiles root
-echo `pwd` > "$HOME/.dotfiles_root"
+pwd >"$HOME/.dotfiles_root"
 
 # Install the installer
 echo -e '\033[0;33mSetting up df-install.\033[0m'
 $pip3 install installer/
 
 # Export any env vars required from .profile when it doesn't exist yet.
-export DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"`
+export DOTFILES_ROOT
 
 # Symlink configs
 $df_install link-configs
@@ -41,13 +46,14 @@ vim +PluginInstall +qall
 
 # Symlink scripts folder
 if [ ! -d "$HOME/scripts" ]; then
-  ln -s `pwd`/scripts "$HOME"
+  ln -s "$(pwd)/scripts" "$HOME"
 fi
 
 if [[ $platform == 'Darwin' ]]; then
-  if [ -f "$DOTFILES_ROOT/.brewfiles" ]; then
-    # Use .brewfiles to determine formulae files
-    cat "$DOTFILES_ROOT/.brewfiles" | xargs -I {} brew bundle --file=packages/homebrew/{}
+  # Use .brewfiles to determine formulae files
+  brewfiles="${DOTFILES_ROOT}/.brewfiles"
+  if [ -f "${brewfiles}" ]; then
+    xargs <"${brewfiles}" -I % brew bundle --file=packages/homebrew/%
   else
     # Install hardcoded formulae
     brew bundle --file=packages/homebrew/Brewfile
@@ -56,7 +62,7 @@ if [[ $platform == 'Darwin' ]]; then
 
   # Upgrade all Brew packages
   brew upgrade -n
-  read -p 'Continue? [y/N] ' -n1 ans
+  read -rp 'Continue? [y/N] ' -n1 ans
   echo -en '\n'
   if [[ $ans == 'y' ]]; then
     brew upgrade
@@ -69,9 +75,14 @@ if [[ $platform == 'Darwin' ]]; then
   mas upgrade
 fi
 
+# Use gobin to install go binaries
 if [[ -n $GOPATH ]]; then
-  # Use gobin to install go binaries
   ./packages/go/gobin.sh
+fi
+
+# Set up plist defaults.
+if [[ $platform == 'Darwin' ]]; then
+  $df_install set-macos-defaults --restart
 fi
 
 # Setup virtualenvs and install packages
