@@ -68,15 +68,13 @@ def apply_config(config):
             commands.append(command)
 
     # Print commands to be executed
-    log.info('[*] Applying defaults:\n%s' % '\n'.join(commands))
+    log.debug('[*] Applying defaults:')
+    for command in commands:
+        log.debug('    %s' % command)
 
     # Execute commands
+    log.info('[*] Applying defaults...')
     retcode, stdout, stderr = process.execute_cmds(commands)
-
-    if stdout:
-        print(stdout)
-    if stderr:
-        print(stderr)
 
     if retcode != 0:
         raise Exception('Commands returned exit code %d' % retcode)
