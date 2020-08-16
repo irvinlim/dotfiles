@@ -85,8 +85,13 @@ def restart_apps(config):
     for app in config:
         apps.add(app)
 
+    log.debug('[*] Sending SIGTERM to apps:')
+    for app in sorted(apps):
+        log.debug('    %s' % app)
+
     # Simply send SIGTERM to apps which will restart.
     # TODO: Maybe consider adding a restart signal in the config to differentiate.
+    log.info('[*] Restarting apps...')
     process.pkill(apps)
 
 
@@ -115,7 +120,8 @@ def set_macos_defaults(file, restart):
         return False
 
     # Restart applications
-    restart_apps(full_config)
+    if restart:
+        restart_apps(full_config)
 
     log.success('[*] Successfully applied configs.')
     return True
