@@ -5,6 +5,18 @@ General:
       # Dark theme
       AppleInterfaceStyle: Dark
 
+Language & Region:
+  configs:
+    NSGlobalDomain:
+      # Use 24-hour time
+      AppleICUForce24HourTime: true
+      # Set first day of week
+      AppleFirstWeekday:
+        type: dictionary
+        operation: set-key
+        key: gregorian
+        value: 2
+
 Accessibility:
   configs:
     NSGlobalDomain:
