@@ -88,19 +88,16 @@ def apply_config(config):
     commands = []
 
     # Generate commands for config
-    for app, app_config in config.items():
-        domain = app_config.get('domain')
-        if not domain:
-            log.error('[!] No domain set for %s.' % app)
-            continue
+    for app_name, meta in config.items():
+        app_configs = meta.get('configs')
+        for domain, app_config in app_configs.items():
+            for key, value in app_config.items():
+                # Determine type of value
+                args = get_write_args(value)
 
-        for key, value in app_config.get('configs').items():
-            # Determine type of value
-            args = get_write_args(value)
-
-            # Generate command
-            command = generate_cmd(domain, key, *args)
-            commands.append(command)
+                # Generate command
+                command = generate_cmd(domain, key, *args)
+                commands.append(command)
 
     # Print commands to be executed
     log.debug('[*] Applying defaults:')
@@ -122,12 +119,9 @@ def apply_config(config):
 
 def restart_apps(config):
     apps = set()
-    for app, app_config in config.items():
-        if not app_config.get('restart', False):
-            continue
-
-        # TODO: Consider adding app name in config
-        apps.add(app)
+    for _, meta in config.items():
+        for app in meta.get('restart', []):
+            apps.add(app)
 
     log.debug('[*] Sending SIGTERM to apps:')
     for app in sorted(apps):

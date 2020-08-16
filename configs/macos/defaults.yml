@@ -1,63 +1,95 @@
 ---
-NSGlobalDomain:
-  domain: NSGlobalDomain
-  restart: false
+General:
   configs:
-    # General: Dark theme
-    AppleInterfaceStyle: Dark
-    # Accessibility: Disable "Shake mouse pointer to locate"
-    CGDisableCursorLocationMagnification: true
-    # Finder: Show all filename extensions
-    AppleShowAllExtensions: true
-    # Trackpad: Disable "natural" scroll direction
-    com.apple.swipescrolldirection: false
-    # Keyboard: Disable smart quotes and dashes
-    NSAutomaticQuoteSubstitutionEnabled: false
-    # Keyboard: Disable spelling correction
-    NSAutomaticSpellingCorrectionEnabled: false
-    WebAutomaticSpellingCorrectionEnabled: false
-    # Keyboard: Disable word capitalization
-    NSAutomaticCapitalizationEnabled: false
-    # Keyboard: Disable period substitution
-    NSAutomaticPeriodSubstitutionEnabled: false
-    # Keyboard: Remove all text replacement rules
-    NSUserDictionaryReplacementItems:
-      type: array
-      operation: clear
+    NSGlobalDomain:
+      # Dark theme
+      AppleInterfaceStyle: Dark
+
+Accessibility:
+  configs:
+    NSGlobalDomain:
+      # Disable "Shake mouse pointer to locate"
+      CGDisableCursorLocationMagnification: true
+
+Keyboard:
+  configs:
+    NSGlobalDomain:
+      # Keyboard: Disable smart quotes and dashes
+      NSAutomaticQuoteSubstitutionEnabled: false
+      # Keyboard: Disable spelling correction
+      NSAutomaticSpellingCorrectionEnabled: false
+      WebAutomaticSpellingCorrectionEnabled: false
+      # Keyboard: Disable word capitalization
+      NSAutomaticCapitalizationEnabled: false
+      # Keyboard: Disable period substitution
+      NSAutomaticPeriodSubstitutionEnabled: false
+      # Keyboard: Remove all text replacement rules
+      NSUserDictionaryReplacementItems:
+        type: array
+        operation: clear
+
+Trackpad:
+  configs:
+    NSGlobalDomain:
+      # Trackpad: Disable "natural" scroll direction
+      com.apple.swipescrolldirection: false
+
+Date & Time:
+  restart:
+    - SystemUIServer
+  configs:
+    com.apple.menuextra.clock:
+      # Display only time in system clock
+      DateFormat: HH:mm:ss
 
 Finder:
-  domain: com.apple.finder
+  restart:
+    - Finder
   configs:
-    # Show removable media on desktop
-    ShowExternalHardDrivesOnDesktop: true
-    ShowRemovableMediaOnDesktop: true
-    # Hide internal hard disks on desktop
-    ShowHardDrivesOnDesktop: false
-    # Don't show warning before changing an extension
-    FXEnableExtensionChangeWarning: false
-    # Don't show warning before removing from iCloud Drive
-    FXEnableRemoveFromICloudDriveWarning: false
-    # Show Path Bar
-    ShowPathbar: true
-    # Show Sidebar
-    ShowSidebar: true
-    # Show Status bar
-    ShowStatusBar: true
+    NSGlobalDomain:
+      # Finder: Show all filename extensions
+      AppleShowAllExtensions: true
+    com.apple.finder:
+      # Show removable media on desktop
+      ShowExternalHardDrivesOnDesktop: true
+      ShowRemovableMediaOnDesktop: true
+      # Hide internal hard disks on desktop
+      ShowHardDrivesOnDesktop: false
+      # Don't show warning before changing an extension
+      FXEnableExtensionChangeWarning: false
+      # Don't show warning before removing from iCloud Drive
+      FXEnableRemoveFromICloudDriveWarning: false
+      # Show Path Bar
+      ShowPathbar: true
+      # Show Sidebar
+      ShowSidebar: true
+      # Show Status bar
+      ShowStatusBar: true
 
 Dock:
-  domain: com.apple.dock
+  restart:
+    - Dock
   configs:
-    # Auto-hide the Dock
-    autohide: true
-    # Set size of icons
-    tilesize: 50
-    # Enable Dock icon magnification
-    magnification: true
-    # Set Dock icon magnification size
-    largesize: 90
-    # Don't show recent applications in the Dock
-    show-recents: false
-    # Don't animate opening applications
-    launchanim: false
-    # Show indicator lights for open applications in the Dock
-    show-process-indicators: true
+    com.apple.dock:
+      # Auto-hide the Dock
+      autohide: true
+      # Set size of icons
+      tilesize: 50
+      # Enable Dock icon magnification
+      magnification: true
+      # Set Dock icon magnification size
+      largesize: 90
+      # Don't show recent applications in the Dock
+      show-recents: false
+      # Don't animate opening applications
+      launchanim: false
+      # Show indicator lights for open applications in the Dock
+      show-process-indicators: true
+
+Battery:
+  restart:
+    - SystemUIServer
+  configs:
+    com.apple.menuextra.battery:
+      # Show battery percentage in status bar
+      ShowPercent: 'YES'
