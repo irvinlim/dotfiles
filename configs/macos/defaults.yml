@@ -5,6 +5,8 @@ NSGlobalDomain:
   configs:
     # General: Dark theme
     AppleInterfaceStyle: Dark
+    # Accessibility: Disable "Shake mouse pointer to locate"
+    CGDisableCursorLocationMagnification: true
     # Finder: Show all filename extensions
     AppleShowAllExtensions: true
     # Trackpad: Disable "natural" scroll direction
