@@ -93,3 +93,44 @@ Battery:
     com.apple.menuextra.battery:
       # Show battery percentage in status bar
       ShowPercent: 'YES'
+
+HyperSwitch:
+  restart:
+    - HyperSwitch
+  configs:
+    com.bahoom.HyperSwitch:
+      fullscreen_preview: false
+      run_in_background: true
+      send_debugging_statistics: false
+      shift_to_cycle_backwards: false
+      show_prefs_on_next_launch: false
+      welcome_window_shown: true
+      window_preview_size: 200.0
+      window_switcher_current_app_mod: 2
+      window_switcher_mod: 2
+
+KeepingYouAwake:
+  restart:
+    - KeepingYouAwake
+  configs:
+    info.marcel-dierkes.KeepingYouAwake:
+      'info.marcel-dierkes.KeepingYouAwake.ActivateOnLaunch': true
+      'info.marcel-dierkes.KeepingYouAwake.BatteryCapacityThreshold': 30
+      'info.marcel-dierkes.KeepingYouAwake.BatteryCapacityThresholdEnabled': true
+      'info.marcel-dierkes.KeepingYouAwake.LaunchAtLogin': true
+      'info.marcel-dierkes.KeepingYouAwake.NotificationsEnabled': true
+
+Itsycal:
+  restart:
+    - Itsycal
+  configs:
+    com.mowglii.ItsycalApp:
+      HighlightedDOWs: 65
+      MoCalendarNumRows: 6
+      ShowDayOfWeekInIcon: true
+      ShowEventDays: 7
+      ShowLocation: true
+      ShowMonthInIcon: true
+      ShowWeeks: true
+      UseOutlineIcon: false
+      WeekStartDOW: 1
