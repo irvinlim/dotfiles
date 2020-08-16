@@ -3,6 +3,8 @@ NSGlobalDomain:
   domain: NSGlobalDomain
   restart: false
   configs:
+    # General: Dark theme
+    AppleInterfaceStyle: Dark
     # Finder: Show all filename extensions
     AppleShowAllExtensions: true
     # Trackpad: Disable "natural" scroll direction
