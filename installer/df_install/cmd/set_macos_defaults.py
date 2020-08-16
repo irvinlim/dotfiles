@@ -199,6 +199,9 @@ def set_macos_defaults(file, restart, dry_run):
             print(command)
         return True
 
+    # Kill System Preferences first, prevent conflict
+    process.pkill(['System Preferences'])
+
     # Apply configs
     try:
         apply_config(commands)
