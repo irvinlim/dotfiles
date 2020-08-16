@@ -82,7 +82,11 @@ def apply_config(config):
 
 def restart_apps(config):
     apps = set()
-    for app in config:
+    for app, app_config in config.items():
+        if not app_config.get('restart', False):
+            continue
+
+        # TODO: Consider adding app name in config
         apps.add(app)
 
     log.debug('[*] Sending SIGTERM to apps:')

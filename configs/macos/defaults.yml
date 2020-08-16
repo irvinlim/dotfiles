@@ -1,11 +1,29 @@
 ---
+NSGlobalDomain:
+  domain: NSGlobalDomain
+  restart: false
+  configs:
+    # Show all filename extensions
+    AppleShowAllExtensions: true
+
 Finder:
   domain: com.apple.finder
   configs:
     # Show removable media on desktop
     ShowExternalHardDrivesOnDesktop: true
+    ShowRemovableMediaOnDesktop: true
     # Hide internal hard disks on desktop
     ShowHardDrivesOnDesktop: false
+    # Don't show warning before changing an extension
+    FXEnableExtensionChangeWarning: false
+    # Don't show warning before removing from iCloud Drive
+    FXEnableRemoveFromICloudDriveWarning: false
+    # Show Path Bar
+    ShowPathbar: true
+    # Show Sidebar
+    ShowSidebar: true
+    # Show Status bar
+    ShowStatusBar: true
 
 Dock:
   domain: com.apple.dock
