@@ -1,5 +1,7 @@
 from __future__ import print_function
 
+import shlex
+
 import click
 import yaml
 
@@ -44,6 +46,10 @@ def get_write_args(value):
             args = _get_array_write_args(value)
             if args is not None:
                 return args
+        elif type_name == 'dictionary':
+            args = _get_dict_write_args(value)
+            if args is not None:
+                return args
 
         # Resolve type definition using schema
         if type_name in TYPEDEFS:
@@ -63,7 +69,17 @@ def _get_array_write_args(value):
     # Set array value from 'items' field.
     # TODO: Experimental.
     if operation == 'set':
-        return "'%s'" % plist.dumps(value.get('items')),
+        return plist.dumps(value.get('items')),
+
+    return None
+
+
+def _get_dict_write_args(value):
+    operation = value.get('operation')
+
+    # Set key value.
+    if operation == 'set-key':
+        return '-dict-add', value.get('key'), plist.dumps(value.get('value'))
 
     return None
 
@@ -81,10 +97,20 @@ def _get_value_from_typedef(type_name, value):
 
 
 def generate_cmd(domain, key, *args):
-    return 'defaults write %s %s %s' % (domain, key, ' '.join(args))
+    cmd_args = [
+        'defaults',
+        'write',
+        domain,
+        key,
+    ]
+
+    for arg in args:
+        cmd_args.append(arg)
+
+    return cmd_args
 
 
-def apply_config(config):
+def generate_defaults(config):
     commands = []
 
     # Generate commands for config
@@ -96,16 +122,15 @@ def apply_config(config):
                 args = get_write_args(value)
 
                 # Generate command
-                command = generate_cmd(domain, key, *args)
+                command_args = generate_cmd(domain, key, *args)
+                command = shlex.join(command_args)
                 commands.append(command)
 
-    # Print commands to be executed
-    log.debug('[*] Applying defaults:')
-    for command in commands:
-        log.debug('    %s' % command)
+    return commands
 
+
+def apply_config(commands):
     # Execute commands
-    # TODO: Execute commands using exec form like in Dockerfile.
     log.info('[*] Applying defaults...')
     retcode, stdout, stderr = process.execute_cmds(commands, fail_on_error=True)
 
@@ -148,12 +173,13 @@ def restart_apps(config):
 
 
 @cli.command()
+@click.option('--dry-run', default=False, is_flag=True, help='Whether this is dry-run operation.')
 @click.option(
     '--file', '-f', default=MACOS_DEFAULTS_CONFIGS, multiple=True,
     help='Path to YAML file for macOS defaults config.',
 )
-@click.option('--restart/--no-restart', default=False, help='Whether to restart configured applications.')
-def set_macos_defaults(file, restart):
+@click.option('--restart', is_flag=True, default=False, help='Whether to restart configured applications.')
+def set_macos_defaults(file, restart, dry_run):
     # Parse all config files
     configs = []
     for config_path in file:
@@ -164,9 +190,18 @@ def set_macos_defaults(file, restart):
     # Merge configs
     full_config = merge_configs(configs)
 
+    # Generate defaults
+    commands = generate_defaults(full_config)
+
+    # Dry-run: Only print commands
+    if dry_run:
+        for command in commands:
+            print(command)
+        return True
+
     # Apply configs
     try:
-        apply_config(full_config)
+        apply_config(commands)
     except Exception as e:
         log.error('[!] Exception while applying configs: %s' % str(e))
         return False
@@ -177,6 +212,7 @@ def set_macos_defaults(file, restart):
             return False
 
     log.success('[*] Successfully applied configs.')
+
     return True
 
 

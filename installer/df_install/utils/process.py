@@ -5,8 +5,6 @@ import tempfile
 import time
 import signal
 
-from . import log
-
 
 def get_shebang_line():
     return '#!/usr/bin/env bash'
