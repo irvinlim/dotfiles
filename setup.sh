@@ -50,15 +50,25 @@ if [ ! -d "$HOME/scripts" ]; then
 fi
 
 if [[ $platform == 'Darwin' ]]; then
+  homebrew_root="${DOTFILES_ROOT}/packages/homebrew"
+
   # Use .brewfiles to determine formulae files
   brewfiles="${DOTFILES_ROOT}/.brewfiles"
-  if [ -f "${brewfiles}" ]; then
-    xargs <"${brewfiles}" -I % brew bundle --file=packages/homebrew/%
-  else
-    # Install hardcoded formulae
-    brew bundle --file=packages/homebrew/Brewfile
-    brew bundle --file=packages/homebrew/Brewfile.casks
+  if [ ! -f "${brewfiles}" ]; then
+    echo > "${brewfiles}"
+    echo Brewfile >> "${brewfiles}"
+    echo Brewfile.casks >> "${brewfiles}"
   fi
+
+  # Concat all brewfiles
+  brewfile="${homebrew_root}/.brewfile.cat"
+  cat "${brewfiles}" | xargs -I % cat "${homebrew_root}/%" > "${brewfile}"
+
+  # Install from brewfile
+  brew bundle --file="${brewfile}"
+
+  # Clean up
+  rm "${brewfile}"
 
   # Upgrade all Brew packages
   brew upgrade -n
