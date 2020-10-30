@@ -4,6 +4,8 @@ set -e
 export PIP_REQUIRE_VIRTUALENV=
 export PATH="$PATH:$HOME/.local/bin"
 
+is_gui=$(cat "$HOME/.dotfiles_gui")
+
 # Use python -m format instead
 pip3="python3 -m pip"
 df_install="python3 -m df_install.main"
@@ -97,3 +99,8 @@ fi
 
 # Setup virtualenvs and install packages
 $df_install setup-venv --use-config
+
+# Install VSCode extensions
+if [ "$is_gui" -eq "1" ]; then
+  xargs <"packages/vscode/extensions.txt" -L1 code --install-extension
+fi
