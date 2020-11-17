@@ -104,6 +104,8 @@ install_tmux() {
   # Install tmux itself
   if [[ $platform == 'Linux' ]]; then
     sudo apt-get -y install tmux
+  elif [[ $platform == 'Darwin' ]]; then
+    brew install tmux
   fi
 
   # Install .tmux
@@ -141,6 +143,11 @@ ensure_python() {
 #########
 
 # Start here!
+
+# Create .dotfiles_root if it doesn't exist.
+if [ ! -f "$HOME/.dotfiles_root" ]; then
+  echo `pwd` > "$HOME/.dotfiles_root"
+fi
 
 # Ask if this environment is a GUI environment, which can skip installation of graphical tools and other stuff.
 if [ ! -f "$HOME/.dotfiles_gui" ]; then
