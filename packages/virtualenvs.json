@@ -17,8 +17,7 @@
       "interpreter": "python2.7",
       "requirements": [
         "base",
-        "python2",
-        "tools"
+        "python2"
       ]
     },
     "python3": {

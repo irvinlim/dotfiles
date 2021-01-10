@@ -92,9 +92,9 @@ if [[ -n $GOPATH ]]; then
   ./packages/go/gobin.sh
 fi
 
-# Set up plist defaults.
+# Set up macOS.
 if [[ $platform == 'Darwin' ]]; then
-  $df_install set-macos-defaults --restart
+  ./scripts/macos.sh
 fi
 
 # Setup virtualenvs and install packages

@@ -20,7 +20,7 @@ def install_fonts():
         log.error('No font location defined for %s' % sys.platform)
         return True
 
-    font_location = font_locations[sys.platform]
+    font_location = os.path.expanduser(font_locations[sys.platform])
     no_error = True
 
     try:

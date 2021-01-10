@@ -1,9 +1,6 @@
 ## Brewfile for highly workstation-specific installs.
 ## You might want to just keep track of packages here and install those that you need manually.
 
-tap 'vitorgalvao/tiny-scripts'
-brew 'cask-repair'
-
 # Packages that aren't really used at all
 brew 'grpcurl'
 brew 'youtube-dl'
@@ -11,14 +8,11 @@ brew 'youtube-dl'
 # Casks for personal laptop only
 cask 'dropbox'
 cask 'google-backup-and-sync'
-cask 'karabiner-elements'
 cask 'expressvpn'
-cask 'keybase'
 cask 'mactex-no-gui'
 cask 'ngrok'
 cask 'qmk-toolbox'
 cask 'skype'
-cask 'teamviewer'
 cask 'transmission'
 cask 'tunnelblick'
 cask 'vlc'
