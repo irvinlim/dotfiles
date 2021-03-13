@@ -15,10 +15,10 @@ ZSH_THEME="agnoster"
 export DEFAULT_USER=`whoami`
 
 # Source .profile.
-[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+if [[ -e ~/.profile ]]; then emulate sh -c 'source ~/.profile'; fi
 
 # Source local settings.
-[[ -e ~/.zshrc.local ]] && emulate sh -c 'source ~/.zshrc.local'
+if [[ -e ~/.zshrc.local ]]; then emulate sh -c 'source ~/.zshrc.local'; fi
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -84,7 +84,7 @@ plugins=(
 )
 
 # Source local overrides right before executing oh-my-zsh entrypoint.
-[[ -e ~/.local_profile ]] && emulate sh -c 'source ~/.local_profile'
+if [[ -e ~/.local_profile ]]; then emulate sh -c 'source ~/.local_profile'; fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -132,7 +132,7 @@ zstyle ':urlglobber' url-other-schema
 source ~/scripts/lazynvm.sh
 
 # Add iTerm2 shell integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+if [[ -e "${HOME}/.iterm2_shell_integration.zsh" ]]; then source "${HOME}/.iterm2_shell_integration.zsh"; fi
 
 # Add haosdent/s
 if [[ $platform == 'Darwin' ]]; then
@@ -143,7 +143,7 @@ if [[ $platform == 'Darwin' ]]; then
 fi
 
 # Add opam configuration
-test -r "$HOME/.opam/opam-init/init.zsh" && . "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null || true
+if [[ "$HOME/.opam/opam-init/init.zsh" ]]; then . "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null || true; fi
 
 # Export FPATH: https://github.com/robbyrussell/oh-my-zsh/issues/4607
 export FPATH=$HOME/usr/share/zsh/'version of zsh'/functions:$FPATH

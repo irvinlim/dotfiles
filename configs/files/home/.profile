@@ -1,5 +1,6 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export TERM=xterm-256color
 
 # Get the location of dotfiles directory, saved during setup.sh runs.
 export DOTFILES_ROOT=`cat "$HOME/.dotfiles_root"`
@@ -43,6 +44,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # GNU Core Utils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Conda
