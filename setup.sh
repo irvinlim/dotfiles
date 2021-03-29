@@ -79,12 +79,6 @@ if [[ $platform == 'Darwin' ]]; then
   if [[ $ans == 'y' ]]; then
     brew upgrade
   fi
-
-  # Upgrade all casks (don't use --greedy flag)
-  brew cask upgrade
-
-  # Upgrade all MAS apps
-  mas upgrade
 fi
 
 # Use gobin to install go binaries
