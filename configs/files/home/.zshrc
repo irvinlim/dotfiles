@@ -146,7 +146,7 @@ fi
 if [[ -e "$HOME/.opam/opam-init/init.zsh" ]]; then . "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null || true; fi
 
 # Export FPATH: https://github.com/robbyrussell/oh-my-zsh/issues/4607
-export FPATH=$HOME/usr/share/zsh/'version of zsh'/functions:$FPATH
+export FPATH="/usr/local/share/zsh/site-functions:$FPATH"
 
 # Add completions
 . "$HOME/.completions.zsh"
