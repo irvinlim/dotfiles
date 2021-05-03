@@ -31,3 +31,5 @@
 	default = simple
 [pull]
 	rebase = false
+[remote "origin"]
+	prune = true
