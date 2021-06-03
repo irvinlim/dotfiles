@@ -50,3 +50,5 @@ exec ':so ' $OH_MY_VIM."/vimrc"
 
 set mouse=a
 
+" Disable word wrap
+set formatoptions-=t
