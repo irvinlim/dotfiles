@@ -19,3 +19,6 @@ $df_install set-macos-defaults --restart
 
 # Set additional configs
 defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Disables Dock icon bouncing
+defaults write com.apple.dock no-bouncing -bool true
