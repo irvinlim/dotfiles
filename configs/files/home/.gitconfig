@@ -19,6 +19,7 @@
 	program = gpg2
 [init]
 	templatedir = ~/.git-templates
+	defaultBranch = master
 [http]
 	sslVerify = true
 [url "git@github.com:"]
