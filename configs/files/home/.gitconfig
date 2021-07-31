@@ -34,3 +34,5 @@
 	rebase = false
 [remote "origin"]
 	prune = true
+[advice]
+	detachedHead = false
