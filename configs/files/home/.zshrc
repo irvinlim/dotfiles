@@ -150,6 +150,7 @@ export FPATH="/usr/local/share/zsh/site-functions:$FPATH"
 
 # Add completions
 . "$HOME/.completions.zsh"
+autoload -U compinit; compinit
 
 # Add redo keybinding
 bindkey "^X^_" redo
