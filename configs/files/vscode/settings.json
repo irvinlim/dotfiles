@@ -259,5 +259,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.editor.untitled.hint": "hidden",
-  "security.workspace.trust.untrustedFiles": "open"
+  "security.workspace.trust.untrustedFiles": "open",
+  "security.workspace.trust.emptyWindow": true,
+  "python.defaultInterpreterPath": "~/.virtualenvs/shopee/bin/python"
 }
