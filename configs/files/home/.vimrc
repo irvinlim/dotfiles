@@ -10,6 +10,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Add plugins here!
+Plugin 'tpope/vim-fugitive'
 Plugin 'editorconfig/editorconfig-vim'
 
 " All of your Plugins must be added before the following line
