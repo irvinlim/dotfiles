@@ -124,6 +124,9 @@ setopt nosharehistory
 bindkey "\e\eOD" backward-word
 bindkey "\e\eOC" forward-word
 
+# Disable auto update prompt
+zstyle ':omz:update' mode auto
+
 # Disable URL globber
 zstyle ':urlglobber' url-other-schema
 
