@@ -74,6 +74,7 @@ plugins=(
   docker-compose
   golang
   git
+  helm
   iterm2
   kubectl
   mosh
