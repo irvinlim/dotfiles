@@ -104,6 +104,7 @@
   "licenser.author": "Irvin Lim",
   "licenser.license": "MIT",
   "licenser.useSingleLineStyle": false,
+  "licenser.disableAutoHeaderInsertion": true,
   // Markdown
   "[markdown]": {
     "editor.wordWrap": "on",
@@ -261,5 +262,5 @@
   "workbench.editor.untitled.hint": "hidden",
   "security.workspace.trust.untrustedFiles": "open",
   "security.workspace.trust.emptyWindow": true,
-  "python.defaultInterpreterPath": "~/.virtualenvs/shopee/bin/python"
+  "python.defaultInterpreterPath": "~/.virtualenvs/python3.7/bin/python"
 }
