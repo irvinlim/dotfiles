@@ -254,7 +254,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
+    "*.ipynb": "jupyter-notebook"
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -262,5 +262,10 @@
   "workbench.editor.untitled.hint": "hidden",
   "security.workspace.trust.untrustedFiles": "open",
   "security.workspace.trust.emptyWindow": true,
-  "python.defaultInterpreterPath": "~/.virtualenvs/python3.7/bin/python"
+  "python.defaultInterpreterPath": "~/.virtualenvs/python3.7/bin/python",
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "redhat.telemetry.enabled": false
 }
