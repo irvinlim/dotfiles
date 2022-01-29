@@ -239,7 +239,7 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "python.languageServer": "Microsoft",
+  "python.languageServer": "Default",
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
