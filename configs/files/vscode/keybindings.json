@@ -176,5 +176,35 @@
     "key": "cmd+.",
     "command": "-editor.action.quickFix",
     "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+cmd+l",
+    "command": "-toggleSearchEditorContextLines",
+    "when": "inSearchEditor"
+  },
+  {
+    "key": "alt+cmd+l",
+    "command": "-toggleFindInSelection",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+cmd+l",
+    "command": "editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "-editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  },
+  {
+    "key": "alt+cmd+l",
+    "command": "editor.action.formatDocument.none",
+    "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "-editor.action.formatDocument.none",
+    "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
   }
 ]
