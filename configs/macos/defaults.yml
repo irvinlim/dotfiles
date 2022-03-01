@@ -106,21 +106,6 @@ Battery:
       # Show battery percentage in status bar
       ShowPercent: 'YES'
 
-HyperSwitch:
-  restart:
-    - HyperSwitch
-  configs:
-    com.bahoom.HyperSwitch:
-      fullscreen_preview: false
-      run_in_background: true
-      send_debugging_statistics: false
-      shift_to_cycle_backwards: false
-      show_prefs_on_next_launch: false
-      welcome_window_shown: true
-      window_preview_size: 200.0
-      window_switcher_current_app_mod: 2
-      window_switcher_mod: 2
-
 KeepingYouAwake:
   restart:
     - KeepingYouAwake
