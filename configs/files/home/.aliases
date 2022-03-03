@@ -5,6 +5,7 @@
 # Amend last commit with staged files
 alias gam='git commit --amend --no-edit'
 alias gbrm='git branch --merged | egrep -v "(^\*|master|main|dev|test)" | xargs git branch -d'
+alias gdstat='git --no-pager diff --shortstat'
 
 ## Virtualenv
 
