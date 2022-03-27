@@ -268,5 +268,6 @@
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "go.toolsManagement.autoUpdate": true
 }
