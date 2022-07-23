@@ -108,7 +108,11 @@
   // Markdown
   "[markdown]": {
     "editor.wordWrap": "on",
-    "editor.quickSuggestions": false,
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "markdownlint.config": {
@@ -269,5 +273,6 @@
     "jupyter-notebook": "left"
   },
   "redhat.telemetry.enabled": false,
-  "go.toolsManagement.autoUpdate": true
+  "go.toolsManagement.autoUpdate": true,
+  "workbench.colorTheme": "Default Dark+"
 }
