@@ -3,19 +3,18 @@
 
 # Packages that aren't really used at all
 brew 'grpcurl'
-brew 'youtube-dl'
+brew 'mas'
 
 # Casks for personal laptop only
+cask 'authy'
+cask 'brave-browser'
+cask 'clipy'
 cask 'dropbox'
+cask 'google-chrome'
 cask 'google-backup-and-sync'
 cask 'expressvpn'
 cask 'mactex-no-gui'
 cask 'ngrok'
 cask 'qmk-toolbox'
-cask 'skype'
 cask 'transmission'
 cask 'tunnelblick'
-cask 'vlc'
-cask 'whatsapp'
-cask 'wireshark'
-cask 'xquartz'

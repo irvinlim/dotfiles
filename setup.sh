@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 export PIP_REQUIRE_VIRTUALENV=
 export PATH="$PATH:$HOME/.local/bin"
 

@@ -1,0 +1,21 @@
+## Packages for development workstations.
+
+# Taps for development.
+tap 'goreleaser/goreleaser'
+
+# IDEs.
+cask 'jetbrains-toolbox'
+
+# Kubernetes packages.
+brew 'kind'
+brew 'kubectl'
+brew 'helm'
+cask 'docker'
+
+# Go tools.
+brew 'goreleaser'
+brew 'tokei'
+
+# Languages for development.
+brew 'ruby'
+brew 'rustup'
