@@ -274,5 +274,11 @@
   },
   "redhat.telemetry.enabled": false,
   "go.toolsManagement.autoUpdate": true,
-  "workbench.colorTheme": "Default Dark+"
+  "workbench.colorTheme": "Default Dark+",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "gitlens.codeLens.enabled": false,
+  "gitlens.hovers.enabled": false,
+  "git.ignoreLimitWarning": true
 }
