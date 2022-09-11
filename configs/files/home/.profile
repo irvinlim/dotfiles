@@ -42,10 +42,12 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# GNU Core Utils
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+# GNU Core Utils (for macOS only)
+if [[ $platform == 'Darwin' ]]; then
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+  export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
+  export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+fi
 
 # Conda
 export PATH="$HOME/anaconda3/bin:$PATH"
