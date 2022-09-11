@@ -82,8 +82,13 @@ if [[ $platform == 'Darwin' ]]; then
 fi
 
 # Use gobin to install go binaries
-if [[ -n $GOPATH ]]; then
+if [ ! -z ${var+x} ]; then
   ./packages/go/gobin.sh
+fi
+
+# Install kubernetes packages
+if command -v kubectl &> /dev/null; then
+  ./packages/go/kube.sh
 fi
 
 # Set up macOS.

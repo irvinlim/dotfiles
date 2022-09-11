@@ -56,6 +56,9 @@ export PATH="$HOME/bin:$PATH"
 # Dotfile bins
 export PATH="$DOTFILES_ROOT/bin:$PATH"
 
+# Krew plugins
+export PATH="${PATH}:${HOME}/.krew/bin"
+
 ##
 ## Virtualenvs
 ##
