@@ -121,6 +121,7 @@ install_tmux() {
   if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     mkdir -p ~/.tmux/plugins
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    tmux source ~/.tmux.conf
     ~/.tmux/plugins/tpm/bin/install_plugins
   fi
 }
