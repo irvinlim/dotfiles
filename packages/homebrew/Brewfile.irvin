@@ -4,6 +4,9 @@
 # Need App Store access for mas
 brew 'mas'
 
+# See https://github.com/fabianishere/pam_reattach
+brew 'pam-reattach'
+
 # Casks for personal laptop only
 cask 'authy'
 cask 'brave-browser'
