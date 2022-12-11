@@ -48,10 +48,10 @@ def pkill(names, killsig=signal.SIGTERM):
 
     # Get PID of each process
     lower_names = set(name.lower() for name in names)
-    for proc in psutil.process_iter():
+    for proc in psutil.process_iter(['name']):
         if proc.is_running() and proc.status() != 'zombie':
-            if proc.name().lower() in lower_names:
-                procs[proc.name()] = proc
+            if proc.info['name'].lower() in lower_names:
+                procs[proc.info['name']] = proc
                 alive.add(proc.pid)
 
     # Send signal to each process
