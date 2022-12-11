@@ -7,6 +7,9 @@ brew 'mas'
 # See https://github.com/fabianishere/pam_reattach
 brew 'pam-reattach'
 
+# Personal IDEs
+cask 'goland'
+
 # Casks for personal laptop only
 cask 'authy'
 cask 'brave-browser'
