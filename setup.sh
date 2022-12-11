@@ -82,7 +82,7 @@ if [[ $platform == 'Darwin' ]]; then
 fi
 
 # Use gobin to install go binaries
-if [ ! -z ${var+x} ]; then
+if [ ! -z ${GOPATH+x} ]; then
   ./packages/go/gobin.sh
 fi
 
