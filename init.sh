@@ -6,6 +6,9 @@ export PIP_REQUIRE_VIRTUALENV=
 # Add Python bin PATH temporarily
 export PATH="$PATH:$HOME/.local/bin"
 
+# Add Homebrew bin PATH temporarily
+export PATH="$PATH:/opt/homebrew/bin"
+
 # Use python -m format instead
 pip3="python3 -m pip"
 df_install="python3 -m df_install.main"

@@ -44,6 +44,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # GNU Core Utils (for macOS only)
 if [[ $platform == 'Darwin' ]]; then
+  export PATH="/opt/homebrew/bin:$PATH"
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
   export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
   export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
