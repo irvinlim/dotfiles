@@ -139,3 +139,13 @@ Itsycal:
       ShowWeeks: true
       UseOutlineIcon: false
       WeekStartDOW: 1
+
+MonitorControl:
+  restart:
+    - MonitorControl
+  configs:
+    me.guillaumeb.MonitorControl:
+      enableSliderPercent: 1
+      enableSliderSnap: 1
+      showTickMarks: 0
+      multiKeyboardBrightness: 1
