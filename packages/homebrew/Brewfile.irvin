@@ -1,8 +1,7 @@
 ## Brewfile for highly workstation-specific installs.
 ## You might want to just keep track of packages here and install those that you need manually.
 
-# Packages that aren't really used at all
-brew 'grpcurl'
+# Need App Store access for mas
 brew 'mas'
 
 # Casks for personal laptop only
@@ -11,9 +10,7 @@ cask 'brave-browser'
 cask 'clipy'
 cask 'dropbox'
 cask 'google-chrome'
-cask 'google-backup-and-sync'
 cask 'expressvpn'
-cask 'mactex-no-gui'
 cask 'ngrok'
 cask 'qmk-toolbox'
 cask 'transmission'
