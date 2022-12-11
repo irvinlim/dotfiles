@@ -1,0 +1,2 @@
+# Add Kubernetes-related tools here.
+brew 'kubectl'
