@@ -139,6 +139,11 @@ ensure_python() {
     $pip3 install virtualenv
   elif [[ $platform == "Darwin" ]]; then
     brew install python 2> /dev/null
+
+    # Rewrite the path to python3 here, because otherwise we will be using the system default.
+    pip3="/opt/homebrew/bin/python3 -m pip"
+    df_install="/opt/homebrew/bin/python3 -m df_install.main"
+
     curl https://bootstrap.pypa.io/get-pip.py -sSL | python3
     $pip3 install virtualenv
   fi
