@@ -149,3 +149,59 @@ MonitorControl:
       enableSliderSnap: 1
       showTickMarks: 0
       multiKeyboardBrightness: 1
+
+AltTab:
+  restart:
+    - AltTab
+  configs:
+    com.lwouis.alt-tab-macos:
+      # General
+      menubarIcon: 3
+
+      # Controls
+      spacesToShow: 1
+      spacesToShow2: 0
+      screensToShow: 1
+      screensToShow2: 0
+      showMinimizedWindows: 2
+      showMinimizedWindows2: 2
+      showHiddenWindows: 1
+      showHiddenWindows2: 0
+      showFullscreenWindows: 0
+      showFullscreenWindows2: 0
+      holdShortcut: "\u2318"
+      holdShortcut2: "\u2318"
+      nextWindowShortcut: "\u21e5"
+      nextWindowShortcut2: "`"
+      focusWindowShortcut: "\u21a9"
+      previousWindowShortcut: "\u21e7\u21e5"
+      cancelShortcut: "\u238b"
+      closeWindowShortcut: ""
+      minDeminWindowShortcut: ""
+      quitAppShortcut: ""
+      hideShowAppShortcut: ""
+      arrowKeysEnabled: "true"
+      mouseHoverEnabled: "true"
+      cursorFollowFocusEnabled: "false"
+
+      # Appearance
+      theme: 0
+      alignThumbnails: 0
+      maxWidthOnScreen: 80
+      maxHeightOnScreen: 80
+      hideThumbnails: "false"
+      rowsCount: 4
+      windowMinWidthInRow: 15
+      windowMaxWidthInRow: 30
+      iconSize: 32
+      fontHeight: 15
+      titleTruncation: 0
+      showOnScreen: 0
+      windowDisplayDelay: 0 # Apparition delay
+      fadeOutAnimation: "false"
+      hideSpaceNumberLabels: "true"
+      hideStatusIcons: "false"
+      showTabsAsWindows: "false"
+      hideColoredCircles: "true"
+      hideAppBadges: "true"
+      hideWindowlessApps: "true"
