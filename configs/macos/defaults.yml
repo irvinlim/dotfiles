@@ -205,3 +205,11 @@ AltTab:
       hideColoredCircles: "true"
       hideAppBadges: "true"
       hideWindowlessApps: "true"
+
+Spectacle:
+  restart:
+    - Spectacle
+  configs:
+    com.divisiblebyzero.Spectacle:
+      StatusItemEnabled: 0
+      BackgroundAlertSuppressed: 1
