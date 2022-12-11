@@ -106,6 +106,14 @@ Battery:
       # Show battery percentage in status bar
       ShowPercent: 'YES'
 
+Siri:
+  kill:
+    - SystemUIServer
+  configs:
+    com.apple.Siri:
+      # Hide Siri from the status bar
+      StatusMenuVisible: 0
+
 KeepingYouAwake:
   restart:
     - KeepingYouAwake
