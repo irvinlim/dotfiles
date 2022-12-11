@@ -43,6 +43,7 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # GNU Core Utils (for macOS only)
+platform=$(uname)
 if [[ $platform == 'Darwin' ]]; then
   export PATH="/opt/homebrew/bin:$PATH"
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
