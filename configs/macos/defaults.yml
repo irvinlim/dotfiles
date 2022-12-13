@@ -23,6 +23,11 @@ Accessibility:
       # Disable "Shake mouse pointer to locate"
       CGDisableCursorLocationMagnification: true
 
+Music:
+  configs:
+    com.apple.Music:
+      userWantsPlaybackNotifications: 0
+
 Keyboard:
   configs:
     NSGlobalDomain:
