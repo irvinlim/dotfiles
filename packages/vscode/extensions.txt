@@ -44,6 +44,7 @@ jsynowiec.vscode-insertdatestring
 justusadam.language-haskell
 kalitaalexey.vscode-rust
 keyring.Lua
+knisterpeter.vscode-github
 kriegalex.vscode-cudacpp
 kumar-harsh.graphql-for-vscode
 lextudio.restructuredtext
