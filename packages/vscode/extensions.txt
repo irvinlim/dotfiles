@@ -80,6 +80,7 @@ shanoor.vscode-nginx
 sidneys1.gitconfig
 tberman.json-schema-validator
 twxs.cmake
+unifiedjs.vscode-mdx
 VisualStudioExptTeam.vscodeintellicode
 vscjava.vscode-java-debug
 vscjava.vscode-java-dependency
