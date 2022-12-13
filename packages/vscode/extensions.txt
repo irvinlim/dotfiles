@@ -19,20 +19,17 @@ donjayamanne.jquerysnippets
 DotJoshJohnson.xml
 EditorConfig.EditorConfig
 eg2.tslint
-eg2.vscode-npm-script
 emmanuelbeziat.vscode-great-icons
 esbenp.prettier-vscode
 felixfbecker.php-debug
 felixfbecker.php-intellisense
 file-icons.file-icons
-freebroccolo.reasonml
 freebroccolo.sml
 Gimly81.matlab
 ginfuru.ginfuru-vscode-jekyll-syntax
 GitLab.gitlab-workflow
 golang.go
 GrapeCity.gc-excelviewer
-hackwaly.ocaml
 henriiik.docker-linter
 hoovercj.haskell-linter
 idleberg.badges
@@ -50,7 +47,6 @@ keyring.Lua
 kriegalex.vscode-cudacpp
 kumar-harsh.graphql-for-vscode
 lextudio.restructuredtext
-liuji-jim.vue
 mdickin.markdown-shortcuts
 mechatroner.rainbow-csv
 michelemelluso.code-beautifier
@@ -64,7 +60,6 @@ ms-azuretools.vscode-docker
 ms-python.python
 ms-vscode.azure-account
 ms-vscode.cpptools
-ms-vscode.node-debug2
 ms-vscode.sublime-keybindings
 msysyamamoto.vscode-fluentd
 neilbrayfield.php-docblocker
@@ -80,7 +75,7 @@ pnp.polacode
 QassimFarid.ejs-language-support
 redhat.java
 redhat.vscode-yaml
-rust-lang.rust
+rust-lang.rust-analyzer
 shanoor.vscode-nginx
 sidneys1.gitconfig
 tberman.json-schema-validator
@@ -92,6 +87,7 @@ vscjava.vscode-java-pack
 vscjava.vscode-java-test
 vscjava.vscode-maven
 vscoss.vscode-ansible
+vue.volar
 WakaTime.vscode-wakatime
 wholroyd.HCL
 wmaurer.change-case
