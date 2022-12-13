@@ -11,3 +11,5 @@
   ./"${KREW}" install krew
 )
 
+# Install krew plugins
+kubectl krew install < ./packages/go/krew.txt
