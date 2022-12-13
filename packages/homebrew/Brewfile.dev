@@ -3,19 +3,12 @@
 # Taps for development.
 tap 'goreleaser/goreleaser'
 
-# IDEs.
-cask 'jetbrains-toolbox'
+# Personal IDEs
+cask 'goland'
 
 # Kubernetes packages.
-brew 'kind'
-brew 'kubectl'
-brew 'helm'
 cask 'docker'
 
 # Go tools.
 brew 'goreleaser'
 brew 'tokei'
-
-# Languages for development.
-brew 'ruby'
-brew 'rustup'

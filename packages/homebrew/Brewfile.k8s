@@ -1,2 +1,5 @@
 # Add Kubernetes-related tools here.
 brew 'kubectl'
+brew 'kind'
+brew 'kubectl'
+brew 'helm'
