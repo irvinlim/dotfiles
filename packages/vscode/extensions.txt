@@ -17,6 +17,7 @@ deerawan.vscode-hasher
 donjayamanne.githistory
 donjayamanne.jquerysnippets
 DotJoshJohnson.xml
+eamodio.gitlens
 EditorConfig.EditorConfig
 eg2.tslint
 emmanuelbeziat.vscode-great-icons
