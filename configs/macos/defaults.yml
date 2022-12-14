@@ -102,6 +102,8 @@ Dock:
       launchanim: false
       # Show indicator lights for open applications in the Dock
       show-process-indicators: true
+      # Disable bouncing icons for the dock
+      no-bouncing: true
 
 Battery:
   kill:
