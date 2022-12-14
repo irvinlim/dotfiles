@@ -3,7 +3,7 @@
 # Taps for development.
 tap 'goreleaser/goreleaser'
 
-# Personal IDEs
+# Personal IDEs.
 cask 'goland'
 
 # Kubernetes packages.
@@ -12,3 +12,9 @@ cask 'docker'
 # Go tools.
 brew 'goreleaser'
 brew 'tokei'
+
+# Charm: https://github.com/charmbracelet/vhs
+tap 'charmbracelet/tap'
+brew 'charmbracelet/tap/vhs'
+brew 'ffmpeg'
+brew 'ttyd', args: ['HEAD']
