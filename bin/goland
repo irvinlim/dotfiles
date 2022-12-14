@@ -1,0 +1,28 @@
+#!/bin/bash
+
+##
+## Helper script to open a directory in GoLand.
+## This script should work on different platforms and installation paths, otherwise please update it.
+##
+## Usage:
+##   goland <path>
+##
+
+set -euo pipefail
+platform=$(uname)
+
+case $(uname) in
+  Darwin)
+    # Assume that GoLand is located in Applications/ directory root.
+    open -na "GoLand.app" --args "$@"
+    ;;
+
+  Linux)
+    exec /opt/goland/bin/goland.sh $@
+    ;;
+
+  *)
+    echo "GoLand helper script not configured for $(uname)"
+    exit 1
+    ;;
+esac
