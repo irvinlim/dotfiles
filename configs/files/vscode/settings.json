@@ -278,7 +278,6 @@
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "gitlens.codeLens.enabled": false,
-  "gitlens.hovers.enabled": false,
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "gitlens.codeLens.enabled": false
 }
