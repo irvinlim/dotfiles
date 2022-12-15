@@ -13,6 +13,9 @@ cask 'docker'
 brew 'goreleaser'
 brew 'tokei'
 
+# Terminal UI tools.
+brew 'asciinema'
+
 # Charm: https://github.com/charmbracelet/vhs
 tap 'charmbracelet/tap'
 brew 'charmbracelet/tap/vhs'
