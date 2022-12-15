@@ -167,9 +167,9 @@ AltTab:
 
       # Controls
       spacesToShow: 1
-      spacesToShow2: 0
+      spacesToShow2: 1
       screensToShow: 1
-      screensToShow2: 0
+      screensToShow2: 1
       showMinimizedWindows: 2
       showMinimizedWindows2: 2
       showHiddenWindows: 1
