@@ -82,6 +82,9 @@ Finder:
       ShowSidebar: true
       # Show Status bar
       ShowStatusBar: true
+      # Sort folders above files
+      _FXSortFoldersFirst: 1
+      _FXSortFoldersFirstOnDesktop: 1
 
 Dock:
   kill:
