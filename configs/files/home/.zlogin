@@ -1,7 +1,8 @@
 # Add homebrew to path to load tmux on macOS
 platform=$(uname)
 if [[ $platform == 'Darwin' ]]; then
-  export PATH="/opt/homebrew/bin:$PATH"
+  # Move to back to avoid clobbering other bins from homebrew (e.g. pip)
+  export PATH="$PATH:/opt/homebrew/bin"
 fi
 
 # Load RVM into a shell session *as a function*
