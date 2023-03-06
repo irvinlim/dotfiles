@@ -1,3 +1,5 @@
+platform=$(uname)
+
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
@@ -16,6 +18,11 @@ export PATH=$PATH:/sbin
 
 # Path for .local bins. Used by stack (Haskell) amongst others.
 export PATH="$HOME/.local/bin:$PATH"
+
+# Homebrew (Apple Silicon)
+if [[ $platform == 'Darwin' ]]; then
+  export PATH="$PATH:/opt/homebrew/bin"
+fi
 
 # CUDA
 export PATH="/usr/local/cuda/bin/:$PATH"
@@ -43,7 +50,6 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # GNU Core Utils (for macOS only)
-platform=$(uname)
 if [[ $platform == 'Darwin' ]]; then
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
   export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
@@ -89,3 +95,6 @@ done < <(jq '.venvs' $VIRTUALENV_CONFIG_PATH | jq -r 'keys[]')
 ##
 
 export LESS='-x4 -R'
+
+# Added by Docker Desktop
+source "$HOME/.docker/init-bash.sh" || true
