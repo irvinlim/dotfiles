@@ -78,7 +78,7 @@
     "--style",
     "/Users/irvin/.config/yapf/style.cfg"
   ],
-  "python.formatting.yapfPath": "~/.virtualenvs/python3.7/bin/yapf",
+  "python.formatting.yapfPath": "~/.virtualenvs/python3/bin/yapf",
   "python.linting.ignorePatterns": [
     ".vscode/*.py",
     ".venv/*.py",
@@ -279,5 +279,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "git.ignoreLimitWarning": true,
-  "gitlens.codeLens.enabled": false
+  "gitlens.codeLens.enabled": false,
+  "git.openRepositoryInParentFolders": "never",
+  "svelte.enable-ts-plugin": true,
+  "[python]": {
+    "editor.formatOnType": true
+  }
 }
