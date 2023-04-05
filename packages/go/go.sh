@@ -37,7 +37,7 @@ while IFS= read -r pkg; do
     if [[ "${pkg}" =~ $comment_regex ]]; then
         continue
     fi
-    
+
     # Install package
     go install "${pkg}"
 done < "${packages}"
