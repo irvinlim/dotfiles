@@ -2,7 +2,7 @@
 
 # Install krew
 (
-  set -x; cd "$(mktemp -d)" &&
+  cd "$(mktemp -d)" &&
   OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
   ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
   KREW="krew-${OS}_${ARCH}" &&
@@ -12,4 +12,4 @@
 )
 
 # Install krew plugins
-kubectl krew install < ./packages/go/krew.txt
+kubectl krew install < ./packages/kube/krew.txt
