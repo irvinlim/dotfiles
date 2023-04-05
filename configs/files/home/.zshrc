@@ -158,6 +158,3 @@ autoload -U compinit; compinit
 
 # Add redo keybinding
 bindkey "^X^_" redo
-
-# Added by Docker Desktop
-source "$HOME/.docker/init-bash.sh" || true

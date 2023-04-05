@@ -95,6 +95,3 @@ done < <(jq '.venvs' $VIRTUALENV_CONFIG_PATH | jq -r 'keys[]')
 ##
 
 export LESS='-x4 -R'
-
-# Added by Docker Desktop
-source "$HOME/.docker/init-bash.sh" || true
