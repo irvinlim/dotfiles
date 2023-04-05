@@ -10,6 +10,6 @@ fi
 GO111MODULE=off go get -u github.com/myitcv/gobin
 
 # gobin packages
-gobin github.com/rogpeppe/gohack
-gobin golang.org/x/tools/cmd/goimports
-gobin golang.org/x/tools/cmd/stringer
+go install github.com/rogpeppe/gohack@latest
+go install golang.org/x/tools/cmd/goimports@latest
+go install golang.org/x/tools/cmd/stringer@latest
