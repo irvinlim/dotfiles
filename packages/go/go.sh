@@ -7,8 +7,8 @@ set -euo pipefail
 ##
 
 if [[ -z "${DOTFILES_ROOT}" ]]; then
-    echo "Error: DOTFILES_ROOT not defined"
-    exit 1
+  echo "Error: DOTFILES_ROOT not defined"
+  exit 1
 fi
 
 package_root="${DOTFILES_ROOT}/packages/go"
@@ -17,13 +17,13 @@ package_lists="${DOTFILES_ROOT}/.packages-go"
 # Skip if go is not installed.
 if ! command -v go &> /dev/null
 then
-    exit
+  exit
 fi
 
 # Generate default package list if not present
 if [ ! -f "${package_lists}" ]; then
-    touch "${package_lists}"
-    echo packages.txt >> "${package_lists}"
+  touch "${package_lists}"
+  echo packages.txt >> "${package_lists}"
 fi
 
 # Concatenate all package lists
@@ -32,12 +32,15 @@ cat "${package_lists}" | xargs -I % cat "${package_root}/%" > "${packages}"
 
 # Install packages from package list
 while IFS= read -r pkg; do
-    # Skip comments
-    comment_regex="^#.*"
-    if [[ "${pkg}" =~ $comment_regex ]]; then
-        continue
-    fi
+  # Skip comments
+  comment_regex="^#.*"
+  if [[ "${pkg}" =~ $comment_regex ]]; then
+    continue
+  fi
 
-    # Install package
-    go install "${pkg}"
+  # Install package
+  go install "${pkg}"
 done < "${packages}"
+
+# Clean up temporary file
+rm "${packages}"

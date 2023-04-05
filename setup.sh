@@ -51,34 +51,9 @@ if [ ! -d "$HOME/scripts" ]; then
   ln -s "$(pwd)/scripts" "$HOME"
 fi
 
+# Install Homebrew packages
 if [[ $platform == 'Darwin' ]]; then
-  homebrew_root="${DOTFILES_ROOT}/packages/homebrew"
-
-  # Use .brewfiles to determine formulae files
-  brewfiles="${DOTFILES_ROOT}/.brewfiles"
-  if [ ! -f "${brewfiles}" ]; then
-    echo > "${brewfiles}"
-    echo Brewfile >> "${brewfiles}"
-    echo Brewfile.casks >> "${brewfiles}"
-  fi
-
-  # Concat all brewfiles
-  brewfile="${homebrew_root}/.brewfile.cat"
-  cat "${brewfiles}" | xargs -I % cat "${homebrew_root}/%" > "${brewfile}"
-
-  # Install from brewfile
-  brew bundle --file="${brewfile}"
-
-  # Clean up
-  rm "${brewfile}"
-
-  # Upgrade all Brew packages
-  brew upgrade -n
-  read -rp 'Continue? [y/N] ' -n1 ans
-  echo -en '\n'
-  if [[ $ans == 'y' ]]; then
-    brew upgrade
-  fi
+  ./packages/homebrew/homebrew.sh
 fi
 
 # Install Go binaries

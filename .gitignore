@@ -1,2 +1,4 @@
+# Temporary files for package list management
 .brewfiles
 .packages-*
+**/.packages.cat
