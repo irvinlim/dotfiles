@@ -124,6 +124,21 @@ Siri:
       # Hide Siri from the status bar
       StatusMenuVisible: 0
 
+Control Center:
+  kill:
+    - SystemUIServer
+  configs:
+    com.apple.controlcenter:
+      NSStatusItem Visible Battery: 1
+      NSStatusItem Visible BentoBox: 1
+      NSStatusItem Visible Bluetooth: 1
+      NSStatusItem Visible Clock: 1
+      NSStatusItem Visible FocusModes: 1
+      NSStatusItem Visible NowPlaying: 1
+      NSStatusItem Visible Sound: 1
+      NSStatusItem Visible UserSwitcher: 1
+      NSStatusItem Visible WiFi: 1
+
 KeepingYouAwake:
   restart:
     - KeepingYouAwake
@@ -182,24 +197,24 @@ AltTab:
       holdShortcut: "\u2318"
       holdShortcut2: "\u2318"
       nextWindowShortcut: "\u21e5"
-      nextWindowShortcut2: "`"
+      nextWindowShortcut2: '`'
       focusWindowShortcut: "\u21a9"
       previousWindowShortcut: "\u21e7\u21e5"
       cancelShortcut: "\u238b"
-      closeWindowShortcut: ""
-      minDeminWindowShortcut: ""
-      quitAppShortcut: ""
-      hideShowAppShortcut: ""
-      arrowKeysEnabled: "true"
-      mouseHoverEnabled: "true"
-      cursorFollowFocusEnabled: "false"
+      closeWindowShortcut: ''
+      minDeminWindowShortcut: ''
+      quitAppShortcut: ''
+      hideShowAppShortcut: ''
+      arrowKeysEnabled: 'true'
+      mouseHoverEnabled: 'true'
+      cursorFollowFocusEnabled: 'false'
 
       # Appearance
       theme: 0
       alignThumbnails: 0
       maxWidthOnScreen: 80
       maxHeightOnScreen: 80
-      hideThumbnails: "false"
+      hideThumbnails: 'false'
       rowsCount: 4
       windowMinWidthInRow: 15
       windowMaxWidthInRow: 30
@@ -208,13 +223,13 @@ AltTab:
       titleTruncation: 0
       showOnScreen: 0
       windowDisplayDelay: 0 # Apparition delay
-      fadeOutAnimation: "false"
-      hideSpaceNumberLabels: "true"
-      hideStatusIcons: "false"
-      showTabsAsWindows: "false"
-      hideColoredCircles: "true"
-      hideAppBadges: "true"
-      hideWindowlessApps: "true"
+      fadeOutAnimation: 'false'
+      hideSpaceNumberLabels: 'true'
+      hideStatusIcons: 'false'
+      showTabsAsWindows: 'false'
+      hideColoredCircles: 'true'
+      hideAppBadges: 'true'
+      hideWindowlessApps: 'true'
 
 Spectacle:
   restart:
