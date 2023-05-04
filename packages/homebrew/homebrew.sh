@@ -20,6 +20,11 @@ if [[ $platform != 'Darwin' ]]; then
   exit
 fi
 
+# Restore permissions to Homebrew path in case of multi-user setups
+if [ -d /opt/homebrew ]; then
+  sudo chown -R $(whoami) /opt/homebrew
+fi
+
 # Generate default package list if not present
 if [ ! -f "${package_lists}" ]; then
   touch "${package_lists}"
