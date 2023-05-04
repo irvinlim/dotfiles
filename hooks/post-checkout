@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -euo pipefail
+
+##
+## Performs actions whenever git checkout is performed.
+##
+
+# Fix permissions for kubeconfig.
+if [ -f "$HOME/.kube/config" ]; then
+  chmod 600 "$HOME/.kube/config"
+fi
