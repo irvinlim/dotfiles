@@ -274,7 +274,6 @@
   },
   "redhat.telemetry.enabled": false,
   "go.toolsManagement.autoUpdate": true,
-  "workbench.colorTheme": "Default Dark+",
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
