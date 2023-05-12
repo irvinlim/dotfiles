@@ -20,6 +20,11 @@ if [[ -e ~/.profile ]]; then emulate sh -c 'source ~/.profile'; fi
 # Source local settings.
 if [[ -e ~/.zshrc.local ]]; then emulate sh -c 'source ~/.zshrc.local'; fi
 
+# Disable ZSH_DISABLE_COMPFIX.
+# This avoids permission issues when switching between multiple users on a
+# single machine.
+export ZSH_DISABLE_COMPFIX="true"
+
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
