@@ -53,9 +53,11 @@
   "git.ignoreLimitWarning": true,
   "git.openRepositoryInParentFolders": "never",
   "gitlens.codeLens.enabled": false,
+  "gitlens.hovers.enabled": false,
   // Integrated Terminal
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "'Meslo LG M for Powerline'",
+  "terminal.integrated.enableMultiLinePasteWarning": false,
   // Languages: C
   "C_Cpp.clang_format_fallbackStyle": "WebKit",
   "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
@@ -198,6 +200,16 @@
   "licenser.license": "MIT",
   "licenser.useSingleLineStyle": false,
   "licenser.disableAutoHeaderInsertion": true,
+  // Kubernetes
+  "[jsonnet]": {
+    "editor.defaultFormatter": "Sebbia.jsonnetng"
+  },
+  "vs-kubernetes": {
+    "vs-kubernetes.crd-code-completion": "enabled",
+    "vscode-kubernetes.helm-path.mac": "/Users/irvin.lim/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+    "vscode-kubernetes.kubectl-path.mac": "/Users/irvin.lim/.vs-kubernetes/tools/kubectl/kubectl",
+    "vscode-kubernetes.minikube-path.mac": "/Users/irvin.lim/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+  },
   // Themes
   "workbench.iconTheme": "file-icons",
   "editor.tokenColorCustomizations": {
