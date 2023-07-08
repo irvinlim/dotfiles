@@ -73,7 +73,7 @@
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "es5",
-  "python.formatting.provider": "yapf",
+  "python.formatting.provider": "black",
   "python.formatting.yapfArgs": [
     "--style",
     "/Users/irvin/.config/yapf/style.cfg"
@@ -283,5 +283,8 @@
   "svelte.enable-ts-plugin": true,
   "[python]": {
     "editor.formatOnType": true
+  },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   }
 }
