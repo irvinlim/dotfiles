@@ -9,12 +9,12 @@
   "editor.tabSize": 2,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": true,
   "files.autoSave": "off",
   "files.insertFinalNewline": true,
   "window.zoomLevel": 0,
   "workbench.settings.editor": "json",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.feedback.visible": false,
   "files.associations": {
     ".env-example": "dotenv",
     "*.conf": "NGINX"
@@ -35,93 +35,76 @@
     "**/.factorypath": true,
     "**/*.o": true
   },
-  // Sync settings
-  "sync.gist": "3a25be054cfda0823df5c0a42589347b",
-  "sync.quietSync": false,
-  "sync.removeExtensions": true,
-  "sync.syncExtensions": true,
-  "sync.autoDownload": false,
-  "sync.autoUpload": false,
-  "sync.forceDownload": false,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "redhat.telemetry.enabled": false,
+  "telemetry.telemetryLevel": "off",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "workbench.editor.untitled.hint": "hidden",
+  "security.workspace.trust.untrustedFiles": "open",
+  "security.workspace.trust.emptyWindow": true,
   // Git
   "diffEditor.ignoreTrimWhitespace": false,
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.defaultCloneDirectory": "~/Projects",
   "git.enableSmartCommit": true,
-  "gitlab.instanceUrl": "https://git.irvinlim.com/",
-  // Libraries/Interpreters
-  "C_Cpp.intelliSenseEngine": "Default",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "composer.executablePath": "/usr/local/bin/composer",
-  "python.pythonPath": "~/.virtualenvs/python3.7/bin/python",
-  "python.jediEnabled": false,
-  "prolog.executablePath": "/usr/local/bin/swipl",
-  "prolog.linter.run": "onSave",
+  "git.ignoreLimitWarning": true,
+  "git.openRepositoryInParentFolders": "never",
+  "gitlens.codeLens.enabled": false,
+  // Integrated Terminal
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "'Meslo LG M for Powerline'",
-  "terminal.integrated.shell.osx": "zsh",
-  "terminal.integrated.shell.linux": "/usr/bin/zsh",
-  // Formatters
+  // Languages: C
   "C_Cpp.clang_format_fallbackStyle": "WebKit",
   "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
-  "go.formatTool": "gofmt",
-  "go.inferGopath": true,
-  "prettier.jsxBracketSameLine": true,
+  "C_Cpp.intelliSenseEngine": "default",
+  // Languages: HTML/CSS/JS
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.bracketSameLine": true,
   "prettier.printWidth": 80,
   "prettier.proseWrap": "preserve",
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "es5",
-  "python.formatting.provider": "black",
-  "python.formatting.yapfArgs": [
-    "--style",
-    "/Users/irvin/.config/yapf/style.cfg"
-  ],
-  "python.formatting.yapfPath": "~/.virtualenvs/python3/bin/yapf",
-  "python.linting.ignorePatterns": [
-    ".vscode/*.py",
-    ".venv/*.py",
-    "**/site-packages/**/*.py"
-  ],
+  "svelte.enable-ts-plugin": true,
   "vetur.format.defaultFormatter.html": "js-beautify-html",
-  // SpellRight
-  "spellright.language": ["en_GB", "en"],
-  "spellright.groupDictionaries": false,
-  "spellright.documentTypes": ["markdown", "latex"],
-  // Project Manager
-  "projectManager.vscode.baseFolders": ["~/Projects"],
-  // Emmet
-  "emmet.includeLanguages": {
-    "blade": "html",
-    "vue-html": "html",
-    "javascript": "javascriptreact"
+  // Languages: Docker
+  "[dockercompose]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
-  "emmet.showAbbreviationSuggestions": false,
-  "emmet.showExpandedAbbreviation": "always", // required to work with "emmet.includeLanguages"
-  "emmet.triggerExpansionOnTab": true,
-  // Licenser
-  "licenser.author": "Irvin Lim",
-  "licenser.license": "MIT",
-  "licenser.useSingleLineStyle": false,
-  "licenser.disableAutoHeaderInsertion": true,
-  // Markdown
-  "[markdown]": {
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": {
-      "comments": "off",
-      "strings": "off",
-      "other": "off"
-    },
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "markdownlint.config": {
-    "MD013": false,
-    "MD030": false
-  },
-  "markdown-pdf.highlightStyle": "github.css",
-  "markdown-pdf.breaks": true,
-  // LaTeX
+  // Languages: Go
+  "go.formatTool": "gofmt",
+  "go.inferGopath": true,
+  "go.toolsManagement.autoUpdate": true,
+  // Languages: LaTeX
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.tools": [
     {
@@ -153,6 +136,68 @@
       "args": ["%DOCFILE%"]
     }
   ],
+  // Languages: Markdown
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "markdownlint.config": {
+    "MD013": false,
+    "MD030": false
+  },
+  "markdown-pdf.highlightStyle": "github.css",
+  "markdown-pdf.breaks": true,
+  // Languages: PHP
+  "composer.executablePath": "/usr/local/bin/composer",
+  // Languages: Prolog
+  "prolog.executablePath": "/usr/local/bin/swipl",
+  "prolog.linter.run": "onSave",
+  // Languages: Python
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "python.defaultInterpreterPath": "~/.virtualenvs/python3.7/bin/python",
+  "python.formatting.provider": "black",
+  "python.formatting.yapfArgs": [
+    "--style",
+    "/Users/irvin/.config/yapf/style.cfg"
+  ],
+  "python.formatting.yapfPath": "~/.virtualenvs/python3/bin/yapf",
+  "python.languageServer": "Default",
+  "python.linting.ignorePatterns": [
+    ".vscode/*.py",
+    ".venv/*.py",
+    "**/site-packages/**/*.py"
+  ],
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  // Emmet
+  "emmet.includeLanguages": {
+    "blade": "html",
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
+  "emmet.showAbbreviationSuggestions": false,
+  "emmet.showExpandedAbbreviation": "always", // required to work with "emmet.includeLanguages"
+  "emmet.triggerExpansionOnTab": true,
+  // SpellRight
+  "spellright.language": ["en_GB", "en"],
+  "spellright.groupDictionaries": false,
+  "spellright.documentTypes": ["markdown", "latex"],
+  // Project Manager
+  "projectManager.vscode.baseFolders": ["~/Projects"],
+  // Licenser
+  "licenser.author": "Irvin Lim",
+  "licenser.license": "MIT",
+  "licenser.useSingleLineStyle": false,
+  "licenser.disableAutoHeaderInsertion": true,
   // Themes
   "workbench.iconTheme": "file-icons",
   "editor.tokenColorCustomizations": {
@@ -234,57 +279,6 @@
         }
       }
     ]
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "python.languageServer": "Default",
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "extensions.ignoreRecommendations": true,
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "workbench.editor.untitled.hint": "hidden",
-  "security.workspace.trust.untrustedFiles": "open",
-  "security.workspace.trust.emptyWindow": true,
-  "python.defaultInterpreterPath": "~/.virtualenvs/python3.7/bin/python",
-  "notebook.cellToolbarLocation": {
-    "default": "right",
-    "jupyter-notebook": "left"
-  },
-  "redhat.telemetry.enabled": false,
-  "go.toolsManagement.autoUpdate": true,
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "git.ignoreLimitWarning": true,
-  "gitlens.codeLens.enabled": false,
-  "git.openRepositoryInParentFolders": "never",
-  "svelte.enable-ts-plugin": true,
-  "[python]": {
-    "editor.formatOnType": true
-  },
-  "[dockercompose]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   }
+  // Settings below this line should be moved to their correct locations.
 }
