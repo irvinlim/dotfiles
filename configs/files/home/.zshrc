@@ -85,7 +85,6 @@ plugins=(
   mosh
   pip
   python
-  ssh-autocomplete
   virtualenv
 )
 
