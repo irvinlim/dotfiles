@@ -161,7 +161,8 @@
   "prolog.linter.run": "onSave",
   // Languages: Python
   "[python]": {
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "python.defaultInterpreterPath": "~/.virtualenvs/python3.7/bin/python",
   "python.formatting.provider": "black",
