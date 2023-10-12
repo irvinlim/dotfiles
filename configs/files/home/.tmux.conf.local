@@ -272,6 +272,9 @@ set-option -g allow-rename off
 # Allow whole word traversal
 set-window-option -g xterm-keys on
 
+# Synchronize panes
+bind -n C-x setw synchronize-panes
+
 # -- Tmux Plugin Manager -------------------------------------------------------
 
 # Install plugins
