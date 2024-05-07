@@ -206,5 +206,15 @@
     "key": "shift+alt+f",
     "command": "-editor.action.formatDocument.none",
     "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
+  },
+  {
+    "key": "alt+cmd+p",
+    "command": "wikitext.getPreview",
+    "when": "editorLangId == 'wikitext'"
+  },
+  {
+    "key": "shift+cmd+v",
+    "command": "-wikitext.getPreview",
+    "when": "editorLangId == 'wikitext'"
   }
 ]

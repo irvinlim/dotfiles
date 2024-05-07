@@ -41,7 +41,7 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "workbench.editor.untitled.hint": "hidden",
+  "workbench.editor.empty.hint": "hidden",
   "security.workspace.trust.untrustedFiles": "open",
   "security.workspace.trust.emptyWindow": true,
   // Git
