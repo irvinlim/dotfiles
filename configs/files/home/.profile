@@ -33,6 +33,11 @@ export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
+# In case of custom Brew linkage, set GOROOT.
+if [[ $platform == 'Darwin' ]]; then
+  export GOROOT="$(dirname $(dirname $(readlink -f `which go`)))"
+fi
+
 # LaTeX
 export PATH="/usr/texbin:/Library/TeX/texbin:$PATH"
 
