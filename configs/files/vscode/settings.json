@@ -98,6 +98,7 @@
   "prettier.trailingComma": "es5",
   "svelte.enable-ts-plugin": true,
   "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   // Languages: Docker
   "[dockercompose]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
