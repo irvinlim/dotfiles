@@ -13,8 +13,17 @@ platform=$(uname)
 
 case $(uname) in
   Darwin)
+    # Look for GoLand.
+    # Uses the latest version available.
+    app_name=$(ls -1 /Applications | grep GoLand | tail -n 1)
+
+    if [ -z "${app_name}" ]; then
+      echo 'Unable to find GoLand.'
+      exit 1
+    fi
+
     # Assume that GoLand is located in Applications/ directory root.
-    open -na "GoLand.app" --args "$@"
+    open -na "${app_name}" --args "$@"
     ;;
 
   Linux)
