@@ -208,9 +208,8 @@
   },
   "vs-kubernetes": {
     "vs-kubernetes.crd-code-completion": "enabled",
-    "vscode-kubernetes.helm-path.mac": "/Users/irvin.lim/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-    "vscode-kubernetes.kubectl-path.mac": "/Users/irvin.lim/.vs-kubernetes/tools/kubectl/kubectl",
-    "vscode-kubernetes.minikube-path.mac": "/Users/irvin.lim/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    "vs-kubernetes.helm-path.mac": "/usr/local/bin/helm",
+    "vs-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl"
   },
   // Themes
   "workbench.iconTheme": "file-icons",
