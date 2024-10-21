@@ -1,0 +1,109 @@
+[bell]
+animation = "EaseOutExpo"
+duration = 0
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "0x666666"
+blue = "0x7aa6da"
+cyan = "0x54ced6"
+green = "0x9ec400"
+magenta = "0xb77ee0"
+red = "0xff3334"
+white = "0xffffff"
+yellow = "0xe7c547"
+
+[colors.cursor]
+cursor = "0xd8fb00"
+text = "0x000000"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x7aa6da"
+cyan = "0x70c0ba"
+green = "0xb9ca4a"
+magenta = "0xc397d8"
+red = "0xd54e53"
+white = "0xffffff"
+yellow = "0xe6c547"
+
+[colors.primary]
+background = "0x0A0E14"
+foreground = "0xeaeaea"
+
+[colors.dim]
+black = "0x333333"
+blue = "0x6699cc"
+cyan = "0x66cccc"
+green = "0x99cc99"
+magenta = "0xcc99cc"
+red = "0xf2777a"
+white = "0xdddddd"
+yellow = "0xffcc66"
+
+[env]
+LANG = "en_US.UTF-8"
+LC_ALL = "en_US.UTF-8"
+TERM = "xterm-256color"
+
+[font]
+size = 12.0
+
+[font.bold]
+family = "Meslo LG M for Powerline"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "Meslo LG M for Powerline"
+
+[font.normal]
+family = "Meslo LG M for Powerline"
+
+[font.offset]
+x = 0
+y = 0
+
+[keyboard]
+bindings = [
+  # Clear line
+  { chars = "\u0015", key = "Back", mods = "Command" },
+  # Word navigation
+  { chars = "\u001Bb", key = "Left", mods = "Alt" },
+  { chars = "\u001Bf", key = "Right", mods = "Alt" },
+  # Line navigation
+  { chars = "\u0001\u0001", key = "Left", mods = "Command" },
+  { chars = "\u0005", key = "Right", mods = "Command" },
+  # Undo/Redo capabilities
+  # Requires mapping keybinding for redo to work in zsh
+  { chars = "\u001F", key = "Z", mods = "Command" },
+  { chars = "\u0018\u001F", key = "Z", mods = "Command|Shift" },
+  # Open new window
+  { action = "SpawnNewInstance", key = "N", mods = "Command|Shift" },
+]
+
+[mouse]
+hide_when_typing = true
+bindings = [{ action = "PasteSelection", mouse = "Middle" }]
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+[shell]
+args = ["--login", "-c", "tmux new-session -A -s main"]
+program = "/bin/zsh"
+
+[window]
+opacity = 0.97
+
+[window.dimensions]
+columns = 210
+lines = 50
+
+[window.padding]
+x = 0
+y = 0
