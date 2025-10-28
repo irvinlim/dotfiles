@@ -54,6 +54,13 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Ruby
+export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
+
 # GNU Core Utils (for macOS only)
 if [[ $platform == 'Darwin' ]]; then
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
