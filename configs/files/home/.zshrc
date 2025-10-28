@@ -40,7 +40,7 @@ export ZSH_DISABLE_COMPFIX="true"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -162,3 +162,17 @@ autoload -U compinit; compinit
 
 # Add redo keybinding
 bindkey "^X^_" redo
+
+# pnpm
+export PNPM_HOME="/Users/irvin/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/irvin/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
