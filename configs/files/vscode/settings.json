@@ -189,7 +189,7 @@
     "javascript": "javascriptreact"
   },
   "emmet.showAbbreviationSuggestions": false,
-  "emmet.showExpandedAbbreviation": "always", // required to work with "emmet.includeLanguages"
+  "emmet.showExpandedAbbreviation": "never",
   "emmet.triggerExpansionOnTab": true,
   // SpellRight
   "spellright.language": ["en_GB", "en"],
@@ -292,6 +292,26 @@
         }
       }
     ]
-  }
+  },
+  "gitlab.duoCodeSuggestions.additionalLanguages": ["yaml"],
+  "gitlab.duoCodeSuggestions.enabled": false,
+  "gitlab.duoChat.enabled": false,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "gitlab.duo.enabledWithoutGitlabProject": false,
+  "gitlab.keybindingHints.enabled": false,
+  "gitlab.duoCodeSuggestions.openTabsContext": false,
+  "docker.extension.enableComposeLanguageServer": false,
+  "python.createEnvironment.trigger": "off",
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "dart.flutterSdkPath": "/opt/homebrew/share/flutter",
+  "dart.openDevTools": "flutter",
+  "github.copilot.selectedCompletionModel": ""
   // Settings below this line should be moved to their correct locations.
 }
