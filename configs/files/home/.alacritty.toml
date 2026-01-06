@@ -93,7 +93,7 @@ bindings = [{ action = "PasteSelection", mouse = "Middle" }]
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
-[shell]
+[terminal.shell]
 args = ["--login", "-c", "tmux new-session -A -s main"]
 program = "/bin/zsh"
 
@@ -107,3 +107,5 @@ lines = 50
 [window.padding]
 x = 0
 y = 0
+
+[terminal]
