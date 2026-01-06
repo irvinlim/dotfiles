@@ -296,12 +296,6 @@
   "gitlab.duoCodeSuggestions.additionalLanguages": ["yaml"],
   "gitlab.duoCodeSuggestions.enabled": false,
   "gitlab.duoChat.enabled": false,
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  },
   "gitlab.duo.enabledWithoutGitlabProject": false,
   "gitlab.keybindingHints.enabled": false,
   "gitlab.duoCodeSuggestions.openTabsContext": false,
@@ -312,6 +306,10 @@
   },
   "dart.flutterSdkPath": "/opt/homebrew/share/flutter",
   "dart.openDevTools": "flutter",
-  "github.copilot.selectedCompletionModel": ""
+  "github.copilot.selectedCompletionModel": "",
+  "claudeCode.preferredLocation": "panel",
+  "python.analysis.typeCheckingMode": "strict",
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1"
   // Settings below this line should be moved to their correct locations.
 }
