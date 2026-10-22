@@ -176,3 +176,11 @@ fpath=(/Users/irvin/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# Add alias
+alias claude="/Users/irvin/.claude/local/claude"
+
+
+# >>> railway initialize >>>
+source "$HOME/.railway/env"
+# <<< railway initialize <<<
