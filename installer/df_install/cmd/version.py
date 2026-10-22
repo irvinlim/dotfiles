@@ -1,9 +1,12 @@
 from __future__ import print_function
 
-import pkg_resources
+try:
+    from importlib.metadata import version as get_version
+except ImportError:  # Python < 3.8
+    from importlib_metadata import version as get_version
 
 from .base import cli
 
 @cli.command()
 def version():
-    print(pkg_resources.get_distribution('df-install').version)
+    print(get_version('df-install'))

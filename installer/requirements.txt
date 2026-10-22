@@ -4,3 +4,4 @@ requests
 psutil
 six
 virtualenv-api>=2.1.18
+importlib_metadata; python_version < '3.8'
