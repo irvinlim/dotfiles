@@ -17,7 +17,7 @@
   "workbench.startupEditor": "newUntitledFile",
   "files.associations": {
     ".env-example": "dotenv",
-    "*.conf": "NGINX"
+    "*.conf": "NGINX",
   },
   "files.exclude": {
     "**/.idea": true,
@@ -33,13 +33,13 @@
     "**/.project": true,
     "**/.settings": true,
     "**/.factorypath": true,
-    "**/*.o": true
+    "**/*.o": true,
   },
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "redhat.telemetry.enabled": false,
   "telemetry.telemetryLevel": "off",
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
+    "*.ipynb": "jupyter-notebook",
   },
   "workbench.editor.empty.hint": "hidden",
   "security.workspace.trust.untrustedFiles": "open",
@@ -64,31 +64,31 @@
   "C_Cpp.intelliSenseEngine": "default",
   // Languages: HTML/CSS/JS
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "prettier.bracketSameLine": true,
   "prettier.printWidth": 80,
@@ -101,7 +101,7 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   // Languages: Docker
   "[dockercompose]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker",
   },
   // Languages: Go
   "go.formatTool": "gofmt",
@@ -119,8 +119,8 @@
         "-interaction=nonstopmode",
         "-file-line-error",
         "-pdf",
-        "%DOC%"
-      ]
+        "%DOC%",
+      ],
     },
     {
       "name": "pdflatex",
@@ -130,14 +130,14 @@
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
-        "%DOC%"
-      ]
+        "%DOC%",
+      ],
     },
     {
       "name": "bibtex",
       "command": "bibtex",
-      "args": ["%DOCFILE%"]
-    }
+      "args": ["%DOCFILE%"],
+    },
   ],
   // Languages: Markdown
   "[markdown]": {
@@ -145,13 +145,13 @@
     "editor.quickSuggestions": {
       "comments": "off",
       "strings": "off",
-      "other": "off"
+      "other": "off",
     },
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "markdownlint.config": {
     "MD013": false,
-    "MD030": false
+    "MD030": false,
   },
   "markdown-pdf.highlightStyle": "github.css",
   "markdown-pdf.breaks": true,
@@ -163,30 +163,30 @@
   // Languages: Python
   "[python]": {
     "editor.formatOnType": true,
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "ms-python.black-formatter",
   },
   "python.defaultInterpreterPath": "~/.virtualenvs/python3.7/bin/python",
   "python.formatting.provider": "black",
   "python.formatting.yapfArgs": [
     "--style",
-    "/Users/irvin/.config/yapf/style.cfg"
+    "/Users/irvin/.config/yapf/style.cfg",
   ],
   "python.formatting.yapfPath": "~/.virtualenvs/python3/bin/yapf",
   "python.languageServer": "Default",
   "python.linting.ignorePatterns": [
     ".vscode/*.py",
     ".venv/*.py",
-    "**/site-packages/**/*.py"
+    "**/site-packages/**/*.py",
   ],
   "notebook.cellToolbarLocation": {
     "default": "right",
-    "jupyter-notebook": "left"
+    "jupyter-notebook": "left",
   },
   // Emmet
   "emmet.includeLanguages": {
     "blade": "html",
     "vue-html": "html",
-    "javascript": "javascriptreact"
+    "javascript": "javascriptreact",
   },
   "emmet.showAbbreviationSuggestions": false,
   "emmet.showExpandedAbbreviation": "never",
@@ -204,96 +204,15 @@
   "licenser.disableAutoHeaderInsertion": true,
   // Kubernetes
   "[jsonnet]": {
-    "editor.defaultFormatter": "Sebbia.jsonnetng"
+    "editor.defaultFormatter": "Sebbia.jsonnetng",
   },
   "vs-kubernetes": {
     "vs-kubernetes.crd-code-completion": "enabled",
     "vs-kubernetes.helm-path.mac": "/usr/local/bin/helm",
-    "vs-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl"
+    "vs-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
   },
   // Themes
   "workbench.iconTheme": "file-icons",
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "scope": "text.html.markdown.journal.task.open.bullet",
-        "settings": {
-          "foreground": "#FFFF00"
-        }
-      },
-      {
-        "scope": "text.html.markdown.journal.task.open.marker",
-        "settings": {
-          "foreground": "#FFFF00"
-        }
-      },
-      {
-        "scope": "text.html.markdown.journal.task.open.keyword",
-        "settings": {
-          "fontStyle": "italic"
-        }
-      },
-      {
-        "scope": "text.html.markdown.journal.task.open.text",
-        "settings": {}
-      },
-      {
-        "scope": "text.html.markdown.journal.task.completed.keyword",
-        "settings": {
-          "fontStyle": "italic"
-        }
-      },
-      {
-        "scope": "text.html.markdown.journal.task.completed.marker",
-        "settings": {
-          "foreground": "#AAAAAA"
-        }
-      },
-      {
-        "scope": "text.html.markdown.journal.task.completed.text",
-        "settings": {
-          "foreground": "#AAAAAA"
-        }
-      },
-      {
-        "scope": "text.html.markdown.journal.task.completed.bullet",
-        "settings": {
-          "foreground": "#FFFF00"
-        }
-      },
-      {
-        "scope": "text.html.markdown.journal.memo.keyword",
-        "settings": {
-          "fontStyle": "italic"
-        }
-      },
-      {
-        "scope": "text.html.markdown.journal.memo.bullet",
-        "settings": {
-          "foreground": "#FFFF00"
-        }
-      },
-      {
-        "scope": "text.html.markdown.journal.scope",
-        "settings": {
-          "foreground": "#FFFF00"
-        }
-      },
-      {
-        "scope": "text.html.markdown.journal.link.keyword",
-        "settings": {
-          "fontStyle": "italic"
-        }
-      },
-      {
-        "scope": "text.html.markdown.journal.link.bullet",
-        "settings": {
-          "foreground": "#FFFF00"
-        }
-      }
-    ]
-  },
-  "gitlab.duoCodeSuggestions.additionalLanguages": ["yaml"],
   "gitlab.duoCodeSuggestions.enabled": false,
   "gitlab.duoChat.enabled": false,
   "gitlab.duo.enabledWithoutGitlabProject": false,
@@ -302,14 +221,22 @@
   "docker.extension.enableComposeLanguageServer": false,
   "python.createEnvironment.trigger": "off",
   "[github-actions-workflow]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
+    "editor.defaultFormatter": "redhat.vscode-yaml",
   },
   "dart.flutterSdkPath": "/opt/homebrew/share/flutter",
   "dart.openDevTools": "flutter",
   "github.copilot.selectedCompletionModel": "",
-  "claudeCode.preferredLocation": "panel",
+  "claudeCode.preferredLocation": "sidebar",
   "python.analysis.typeCheckingMode": "strict",
-  "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1"
+  "python.terminal.activateEnvironment": false,
+  "terminal.integrated.initialHint": false,
+  "claudeCode.selectedModel": "sonnet",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+  },
   // Settings below this line should be moved to their correct locations.
 }
