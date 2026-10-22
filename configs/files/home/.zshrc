@@ -182,5 +182,5 @@ alias claude="/Users/irvin/.claude/local/claude"
 
 
 # >>> railway initialize >>>
-source "$HOME/.railway/env"
+[ -f "$HOME/.railway/env" ] && source "$HOME/.railway/env"
 # <<< railway initialize <<<
